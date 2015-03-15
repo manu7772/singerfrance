@@ -1,0 +1,38 @@
+			{% set actif_mecaniques = "_inactif" %}
+			{% set actif_electroniques = "_inactif" %}
+			{% set actif_brodeuses = "_inactif" %}
+			{% set actif_professionnelles = "_inactif" %}
+			{% set actif_surjeteuses = "_inactif" %}
+			{% set actif_accessoires = "_inactif" %}
+			{% if categorieSlug == "mecaniques" %}
+				{% set actif_mecaniques = "" %}
+			{% endif %}
+			{% if categorieSlug == "electroniques" %}
+				{% set actif_electroniques = "" %}
+			{% endif %}
+			{% if categorieSlug == "brodeuses" %}
+				{% set actif_brodeuses = "" %}
+			{% endif %}
+			{% if categorieSlug == "professionnelles" %}
+				{% set actif_professionnelles = "" %}
+			{% endif %}
+			{% if categorieSlug == "surjeteuses" %}
+				{% set actif_surjeteuses = "" %}
+			{% endif %}
+			{% if categorieSlug == "accessoires" %}
+				{% set actif_accessoires = "" %}
+			{% endif %}
+	<!-- contenu site-->
+	<div id="container_site" class="{{ categorieSlug }}">
+		<!-- page produits-->
+		{% include('AcmeGroupSiteBundle:bloc:menuProduits.html.twig') %}
+		<div id="container_principal_produits_G">
+		{% if articles|length > 0 %}
+			{% for article in articles %}
+			{% include('AcmeGroupSiteBundle:bloc:unProduit.html.twig') %}
+			{% endfor %}
+		{% else %}
+			<p class="noarticle">Aucun article dans cette catégorie pour l'instant</p>
+		{% endif %}
+		</div>
+	</div>

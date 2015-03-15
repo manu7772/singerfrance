@@ -1,0 +1,79 @@
+    <!-- contenu site-->   
+    <div id="container_site">  
+    
+    	<!-- page produits-->
+    	<div id="container_principal_produits_accueil">    
+        	<div class="images_catogories_produits">
+            	<div class="categories_haut">
+                	<!--mécaniques-->
+                	<div class="lien_categorie_1">
+                    	<a href="{{ url('acme_site_categories', {'categorieSlug' : 'mecaniques'}) }}" title="Mécaniques" class="a_cat_pdt">
+                        	<div class="image_mecanique">
+                        		<div class="txt_mecaniques">mécaniques</div>   
+                            </div>
+                        </a>                       
+                    </div>
+                    <!--électroniques-->
+                	<div class="lien_categorie_2">
+                    	<a href="{{ url('acme_site_categories', {'categorieSlug' : 'electroniques'}) }}" title="Electroniques" class="a_cat_pdt">
+                        	<div class="image_electronique">
+                        		<div class="txt_electroniques">électroniques</div>   
+                            </div>
+                        </a>                       
+                    </div>
+                     <!--brodeuses-->
+                	<div class="lien_categorie_3">
+                    	<a href="{{ url('acme_site_categories', {'categorieSlug' : 'brodeuses'}) }}" title="Brodeuses" class="a_cat_pdt">
+                        	<div class="image_brodeuse">
+                        		<div class="txt_brodeuses">brodeuses</div>   
+                            </div>
+                        </a>                       
+                    </div>    
+                </div>
+                
+            	<div class="categories_bas">
+                 
+                 <!--professionnelles-->
+                	<div class="lien_categorie_4">
+                    	<a href="{{ url('acme_site_categories', {'categorieSlug' : 'surjeteuses'}) }}" title="Professionnelles" class="a_cat_pdt">
+                        	<div class="image_professionnelle">
+                        		<div class="txt_professionnelles">professionnelles</div>   
+                            </div>
+                        </a>                       
+                    </div>
+                <!--surjeteuse-->
+                	<div class="lien_categorie_5">
+                    	<a href="{{ url('acme_site_categories', {'categorieSlug' : 'professionnelles'}) }}" title="Surjeteuses" class="a_cat_pdt">
+                        	<div class="image_surjeteuse">
+                        		<div class="txt_surjeteuses">surjeteuses</div>   
+                            </div>
+                        </a>                       
+                    </div>
+                    <!--accessoires-->
+                	<div class="lien_categorie_6">
+                    	<a href="{{ url('acme_site_categories', {'categorieSlug' : 'accessoires'}) }}" title="accessoires" class="a_cat_pdt">
+                        	<div class="image_accessoire">
+                        		<div class="txt_accessoires">accessoires</div>   
+                            </div>
+                        </a>                       
+                    </div>
+                     <!--atelier créatif-->
+                	<div class="lien_categorie_7">
+                    	<a href="{{ url('acme_site_atelier') }}" title="Projets coûture & fiches pratiques" class="a_cat_pdt">
+                        		<div class="txt_atelier_crea">Projets coûture <br/>& fiches pratiques</div>   
+                        </a>                       
+                    </div>
+                     <!--offres exclusives-->
+                	<div class="lien_categorie_8">
+                    	<a href="{{ url('acme_site_eboutique') }}" title="les offres exclusives de la e-Boutique singer" class="a_cat_pdt">
+                        		<div class="txt_offres_exclu">les offres exclusives<br/>de la e-Boutique singer</div>   
+                        </a>                       
+                    </div>
+                
+                </div>
+            </div>
+            <div class="images_intro">
+            	<img src="{{ asset('bundles/acmegroupsite/images/images_pdts/produits_img_femme.jpg') }}" height="366" width="160">
+        	</div>
+         </div>
+    </div> 

@@ -1,0 +1,15 @@
+{% if pageweb is defined %}
+	{% set entete_title = pageweb[0].title %}
+	{% if entete_title|length == 0 %}
+		{% set entete_title = app.session.get('version').accroche ~ " - " ~ app.session.get('version').nom %}
+	{% endif %}
+	{% set entete_metadescription = pageweb[0].metadescription %}
+	{% if entete_metadescription|length == 0 %}
+		{% set entete_metadescription = app.session.get('version').accroche %}
+	{% endif %}
+{% else %}
+	{% set entete_title = app.session.get('version').accroche ~ " - " ~ app.session.get('version').nom %}
+	{% set entete_metadescription = app.session.get('version').accroche %}
+{% endif %}
+<title>{% block title %}{{ entete_title }}{% endblock title %}</title>
+<meta name="description" content="{% block description %}{{ entete_metadescription }}{% endblock description %}">

@@ -1,0 +1,57 @@
+{% extends "AcmeGroupSiteBundle:Site:index.html.twig" %}
+{% block body_container %}
+
+<div id="container_site">  
+	<div id="container_principal_generique">
+		<h1>Mes commandes Singer France</h1>
+		<p>Liste de vos commandes ({{ factures|length }})</p>
+		<br />
+		{% if factures|length > 0 %}
+		<table class="table table-bordered table-hover{% if factures|length > 12 %} table-condensed{% endif %}">
+			<tr>
+				<th>Référence</th>
+				<th class="center">Actions</th>
+				<th class="center">Nb art.</th>
+				<th class="center">Date</th>
+				<th class="right">Total TTC</th>
+				<th class="center">Livraison</th>
+				<th class="center">Statut</th>
+			</tr>
+			{% for facture in factures %}
+			{% set colr = "" %}
+			{% set statut = "<i>(indéterminé)</i>" %}
+			{% if facture.stadeTxt == "commande" %}{% set colr = "" %}{% set statut = "En cours…" %}{% endif %}
+			{% if facture.stadeTxt == "livraison" %}{% set colr = "info" %}{% set statut = "En livraison" %}{% endif %}
+			{% if facture.stadeTxt == "termine" %}{% set colr = "success" %}{% set statut = "Terminée" %}{% endif %}
+			{% if facture.stadeTxt == "annule" %}{% set colr = "active" %}{% set statut = "Annulée" %}{% endif %}
+			{% if facture.stadeTxt == "erreur" %}{% set colr = "danger" %}{% set statut = "Echec paiement" %}{% endif %}
+			<tr class="{{ colr }}">
+				<td><strong>{{ facture.reference }}</strong></td>
+				<td class="center">
+					<div class="btn-group">
+						<button type="button" class="btn btn-default btn-xs"><a href="{{ url('acme_facture_detail', {facture: facture.id}) }}" title="Voir le détail de la commande {{ facture.reference }}">
+							<span class="glyphicon glyphicon-eye-open"></span>
+						</a></button>
+						{% if facture.stade < 3 %}
+						<button type="button" class="btn btn-default btn-xs"><a href="{{ url('acme_facture_pdf', {facture: facture.id}) }}" title="Télécharger la facture {{ facture.reference }} en PDF" class="URLext">
+							<span class="glyphicon glyphicon-download-alt"></span>
+						</a></button>
+						{% endif %}
+					</div>
+				</td>
+				<td class="center">{{ facture.nbArticles }}</td>
+				<td class="center" title="{{ facture.dateCreation|date('d/m/Y \\- H:i:s') }}">{{ facture.dateCreation|date('d/m/Y') }}</td>
+				<td class="right">{{ facture.prixtotal|number_format(2, ",", "") }} €</td>
+				<td class="center">{{ facture.livraisonTxt }}</td>
+				<td class="center">{{ statut|raw }}</td>
+			</tr>
+			{% endfor %}
+		</table>
+		{% else %}
+		<div class="well well-sm">
+			<p>Vous n'avez aucune facture en cours…</p>
+		</div>
+		{% endif %}
+	</div>
+</div>
+{% endblock %}

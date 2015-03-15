@@ -1,0 +1,7 @@
+parameters:
+#    acme_group_survey.example.class: AcmeGroup\SurveyBundle\Example
+
+services:
+#    acme_group_survey.example:
+#        class: %acme_group_survey.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

@@ -1,0 +1,42 @@
+<div id="footer_haut">
+	<a href="{{ url('acme_site_recherchemagasin') }}">
+		<div class="footer_search" style="cursor: pointer;">
+			<div class="recherche_magasin">
+				<h2>Recherchez un magasin</h2>
+				<form method="POST" action="{{ url('acme_site_recherchemagasin') }}">
+					<input type="text" name="rechmag" value="" title="Indiquez ville, département ou code postal" />
+					<div class="btn_recherche">
+						<input type="submit" value="OK" />
+					</div>
+				</form>
+			</div>
+		</div>
+	</a>
+	<!-- encart pub/distribution-->
+	<div class="footer_encart">
+		<h2>Les réseaux sociaux Singer</h2>
+		<ul class="resosociaux">
+			{% for key,reso in app.session.get('version').resosociaux %}
+			<li class="{{ key }}">
+				<a href="{{ reso }}" class="URLext" title="Rejoingnez-nous sur {{ key }}"></a>
+			</li>
+			{% endfor %}
+		</ul>
+		<h2>Les partenaires Singer</h2>
+		<ul class="linkspartenaires">
+			{% for key,part in partenaires %}
+			<li class="parten{{ part.niveau }}">
+				<a href="{{ part.url }}" class="URLext" title="{{ part.accroche }}">
+					<span>{{ part.nom }}</span>
+				</a>
+			</li>
+			{% endfor %}
+<!-- 			<li class="parten-one">
+				<a href="http://www.apreslachat.com/" class="URLext" title="Le réseau social des consommateurs">
+					<span>Apreslachat.com</span>
+				</a>
+			</li>
+ -->		</ul>
+		<!-- <p>Chacun de ces 3 r&eacute;seaux a ses produits Singer propres.<br />Nos magasins Singer vous r&eacute;servent un accueil chaleureux et une expertise personnalis&eacute;e </p> -->
+	</div>
+</div>

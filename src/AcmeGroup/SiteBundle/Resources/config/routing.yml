@@ -1,0 +1,211 @@
+# PAGE D'ACCUEIL
+acme_site_home:
+    path: /
+    defaults: { _controller: "AcmeGroupSiteBundle:Site:index" }
+
+acme_site_accueil:
+    path: /accueil
+    defaults: { _controller: "AcmeGroupSiteBundle:Site:index" }
+
+acme_site_pageweb:
+    path: /singer-page/{pagewebSlug}/{pagedata}
+    defaults: { _controller: "AcmeGroupSiteBundle:Site:pageweb", pagedata: null }
+
+acme_site_pdf:
+    path: /pdf/{id}/{mode}/{nom}
+    defaults: { _controller: "AcmeGroupSiteBundle:Site:pdfimport", mode: 'view', nom: null }
+
+# AUTRES PAGES DU SITE
+#    --> liste des produits d'une catégorie
+acme_site_categories:
+    path: /categories-singer/{categorieSlug}
+    defaults: { _controller: "AcmeGroupSiteBundle:Site:categories" }
+
+
+acme_site_univers:
+    path: /autres-univers-singer/{categorieSlug}
+    defaults: { _controller: "AcmeGroupSiteBundle:Site:autresUniv" }
+
+acme_site_videos:
+    path: /videos-singer/{recherche}
+    defaults: { _controller: "AcmeGroupSiteBundle:Site:pageVideos", recherche: null }
+
+acme_site_eboutique:
+    path: /e-boutique-singer
+    defaults: { _controller: "AcmeGroupSiteBundle:Site:pageEBoutique" }
+
+acme_site_recherchemagasin:
+    path: /magasins-singer/{local}
+    defaults: { _controller: "AcmeGroupSiteBundle:Site:pageRechercheMagasin", local: null }
+
+acme_site_magasin:
+    path: /magasin-singer/{id}
+    defaults: { _controller: "AcmeGroupSiteBundle:Site:pageUnMagasin" }
+
+# Ateliers créatifs
+acme_site_atelier:
+    path: /ateliers-creatifs-singer/{categorieSlug}
+    defaults: { _controller: "AcmeGroupSiteBundle:Site:pageAtelierCreatif", categorieSlug: null }
+
+acme_site_atelier_theme:
+    path: /ateliers-themes-singer/{categorieSlug}
+    defaults: { _controller: "AcmeGroupSiteBundle:Site:pageAtelierCreatif" }
+
+acme_site_fiche:
+    path: /ateliers-fiche-singer/{fiche}
+    defaults: { _controller: "AcmeGroupSiteBundle:Site:pageAtelierFiche" }
+
+# Evenements
+acme_site_evenements:
+    path: /evenements-singer/{type}
+    defaults: { _controller: "AcmeGroupSiteBundle:Site:pageEvenements", type: null }
+
+acme_site_evenementsDATE:
+    path: /evenements-date-singer/{jour}.{nbjours}
+    defaults: { _controller: "AcmeGroupSiteBundle:Site:pageEvenements", jour: null, nbjours: 0 }
+
+
+# Pages
+acme_site_pages:
+    path: /pages/{type}
+    defaults: { _controller: "AcmeGroupSiteBundle:Site:pagesTypes", type: 1 }
+
+acme_site_pageswebwithRT:
+    path: /pages-web/{pagewebSlug}
+    defaults: { _controller: "AcmeGroupSiteBundle:Site:pageswebWithRichtext" }
+
+
+# pages Le Monde Singer
+acme_site_monde_singer:
+    path: /monde-singer/{pagewebSlug}
+    defaults: { _controller: "AcmeGroupSiteBundle:Site:pagesMonde", pagewebSlug: null }
+
+
+## panier
+acme_panier_user:
+    pattern:  /mon-panier
+    defaults: { _controller: AcmeGroupSiteBundle:Site:PageMonPanier }
+
+acme_factures_user:
+    pattern:  /mes-factures/{user}
+    defaults: { _controller: AcmeGroupSiteBundle:Site:pageMesFactures, user: null }
+
+acme_facture_detail:
+    pattern:  /detail-facture/{facture}
+    defaults: { _controller: AcmeGroupSiteBundle:Site:detailFacture }
+
+acme_facture_pdf:
+    pattern:  /pdf-facture/{facture}
+    defaults: { _controller: AcmeGroupSiteBundle:Site:pdfFacture }
+
+acme_panier_change:
+    pattern: /panier-change
+    defaults: { _controller: AcmeGroupSiteBundle:Site:changePanier }
+
+## votes
+acme_vote_article:
+    pattern:  /vote-article
+    defaults: { _controller: AcmeGroupSiteBundle:Site:voteArticle }
+
+# fiche article
+#    --> page de détails sur un article
+acme_site_fichearticle:
+    path: /fiche-article/{articleSlug}/{tab}
+    defaults: { _controller: "AcmeGroupSiteBundle:Site:ficheArticle", tab: "" }
+
+# fiche avis/votes
+#    --> page des avis(votes) sur un article
+acme_site_ficheAvisArticle:
+    path: /fiche-avis-article/{id}
+    defaults: { _controller: "AcmeGroupSiteBundle:Site:avisUtilisateurs" }
+
+# Menu de l'univers des machines à coudre (6 types de machines)
+acme_site_pageMac:
+    path: /pageMac
+    defaults: { _controller: "AcmeGroupSiteBundle:Site:pageMac" }
+
+# Menu des univers Singer (3 univers - Repassage / Aspiration / Cuisine)
+acme_site_pageUnivers:
+    path: /pageUnivers
+    defaults: { _controller: "AcmeGroupSiteBundle:Site:pageUnivers" }
+
+# Menu de tous les produits Singer
+acme_site_pageProduits:
+    path: /pageProduits
+    defaults: { _controller: "AcmeGroupSiteBundle:Site:pageProduits" }
+
+# page en cours
+acme_site_pageEnCours:
+    path: /pageEnCours
+    defaults: { _controller: "AcmeGroupSiteBundle:Site:pageEnCours" }
+
+# popup register
+acme_site_pageRegisterPopup:
+    path: /register-popup
+    defaults: { _controller: "AcmeGroupSiteBundle:Site:registerPopup" }
+
+
+## pages majZone
+## mettre à la fin du template : <span class="majZone groupeNomdugroupe" data-prototype="{{ url('acme_site_majZone') }}__nom de la méthode Action du controller à appeler (sans 'Action')" style="display:none;"></span>
+acme_site_majZone:
+    path: /majZone
+    defaults: { _controller: "AcmeGroupSiteBundle:Site:majZone" }
+
+## Pages de paiement Sherlocks
+acme_sherlocks_livraisonChoix:
+    path: /paiement-singer/livraison
+    defaults: { _controller: "AcmeGroupSiteBundle:Sherlocks:livraisonChoix" }
+
+acme_sherlocks_paiementChoix:
+    path: /paiement-singer/choix/{livraison}/{test}
+    defaults: { _controller: "AcmeGroupSiteBundle:Sherlocks:paiementChoix", livraison: "defaut", test: false }
+
+acme_sherlocks_veille:
+    path: /paiement-singer/veille
+    defaults: { _controller: "AcmeGroupSiteBundle:Sherlocks:veille" }
+
+acme_sherlocks_annulation:
+    path: /paiement-singer/annulation
+    defaults: { _controller: "AcmeGroupSiteBundle:Sherlocks:annulation" }
+
+acme_sherlocks_echec:
+    path: /paiement-singer/echec
+    defaults: { _controller: "AcmeGroupSiteBundle:Sherlocks:echec" }
+
+acme_sherlocks_confirmation:
+    path: /paiement-singer/confirmation/{auto}
+    defaults: { _controller: "AcmeGroupSiteBundle:Sherlocks:response", auto: null }
+
+acme_sherlocks_autoresponse:
+    path: /shserlocks9896857657658/{auto}
+    defaults: { _controller: "AcmeGroupSiteBundle:Sherlocks:response", auto: null }
+
+
+# exports CSV
+acme_site_exportCSV:
+    path: /export-csv-articles/{type}
+    defaults: { _controller: "AcmeGroupSiteBundle:operations:getCSVarticles", type: null }
+
+acme_site_exportCSVmimc:
+    path: /contacts/export-csv-mimc
+    defaults: { _controller: "AcmeGroupSiteBundle:operations:getCSVcontactsMimc" }
+
+acme_site_exportCSVWibilong:
+    path: /contacts/export-csv-wibilong/{option}
+    defaults: { _controller: "AcmeGroupSiteBundle:operations:getCSVcontactsWibilong", option: null }
+
+# opérations admin autorisées
+acme_site_confirmLivraison:
+    path: /confirm-livraison/{factureRef}
+    defaults: { _controller: "AcmeGroupSiteBundle:operations:confirmLivraison", factureRef: null }
+
+acme_site_loadRichtext:
+    path: /load-richtext
+    defaults: { _controller: "AcmeGroupSiteBundle:operations:loadRichtext" }
+
+acme_site_loadConcessionnaires:
+    path: /load-concessionnaires/{option}
+    defaults: { _controller: "AcmeGroupSiteBundle:operations:loadConcessionnaires", option: 'home' }
+
+
+

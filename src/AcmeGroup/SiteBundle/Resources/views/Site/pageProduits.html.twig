@@ -1,0 +1,50 @@
+{% extends "AcmeGroupSiteBundle:Site:index.html.twig" %}
+{% block metatitles %}
+{% include('AcmeGroupSiteBundle:bloc:metatitles-default.html.twig') %}
+{% endblock metatitles %}
+{% block navbar %}
+	{% if pageweb[0].slug is defined %}
+	{{ render(controller("AcmeGroupLaboBundle:Labo:navbar", {pageweb: pageweb[0].slug})) }}
+	{% else %}
+	{{ render(controller("AcmeGroupLaboBundle:Labo:navbar")) }}
+	{% endif %}
+{% endblock navbar %}
+{% block siteroot_body %}
+	{{ render(controller('AcmeGroupSiteBundle:Site:menu')) }}
+	{% block body_container %}
+	<!-- contenu site-->
+	<div id="container_site">
+		<!-- page produits-->
+		<div id="container_principal_produits_univers_singer">
+			<h1>{{ pageweb[0].titreh1 }}</h1>
+			<div class="categorie_machines_a_coudre">
+				<a href="{{ url('acme_site_pageMac') }}"><div class="titre_categorie_machines_univers">Machines à coudre</div></a>
+				<div class="img_categorie_machine_a_coudre">
+					<a href="{{ url('acme_site_pageMac') }}"><img src="{{ asset(	'bundles/acmegroupsite/images/machine_a_coudre.jpg') }}" height="100%" width="100%"></a>
+				</div>
+				<div class="categorie_machines_a_coudre_gauche">
+					<a href="{{ url('acme_site_categories', {'categorieSlug' : 'mecaniques'}) }}"><div class="	btn_mecanique1">Mécaniques</div></a>
+					<a href="{{ url('acme_site_categories', {'categorieSlug' : 'electroniques'}) }}"><div class="	btn_electronique1">Électroniques</div></a>
+					<a href="{{ url('acme_site_categories', {'categorieSlug' : 'brodeuses'}) }}"><div class="	btn_brodeuse1">Brodeuses</div></a>
+				</div>
+				<div class="categorie_machines_a_coudre_droite">
+					<a href="{{ url('acme_site_categories', {'categorieSlug' : 'surjeteuses'}) }}"><div class="	btn_surjeteuse1">Surjeteuses</div></a>
+					<a href="{{ url('acme_site_categories', {'categorieSlug' : 'professionnelles'}) }}"><div class="	btn_pro1">Professionnelles</div></a>
+					<a href="{{ url('acme_site_categories', {'categorieSlug' : 'accessoires'}) }}"><div class="	btn_accessoire1">Accessoires</div></a>
+				</div>
+			</div>
+			<div class="categorie_univers_singer">
+				<a href="{{ url('acme_site_pageUnivers') }}"><div class="titre_categorie_machines_univers">Autres 	produits Singer</div></a>
+				<div class="img_categorie_univers_singer"><a href="{{ url('acme_site_pageUnivers') }}"><img src="{{ 	asset('bundles/acmegroupsite/images/autres-univers.jpg') }}" height="100%" width="100%"></a>
+				</div>
+				<div class="categorie_machines_a_coudre_gauche">
+					<a href="{{ url('acme_site_univers', {'categorieSlug' : 'repassage-vapeur'}) }}"><div class="	btn_mecanique1">Repassage - vapeur</div></a>
+					<a href="{{ url('acme_site_univers', {'categorieSlug' : 'aspiration-sol'}) }}"><div class="	btn_electronique1">Aspiration - sol</div></a>
+					<a href="{{ url('acme_site_univers', {'categorieSlug' : 'Petit-electromenager'}) }}"><div class="	btn_brodeuse1">Petit électroménager</div></a>
+				</div>
+			</div>
+		</div>
+		<div style="clear:both;"></div>
+	</div>
+	{% endblock %}
+{% endblock %}

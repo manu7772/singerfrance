@@ -1,0 +1,88 @@
+{% if is_granted("ROLE_USER") or infopanier != null %}
+{% if infopanier.total == 0 %}
+<div class="well well-sm">
+	<h4>Votre panier est vide</h4>
+	<p>Vous pouvez ajouter des articles de la "e-boutique" dans votre panier en cliquant sur le bouton associé.</p>
+	<img src="{{ asset('bundles/acmegroupsite/images/btn_ajoutpanier.png') }}" alt="Ajouter au panier" />
+	<!-- <br /><br /> -->
+	<div style="clear:both;height:32px;"></div>
+	<a href="{{ url('acme_site_eboutique') }}"><button type="button" class="btn btn-danger">Visiter la e-Boutique</button></a>
+</div>
+{% else %}
+<table class="table panieresum">
+	<tr>
+		<th>Article</th>
+		<th class="center">Quantité</th>
+		<th class="center">Actions</th>
+		<th class="right">Prix TTC</th>
+		<th class="right">Total (€)</th>
+	</tr>
+	{% for article in articles %}
+	<tr class="active">
+		<td>{{ article.article.nom }}</td>
+		<td class="center">{{ article.quantite }}</td>
+		<td class="center">
+			<div class="btn-group btn-group-xs">
+				<button type="button" class="btn btn-default btn_panier" data-prototype="supprimer_0_{{ article.article.id }}" data-url="{{ url('acme_panier_change') }}">
+					{% if article.quantite > 1 %}
+					<span class="glyphicon glyphicon-trash" title="supprimer les {{ article.quantite }} articles"></span>
+					{% else %}
+					<span class="glyphicon glyphicon-trash" title="supprimer cet article"></span>
+					{% endif %}
+				</button>
+				<button type="button" class="btn btn-warning btn_panier" data-prototype="enlever_1_{{ article.article.id }}" data-url="{{ url('acme_panier_change') }}">
+					<span class="glyphicon glyphicon-minus-sign" title="Retirer 1 article"></span>
+				</button>
+				<button type="button" class="btn btn-danger btn_panier" data-prototype="ajouter_1_{{ article.article.id }}" data-url="{{ url('acme_panier_change') }}">
+					<span class="glyphicon glyphicon-plus-sign" title="Ajouter 1 article"></span>
+				</button>
+			</div>
+		</td>
+		<td class="right">{{ article.article.prix }}</td>
+		<td class="right">{{ article.prixtotal|number_format(2, '.', ',') }}</td>
+	</tr>
+	{% endfor %}
+	<tr class="mini" title="Les frais de ports vous sont offerts jusqu'au 30 juin 2014 !">
+		<td></td>
+		<td></td>
+		<td></td>
+		<td class="right">Frais de port (offerts)</td>
+		<td class="right">0,00</td>
+	</tr>
+	<tr class="danger">
+		<td></td>
+		<td></td>
+		<td></td>
+		<td class="right"><strong>Prix total TTC</strong></td>
+		<td class="right">{{ infopanier.prixtotal|number_format(2, ',', '') }}</td>
+	</tr>
+</table>
+{% if infopanier.prixtotal > 0 %}
+<button type="button" class="btn btn-default btn-xs btn_panier" data-prototype="viderPanier" data-url="{{ url('acme_panier_change') }}">Vider mon panier</button>
+{% endif %}
+{% if user.isAdresseComplete == true %}
+	{% if infopanier.prixtotal > 0 %}
+		<!-- <a href="{{ url('acme_sherlocks_veille') }}" class="pull-right"><button type="button" class="btn btn-danger btn-sm">Commander</button></a> -->
+		<a href="{{ url('acme_sherlocks_paiementChoix') }}" class="pull-right"><button type="button" class="btn btn-danger btn-sm">Commander</button></a>
+		<a href="{{ url('acme_sherlocks_livraisonChoix') }}" class="pull-right" style="margin-right:6px;"><button type="button" class="btn btn-warning btn-sm">Mode de livraison</button></a>
+		{% if is_granted("ROLE_ADMIN") %}
+		<a href="{{ url('acme_sherlocks_paiementChoix', {test: 1}) }}" class="pull-right" style="margin-right:6px;"><button type="button" class="btn btn-success btn-sm">Test</button></a>
+		{% endif %} 
+		<div style="clear:both;height:8px;"></div>
+		<div class="well">Votre mode de livraison est : <strong>{{ user.livraisonTxt }}</strong><br /><small>Si vous souhaitez le modifier, choisissez <i>Mode de livraison</i> sinon cliquez directement sur <i>Commander</i></small></div>
+	{% endif %}
+{% else %}
+<a href="{{ path('fos_user_profile_edit') }}" class="pull-right" title="Votre adresse postale est incomplète. Renseignez-la avant de passer votre commande, s.v.p." style="margin-right:6px;"><button type="button" class="btn btn-danger btn-sm">Compléter mon adresse</button></a>
+{% endif %}
+{% endif %}
+{% else %}
+<div class="well">
+	<h4>Vous devez vous connecter pour consulter votre panier</h4>
+	<a href="{{ url('fos_user_security_login') }}"><button type="button" class="btn btn-warning">LOGIN</button></a>&nbsp;
+	<p>Si nous n'avez pas de compte, vous pouvez en créer un facilement.</p>
+	<a href="{{ url('fos_user_registration_register') }}"><button type="button" class="btn btn-danger">Créer mon compte</button></a>
+</div>
+{% endif %}
+<span class="majZone groupetableauPanier" data-prototype="{{ url('acme_site_majZone') }}__majZoneBloctableauPanier" style="display:none;">
+	<input type="hidden" class="nbarticles" name="nbarticles" value="" />
+</span>

@@ -1,0 +1,5 @@
+<div id="sav-texte">
+<p>160 ann&eacute;es d&rsquo;exp&eacute;rience, une tr&egrave;s grande sp&eacute;cialisation de ses produits et de leur technologie conf&egrave;rent &agrave; la marque SINGER l&rsquo;image rassurante d&rsquo;une organisation constitu&eacute;e de professionnels au service de la cr&eacute;ativit&eacute; et du confort de leurs utilisatrices.</p>
+<p>Gr&acirc;ce &agrave; ces nombreux points de vente, l&rsquo;enseigne dispose d&rsquo;un large r&eacute;seau couvrant la quasi-totalit&eacute; du territoire fran&ccedil;ais.</p>
+<p>Pour contacter le service apr&egrave;s-vente le plus proche de chez vous, veuillez vous rendre <strong>dans votre magasin SINGER</strong> ou t&eacute;l&eacute;phonez au <strong>01 41 91 64 93</strong>.</p>
+</div>

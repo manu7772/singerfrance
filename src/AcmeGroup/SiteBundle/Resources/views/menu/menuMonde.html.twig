@@ -1,0 +1,9 @@
+<!-- menu de gauche-->
+<div id="sub_menu">
+	<ul>
+		{% for item in menu %}
+		{% if item.slug == pageweb[0].slug%}{% set actif=' class="active"' %}{% else %}{% set actif="" %}{% endif %}
+		<li><a href="{{ url(item.route, {pagewebSlug: item.slug}) }}"{{ actif|raw }}>{{ item.title }}</a></li>
+		{% endfor %}
+	</ul>
+</div>

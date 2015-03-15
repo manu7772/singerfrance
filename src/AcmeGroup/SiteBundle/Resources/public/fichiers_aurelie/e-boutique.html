@@ -1,0 +1,332 @@
+<!DOCTYPE html> <!-- HTML 5 -->
+<html lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title></title>
+<link rel="icon" type="image/x-icon" href="/SingerFrance_SVN/web/images/favicons/singer.ico" />
+
+<link rel="stylesheet" href="/SingerFrance_SVN/web/app_dev.php/css/87e2c3d_jquery-ui_1.css" type="text/css" />
+<link rel="stylesheet" href="/SingerFrance_SVN/web/app_dev.php/css/87e2c3d_jquery-ui-1.10.3.custom_2.css" type="text/css" />
+
+<link rel="stylesheet" href="/SingerFrance_SVN/web/app_dev.php/css/87e2c3d_jquery.fancybox_3.css" type="text/css" />
+<link rel="stylesheet" href="/SingerFrance_SVN/web/app_dev.php/css/87e2c3d_bootstrap_4.css" type="text/css" />
+<link rel="stylesheet" href="/SingerFrance_SVN/web/app_dev.php/css/87e2c3d_chosen_5.css" type="text/css" />
+<link rel="stylesheet" href="/SingerFrance_SVN/web/app_dev.php/css/87e2c3d_orbit-style_6.css" type="text/css" />
+<link rel="stylesheet" href="../css/styles_common.css" type="text/css" />
+<link rel="stylesheet" href="/SingerFrance_SVN/web/app_dev.php/css/87e2c3d_styles_richtexts_8.css" type="text/css" />
+</head>
+<body>
+
+<div class="container">
+<!-- en-tête-->
+<div class="header">
+<div id="logo"><a href="http://localhost:8888/SingerFrance_SVN/web/app_dev.php/" title="Singer, le spécialiste de votre maison"><img src="/SingerFrance_SVN/web/images/version/" width="270" height="60" alt="Singer Accueil" name="logo_Singer, le spécialiste de votre maison" ></a></div> 
+<div id="cadre_header">
+<div id="liens_header">
+<span class="lien_header"><a href="/SingerFrance_SVN/web/app_dev.php/login" title="Espace client"><img src="/SingerFrance_SVN/web/bundles/acmegroupsite/images/espace-client.png" height="23" width="23" />Espace client</a></span>
+<span class="lien_header">
+<a href="/SingerFrance_SVN/web/app_dev.php/login" title="Connectez-vous ou créez votre compte pour utiliser votre panier">
+<img src="/SingerFrance_SVN/web/bundles/acmegroupsite/images/panier_off.png" height="32" width="39"/>Mon panier
+</a>
+<span class="majZone groupeIconepanier" data-prototype="http://localhost:8888/SingerFrance_SVN/web/app_dev.php/majZone__majZoneBlocIconePanier" style="display:none;">
+<input type="hidden" class="Iconepanier_nbarticles" name="Iconepanier_nbarticles" value="" />
+</span> </span>
+</div>
+<div id="search">
+<form action="" method="get" name="recherche">
+<input type="text" value="Recherche" name="recherche" onFocus="if(this.value=='Recherche')this.value=''" onBlur="if(this.value=='')this.value='Recherche'"> 
+</form>
+<div class="btn_recherche"> <input type="submit" value="OK"></div>
+</div>
+</div>
+</div>
+<!--menu-->
+<div id="container_menu">
+<div id="menu_principal">
+<ul id="menu_haut" title=""><li class="first"><a href="/SingerFrance_SVN/web/app_dev.php/pageProduits" title="">PRODUITS</a><ul class="secondLevel" title=""><li class="titre_secondLevel"><a href="/SingerFrance_SVN/web/app_dev.php/pageMac" title="">MACHINES À COUDRE</a><ul class="thirdLevel" title=""><li class="sous_menu3"><a href="/SingerFrance_SVN/web/app_dev.php/categories/mecaniques" title="">MÉCANIQUES</a></li><li class="sous_menu3"><a href="/SingerFrance_SVN/web/app_dev.php/categories/electroniques" title="">ÉLECTRONIQUES</a></li><li class="sous_menu3"><a href="/SingerFrance_SVN/web/app_dev.php/categories/brodeuses" title="">BRODEUSES</a></li><li class="sous_menu3"><a href="/SingerFrance_SVN/web/app_dev.php/categories/professionnelles" title="">PROFESSIONNELLES</a></li><li class="sous_menu3"><a href="/SingerFrance_SVN/web/app_dev.php/categories/surjeteuses" title="">SURJETEUSES</a></li><li class="sous_menu3"><a href="/SingerFrance_SVN/web/app_dev.php/categories/accessoires" title="">ACCESSOIRES</a></li></ul></li><li class="titre_secondLevel"><a href="/SingerFrance_SVN/web/app_dev.php/pageUnivers" title="">AUTRES UNIVERS SINGER</a><ul class="thirdLevel" title=""><li class="sous_menu3"><a href="/SingerFrance_SVN/web/app_dev.php/AutrUnivers/repassage-vapeur" title="">REPASSAGE - VAPEUR</a></li><li class="sous_menu3"><a href="/SingerFrance_SVN/web/app_dev.php/AutrUnivers/aspiration-sol" title="">ASPIRATION - SOL</a></li><li class="sous_menu3"><a href="/SingerFrance_SVN/web/app_dev.php/AutrUnivers/cuisine" title="">CUISINE</a></li></ul></li></ul></li><li class="menu_p"><a href="/SingerFrance_SVN/web/app_dev.php/videos" title="">VIDÉOS</a></li><li class="menu_p"><a href="/SingerFrance_SVN/web/app_dev.php/atelier-creatif-singer" title="">ATELIER CRÉATIF</a><ul class="secondLevel" title=""><li class="titre_secondLevel"><a href="/SingerFrance_SVN/web/app_dev.php/atelier-theme-singer/je-customise" title="">JE CUSTOMISE</a></li><li class="titre_secondLevel"><a href="/SingerFrance_SVN/web/app_dev.php/atelier-theme-singer/creativite-recyclage" title="">CRÉATIVITÉ & RECYCLAGE</a></li><li class="titre_secondLevel"><a href="/SingerFrance_SVN/web/app_dev.php/atelier-theme-singer/ma-creation" title="">MA CRÉATION</a></li><li class="titre_secondLevel"><a href="/SingerFrance_SVN/web/app_dev.php/atelier-theme-singer/pour-debuter" title="">POUR DÉBUTER</a></li><li class="titre_secondLevel"><a href="/SingerFrance_SVN/web/app_dev.php/atelier-theme-singer/mon-bebe" title="">MON BÉBÉ</a></li><li class="titre_secondLevel"><a href="/SingerFrance_SVN/web/app_dev.php/atelier-theme-singer/mariage-et-fete" title="">MARIAGE ET FÊTE</a></li></ul></li><li class="menu_p"><a href="/SingerFrance_SVN/web/app_dev.php/pageMondeSinger1" title="">LE MONDE SINGER</a><ul class="secondLevel" title=""><li class="titre_secondLevel"><a href="/SingerFrance_SVN/web/app_dev.php/pageMondeSinger1" title="">NOTRE HISTOIRE</a></li><li class="titre_secondLevel"><a href="/SingerFrance_SVN/web/app_dev.php/pageMondeSinger2" title="">LE SAVIEZ-VOUS ?</a></li><li class="titre_secondLevel"><a href="/SingerFrance_SVN/web/app_dev.php/pageMondeSinger3" title="">NOS PARTENAIRES</a></li><li class="titre_secondLevel"><a href="/SingerFrance_SVN/web/app_dev.php/pageMondeSinger4" title="">NOS ENGAGEMENTS</a></li><li class="titre_secondLevel"><a href="/SingerFrance_SVN/web/app_dev.php/pageMondeSinger5" title="">DEVENIR CONCESSIONNAIRE</a></li></ul></li><li class="menu_p"><a href="/SingerFrance_SVN/web/app_dev.php/evenements" title="">ÉVÈNEMENTS</a></li><li class="menu_p"><a href="/SingerFrance_SVN/web/app_dev.php/e-boutique" title="">E-BOUTIQUE</a></li></ul></ul>
+</div>
+</div>
+
+<!-- contenu site--> 
+<div id="container_site" class="e-boutique"> 
+<div id="container_principal_generique"> 
+<!-- contenu de gauche-->
+<h1>e-Boutique SINGER France</h1>
+<p>Nous vous proposons une boutique en ligne sécurisée et facile d'utilisation pour vous faire plaisir et commander la machine de votre choix.</p>
+<a href="http://localhost:8888/SingerFrance_SVN/web/app_dev.php/pageweb/arguEboutique"><span class="je_mabonne">Comment ça marche ?</span></a>
+
+<!-- contenu de droite-->
+<div id="container_generique">
+<!-- <h1>Les articles disponibles en e-boutique</h1> -->
+<!-- div portant la couleur-->
+<div>
+<!-- conteneur sous-titre -->
+<!-- conteneur produits de la categorie-->
+<div id="container_principal_produits_G">
+<!-- un produit E-Boutique -->
+<!-- un produit -->
+<div id="produit_article" class="internet" data-prototype="ajouter_1_1">
+<div class="titre_categorie">Électroniques</div>
+<div class="page_catogorie_interne_produit">
+<div class="cadre_interne">
+<div class="contenu_pdt">
+<div class="titre_pdt"><span>Curvy</span></div><div class="img_pdt"><img src="/SingerFrance_SVN/web/bundles/acmegroupsite/images/no_article.png" width="205" height="156" /></div><div class="etoiles_exclu">
+<!--ETOILES Avis a donner-->
+<div class="etoiles" id="etoilesArt1"title="Cet article n'a pas encore été noté. Cliquez pour donner votre avis.">
+<a href="http://localhost:8888/SingerFrance_SVN/web/app_dev.php/ficheArticle/curvy/tabavis">
+
+<ul>
+<li class="etoile_novote">
+<ul>
+<li class="etoile_novote">
+<ul>
+<li class="etoile_novote">
+<ul>
+<li class="etoile_novote">
+<ul>
+<li class="etoile_novote">
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</a>
+</div>
+<!--FIN ETOILES DEJA DONNEES--> <a href="" title="Cliquer pour acheter Curvy à votre panier e-boutique"><div class="exclusivite"></div></a>
+<div class="description_liste_pdt">
+<ul>
+<li class="gris"><span>30 points et 2 boutonnières en 1 phase •Exclusive SwiftSmart Threading System •Sélection directe des points •3 lampes LED</span></li>
+</ul>
+</div>
+</div> 
+
+</div>
+<!-- boutons bas-->
+<div class="btn_pdt">
+<a href="http://localhost:8888/SingerFrance_SVN/web/app_dev.php/ficheArticle/curvy" id="btn_savoir"></a><a href="#" id="btn_panier" title="Cliquer pour ajouter Curvy à votre panier e-boutique"></a><a href="http://localhost:8888/SingerFrance_SVN/web/app_dev.php/magasinsSinger" id="btn_trouver"></a>
+</div> 
+</div> 
+<div class="prix_pdt_indication"><span class="prix_pdt"><span>0.00</span> €</span><span class="prix_indic">Prix public indicatif</span></div>
+</div>
+<span style="display: none;"></span>
+</div>
+<!--fin produit -->
+<!-- fin produit E-Boutique -->
+<!-- un produit E-Boutique -->
+<!-- un produit -->
+<div id="produit_article" class="internet" data-prototype="ajouter_1_2">
+<div class="titre_categorie">Électroniques</div>
+<div class="page_catogorie_interne_produit">
+<div class="cadre_interne">
+<div class="contenu_pdt">
+<div class="titre_pdt"><span>Brillance</span></div><div class="img_pdt"><img src="/SingerFrance_SVN/web/bundles/acmegroupsite/images/no_article.png" width="205" height="156" /></div><div class="etoiles_exclu">
+<!--ETOILES Avis a donner-->
+<div class="etoiles" id="etoilesArt2"title="Cet article n'a pas encore été noté. Cliquez pour donner votre avis.">
+<a href="http://localhost:8888/SingerFrance_SVN/web/app_dev.php/ficheArticle/brillance/tabavis">
+
+<ul>
+<li class="etoile_novote">
+<ul>
+<li class="etoile_novote">
+<ul>
+<li class="etoile_novote">
+<ul>
+<li class="etoile_novote">
+<ul>
+<li class="etoile_novote">
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</a>
+</div>
+<!--FIN ETOILES DEJA DONNEES--> <a href="" title="Cliquer pour acheter Brillance à votre panier e-boutique"><div class="exclusivite"></div></a>
+<div class="description_liste_pdt">
+<ul>
+<li class="gris"><span>60 points pré-programmés position d'aiguille modifiable- enfile aiguille automatique 4 boutonnières entièrement automatique</span></li>
+</ul>
+</div>
+</div> 
+
+</div>
+<!-- boutons bas-->
+<div class="btn_pdt">
+<a href="http://localhost:8888/SingerFrance_SVN/web/app_dev.php/ficheArticle/brillance" id="btn_savoir"></a><a href="#" id="btn_panier" title="Cliquer pour ajouter Brillance à votre panier e-boutique"></a><a href="http://localhost:8888/SingerFrance_SVN/web/app_dev.php/magasinsSinger" id="btn_trouver"></a>
+</div> 
+</div> 
+<div class="prix_pdt_indication"><span class="prix_pdt"><span>0.00</span> €</span><span class="prix_indic">Prix public indicatif</span></div>
+</div>
+<span style="display: none;"></span>
+</div>
+<!--fin produit -->
+<!-- fin produit E-Boutique -->
+<!-- un produit E-Boutique -->
+<!-- un produit -->
+<div id="produit_article" class="internet" data-prototype="ajouter_1_25">
+<div class="titre_categorie">Mécaniques</div>
+<div class="page_catogorie_interne_produit">
+<div class="cadre_interne">
+<div class="contenu_pdt">
+<div class="titre_pdt"><span>Tradition 2250 Bleue</span></div><div class="img_pdt"><img src="/SingerFrance_SVN/web/bundles/acmegroupsite/images/no_article.png" width="205" height="156" /></div><div class="etoiles_exclu">
+<!--ETOILES Avis a donner-->
+<div class="etoiles" id="etoilesArt25"title="Cet article n'a pas encore été noté. Cliquez pour donner votre avis.">
+<a href="http://localhost:8888/SingerFrance_SVN/web/app_dev.php/ficheArticle/tradition-2250-bleue/tabavis">
+
+<ul>
+<li class="etoile_novote">
+<ul>
+<li class="etoile_novote">
+<ul>
+<li class="etoile_novote">
+<ul>
+<li class="etoile_novote">
+<ul>
+<li class="etoile_novote">
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</a>
+</div>
+<!--FIN ETOILES DEJA DONNEES--> <a href="" title="Cliquer pour acheter Tradition 2250 Bleue à votre panier e-boutique"><div class="exclusivite"></div></a>
+<div class="description_liste_pdt">
+<ul>
+<li class="gris"><span>10 programmes - 18 points ajustables • Boutonnière automatique en 4 étapes • Rhéostat électronique - Porte canette métallique • Bras libre - Marche arrière</span></li>
+</ul>
+</div>
+</div> 
+
+</div>
+<!-- boutons bas-->
+<div class="btn_pdt">
+<a href="http://localhost:8888/SingerFrance_SVN/web/app_dev.php/ficheArticle/tradition-2250-bleue" id="btn_savoir"></a><a href="#" id="btn_panier" title="Cliquer pour ajouter Tradition 2250 Bleue à votre panier e-boutique"></a><a href="http://localhost:8888/SingerFrance_SVN/web/app_dev.php/magasinsSinger" id="btn_trouver"></a>
+</div> 
+</div> 
+<div class="prix_pdt_indication"><span class="prix_pdt"><span>159.00</span> €</span><span class="prix_indic">Prix public indicatif</span></div>
+</div>
+<span style="display: none;"></span>
+</div>
+<!--fin produit -->
+<!-- fin produit E-Boutique -->
+</div>
+</div>
+<!-- Fin div portant la couleur-->
+</div>
+<!-- Fin contenu de droite-->
+</div>
+</div>
+</div>
+<!--pied de page-->
+<div class="footer">
+<div id="footer_haut">
+<a href="http://localhost:8888/SingerFrance_SVN/web/app_dev.php/magasinsSinger">
+
+<div class="footer_search" style="cursor: pointer;">
+<div class="recherche_magasin">
+<h2>Recherchez un magasin</h2>
+<form method="POST" action="http://localhost:8888/SingerFrance_SVN/web/app_dev.php/magasinsSinger">
+
+<input type="text" name="rechmag" value="" title="Indiquez ville, département ou code postal" />
+<div class="btn_recherche">
+<input type="submit" value="OK" />
+</div>
+</form>
+</div>
+</div>
+</a>
+<!-- encart pub/distribution-->
+<div class="footer_encart">
+<!--<a href="reseaux_de_distribution.html"><img src="images/pub_bas_3.png" height="187" width="663"/></a> -->
+<h2><a href="#">Les r&eacute;seaux de distribution Singer</a></h2>
+
+<ul>
+<li class="distrib"><a href="http://localhost:8888/SingerFrance_SVN/web/app_dev.php/pageweb/grandeDistribution" title="La grande distribution"></a></li>
+<li class="shops"><a href="http://localhost:8888/SingerFrance_SVN/web/app_dev.php/magasinsSinger" title="Rechercher un magasin Singer"></a></li>
+<li class="internet"><a href="http://localhost:8888/SingerFrance_SVN/web/app_dev.php/pageweb/arguEboutique" title="Internet"></a></li>
+</ul>
+<p>Chacun de ces 3 r&eacute;seaux a ses produits Singer propres.<br />Nos magasins Singer vous r&eacute;servent un accueil chaleureux et une expertise personnalis&eacute;e </p>
+</div>
+</div>
+
+<div id="footer_bas">
+<div id="footer_gauche">
+<p><strong>Copyright&copy;2013 SINGER&reg;</strong>All right reserved</p>
+<p>
+<a href="http://localhost:8888/SingerFrance_SVN/web/app_dev.php/pageweb/cgv" title="Conditions g&eacute;n&eacute;rales de vente">Conditions g&eacute;n&eacute;rales de vente</a>
+<a href="http://localhost:8888/SingerFrance_SVN/web/app_dev.php/pageweb/confidentialite" title="Confidentialit&eacute;">Confidentialit&eacute;</a>
+</p>
+</div>
+<div id="footer_droite">
+<ul>
+<li class="contact"><a href="http://localhost:8888/SingerFrance_SVN/web/app_dev.php/pageweb/contact" title="Nos coordonn&eacute;es">Contact</a></li>
+<li class="videos"><a href="http://localhost:8888/SingerFrance_SVN/web/app_dev.php/videos" title="voir les vid&eacute;os">Consulter les vidéos</a></li>
+<li class="facebook"><a href="https://www.facebook.com/SingerFR" class="URLext" title="Rejoignez la communaut&eacute; Singer sur Facebook !">SINGER sur facebook</a></li>
+<li class="conseil"><a href="#" title="Recommandez le site SingerFrance">Je conseille ce site</a></li>
+
+</ul>
+</div>
+</div>
+
+</div>
+<iframe id="uploadFrame" name="uploadFrame" src="" style="display:none;"></iframe> <span id="devStuffs" style="display:none;"></span> <span id="hiddenStuffs" style="display:none;">
+<!-- modedev : mode dev / test / prod -->
+<input type="hidden" id="modedev" name="modedev" value="dev" />
+<!-- homepath : chemin pour page d'accueil du site -->
+<input type="hidden" id="homepath" name="homepath" value="/SingerFrance_SVN/web/app_dev.php/" />
+<!-- actuelpath : chemin actuel -->
+<input type="hidden" id="actuelpath" name="actuelpath" value="/e-boutique" />
+<!-- actuelURL : chemin actuel -->
+<input type="hidden" id="actuelURL" name="actuelURL" value="http://localhost:8888/SingerFrance_SVN/web/app_dev.php/e-boutique" />
+
+<!-- Données de session -->
+</span>
+<div class="messages" title="Message...">
+</div>
+<script type="text/javascript" src="/SingerFrance_SVN/web/app_dev.php/js/62790b8_jquery-2.0.3_1.js"></script>
+
+<script type="text/javascript" src="/SingerFrance_SVN/web/app_dev.php/js/62790b8_jquery-ui_2.js"></script>
+
+<script type="text/javascript" src="/SingerFrance_SVN/web/app_dev.php/js/62790b8_jquery.fancybox_3.js"></script>
+
+<script type="text/javascript" src="/SingerFrance_SVN/web/app_dev.php/js/62790b8_jquery.fancybox.pack_4.js"></script>
+
+<script type="text/javascript" src="/SingerFrance_SVN/web/app_dev.php/js/62790b8_jquery.mousewheel-3.0.6.pack_5.js"></script>
+
+<script type="text/javascript" src="/SingerFrance_SVN/web/app_dev.php/js/62790b8_jquery.orbit-1.2.3_6.js"></script>
+
+<script type="text/javascript" src="/SingerFrance_SVN/web/app_dev.php/js/62790b8_aetools_7.js"></script>
+
+<script type="text/javascript" src="/SingerFrance_SVN/web/app_dev.php/js/62790b8_outsideEvents_8.js"></script>
+
+<script type="text/javascript" src="/SingerFrance_SVN/web/app_dev.php/js/62790b8_tinymce_9.js"></script>
+
+<script type="text/javascript" src="/SingerFrance_SVN/web/app_dev.php/js/62790b8_JQueryFunctions_10.js"></script>
+
+<script type="text/javascript" src="/SingerFrance_SVN/web/app_dev.php/js/62790b8_bootstrap_11.js"></script>
+
+<script type="text/javascript" src="/SingerFrance_SVN/web/app_dev.php/js/62790b8_etoiles_12.js"></script>
+
+<script type="text/javascript" src="/SingerFrance_SVN/web/app_dev.php/js/62790b8_SpecificFunctions_13.js"></script>
+
+<div id="sfwdtcfc530" class="sf-toolbar" style="display: none"></div><script>/*<![CDATA[*/ Sfjs = (function() { "use strict"; var noop = function() {}, profilerStorageKey = 'sf2/profiler/', request = function(url, onSuccess, onError, payload, options) { var xhr = window.XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP'); options = options || {}; xhr.open(options.method || 'GET', url, true); xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest'); xhr.onreadystatechange = function(state) { if (4 === xhr.readyState && 200 === xhr.status) { (onSuccess || noop)(xhr); } else if (4 === xhr.readyState && xhr.status != 200) { (onError || noop)(xhr); } }; xhr.send(payload || ''); }, hasClass = function(el, klass) { return el.className.match(new RegExp('\\b' + klass + '\\b')); }, removeClass = function(el, klass) { el.className = el.className.replace(new RegExp('\\b' + klass + '\\b'), ' '); }, addClass = function(el, klass) { if (!hasClass(el, klass)) { el.className += " " + klass; } }, getPreference = function(name) { if (!window.localStorage) { return null; } return localStorage.getItem(profilerStorageKey + name); }, setPreference = function(name, value) { if (!window.localStorage) { return null; } localStorage.setItem(profilerStorageKey + name, value); }; return { hasClass: hasClass, removeClass: removeClass, addClass: addClass, getPreference: getPreference, setPreference: setPreference, request: request, load: function(selector, url, onSuccess, onError, options) { var el = document.getElementById(selector); if (el && el.getAttribute('data-sfurl') !== url) { request( url, function(xhr) { el.innerHTML = xhr.responseText; el.setAttribute('data-sfurl', url); removeClass(el, 'loading'); (onSuccess || noop)(xhr, el); }, function(xhr) { (onError || noop)(xhr, el); }, options ); } return this; }, toggle: function(selector, elOn, elOff) { var i, style, tmp = elOn.style.display, el = document.getElementById(selector); elOn.style.display = elOff.style.display; elOff.style.display = tmp; if (el) { el.style.display = 'none' === tmp ? 'none' : 'block'; } return this; } } })();/*]]>*/</script><script>/*<![CDATA[*/ (function () { Sfjs.load( 'sfwdtcfc530', '/SingerFrance_SVN/web/app_dev.php/_wdt/cfc530', function(xhr, el) { el.style.display = -1 !== xhr.responseText.indexOf('sf-toolbarreset') ? 'block' : 'none'; if (el.style.display == 'none') { return; } if (Sfjs.getPreference('toolbar/displayState') == 'none') { document.getElementById('sfToolbarMainContent-cfc530').style.display = 'none'; document.getElementById('sfToolbarClearer-cfc530').style.display = 'none'; document.getElementById('sfMiniToolbar-cfc530').style.display = 'block'; } else { document.getElementById('sfToolbarMainContent-cfc530').style.display = 'block'; document.getElementById('sfToolbarClearer-cfc530').style.display = 'block'; document.getElementById('sfMiniToolbar-cfc530').style.display = 'none'; } }, function(xhr) { if (xhr.status !== 0) { confirm('An error occurred while loading the web debug toolbar (' + xhr.status + ': ' + xhr.statusText + ').\n\nDo you want to open the profiler?') && (window.location = '/SingerFrance_SVN/web/app_dev.php/_profiler/cfc530'); } } ); })();/*]]>*/</script>
+</body>
+</html>
+<!-- 'bundles/acmegroupsite/css/bootstrap.css' -->
+<!-- 'bundles/acmegroupsite/js/bootstrap.js' -->

@@ -1,0 +1,36 @@
+{% extends "AcmeGroupSiteBundle:Site:index.html.twig" %}
+{% block body_container %}
+
+<div id="container_site">  
+	<div id="container_principal_generique">
+		<h1>Mon panier e-Boutique</h1>
+		<p>Synthèse du contenu de votre panier</p>
+		<br />
+		{% if factures|length > 0 %}
+		<div class="well well-sm">
+			<p>Vous avez {{ factures|length }} facture{{ plur(factures, "s") }}
+				<a href="{{ url('acme_factures_user') }}">
+					<button type="button" class="btn btn-default btn-sm">Voir mes factures</button>
+				</a>
+			</p>
+		</div>
+		{% endif %}
+		<span id="tableauPanier">
+		{% render(controller('AcmeGroupSiteBundle:Site:tableauPanier')) %}
+		</span>
+	</div>
+</div>
+
+<!-- contenu site-->
+<!-- <div id="container_site">  
+	<div id="container_principal_generique">
+		<ul class="list-group col-md-8">
+			<li class="list-group-item">
+				<h4>Le panier est momentanément suspendu</h4>
+				<p>La nouvelle interface de paiement en ligne sécurisé sera opérationnelle d'ici quelques jours.</p>
+			</li>
+		</ul>
+	</div>
+</div> -->
+
+{% endblock %}

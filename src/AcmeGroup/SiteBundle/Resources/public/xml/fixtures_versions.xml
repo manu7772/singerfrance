@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+entités liées :
+nom    -> nomDuChampLocal* + [_nomDeLEntitéLiée] + __nomDuChampDeLentiteLiée (ex. : statut__nom) (* avec 's' !!!)
+toutes entités :
+valeur -> si plusieurs valeurs possibles, séparer les valeurs par un pipe "|"
+       -> commencer par un "+" pour ajouter aussi les valeurs par défaut, sinon elles ne seront pas ajoutées
+
+       (ex. : typeImage__nom="+Universel|Ambiance") -> revient à écrire typeImage_typeImage__nom
+       (ex. : imagePpale_image__nom="Curvy 2|Curvy 3")
+
+fichiers externes : "import@" + nomDuDossier + "::" + nom du fichier (ex. texte="import@txt::intro.txt")
+  -> utiliser "importConcat@" pour concaténer les fichiers textes et n'obtenir qu'une seule valeur d'après tous les fichiers
+noms de fichiers multiples : séparer par "|" (ex. texte="import@txt::intro.txt|intro2.txt|xml::intro3.txt")
+  -> préciser à chaque fois le dossier / s'il n'est pas précisé, le nom du dossier précédent est repris.
+
+ -->
+<versions>
+	<version nom="Singer" accroche="Singer, le spécialiste de votre maison" descriptif="" tvaIntra="0000000000" nomDomaine="http://www.singerfrance.com" couleurFond="#ffffff" templateIndex="Site" defaut='1' imageEntete_image__nom="Logo Singer entête" />
+	<version nom="Singer-V2" accroche="Singer, le spécialiste de votre maison" descriptif="" tvaIntra="0000000000" nomDomaine="http://www.singer-france.com" couleurFond="#ffffff" templateIndex="Site" imageEntete_image__nom="Logo Singer.v2 entête" />
+	<version nom="DemoSinger" accroche="Site de démo pour test" descriptif="" tvaIntra="0000000000" nomDomaine="http://www.singerfrance.fr" couleurFond="#ffffff" templateIndex="DemoSinger" imageEntete_image__nom="Logo Singer Démo" />
+</versions>

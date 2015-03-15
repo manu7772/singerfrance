@@ -1,0 +1,34 @@
+{% extends "AcmeGroupSiteBundle:Site:index.html.twig" %}
+{% block body_container %}
+	<!-- contenu site-->   
+	<div id="container_site" class="e-boutique">  
+		<div id="container_principal_generique">  
+			<!-- contenu de gauche-->
+			<h1>{{ pageweb[0].titreh1 }}</h1>
+			<p>Nous vous proposons une boutique en ligne sécurisée et facile d'utilisation pour vous faire plaisir et commander la machine de votre choix.</p>
+			<a href="{{ url('acme_site_pageswebwithRT', {'pagewebSlug': 'arguEboutique'}) }}"><span class="je_mabonne">Comment ça marche ?</span></a>
+			
+			<!-- contenu de droite-->
+			<div id="container_generique">
+				<!-- <h1>Les articles disponibles en e-boutique</h1> -->
+				<!-- div portant la couleur-->
+				<div>
+					<!-- conteneur sous-titre -->
+					<!-- conteneur produits de la categorie-->
+					<div id="container_principal_produits_G">
+					{% for categorie, cat in categories %}
+					<h5 style="background-color:#999;color:#fff;clear:both;margin:6px 0px 4px;width:100%;padding:2px 4px;">&gt;&nbsp;{{ categorie }}</h5>
+					{% for article in cat.articles %}
+					<!-- un produit E-Boutique -->
+					{% include('AcmeGroupSiteBundle:bloc:unProduitAvecCategorie.html.twig') %}
+					<!-- fin produit E-Boutique -->
+					{% endfor %}
+					{% endfor %}
+					</div>
+				</div>
+				<!-- Fin div portant la couleur-->
+			</div>
+			<!-- Fin contenu de droite-->
+		</div>
+	</div>
+{% endblock %}

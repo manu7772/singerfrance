@@ -1,0 +1,62 @@
+{% extends "AcmeGroupSiteBundle::sitePage.html.twig" %}
+{% block navbar %}
+	{% if pageweb[0].slug is defined %}
+	{{ render(controller("AcmeGroupLaboBundle:Labo:navbar", {pageweb: pageweb[0].slug})) }}
+	{% else %}
+	{{ render(controller("AcmeGroupLaboBundle:Labo:navbar")) }}
+	{% endif %}
+{% endblock navbar %}
+{% block siteroot_body %}
+	{{ render(controller('AcmeGroupSiteBundle:Site:menu')) }}
+	{% block body_container %}
+	<!-- contenu site-->   
+	<div id="container_site">
+	
+		<!-- page accueil-->
+		<div class="container_principal_accueil">
+			{% if (diapo is not null) and ((diapo.medias|length > 0) or (diapo.firstmedia is not null)) %}
+			<div id="diaporama_accueil">
+				<!-- DIAPORAMA -->
+				<div id="featured" data-speed="{{ diapo.vitesse }}">
+					{% if diapo.firstmedia is not null %}
+					{% if diapo.firstmedia.url is not null %}
+					<a href="{{ diapo.firstmedia.url }}" class="URLext">
+						<img src="{{ asset('images/original/' ~ diapo.firstmedia.fichierNom) }}" />
+					</a>
+					{% else %}
+					<img src="{{ asset('images/original/' ~ diapo.firstmedia.fichierNom) }}" />
+					{% endif %}
+					{% endif %}
+					{% for dia in diapo.medias %}
+					{% if dia.url is not null %}
+					<a href="{{ dia.url }}" class="URLext">
+						<img src="{{ asset('images/original/' ~ dia.fichierNom) }}" />
+					</a>
+					{% else %}
+					<img src="{{ asset('images/original/' ~ dia.fichierNom) }}" />
+					{% endif %}
+					{% endfor %}
+				</div>
+				<!-- DIAPORAMA -->
+			</div>
+			{% else %}
+			<div id="diaporama_accueil">
+				<div class="well well-sm">
+					<span class="glyphicon glyphicon-exclamation-sign"></span>
+					<span> Diaporama absent.</span>
+				</div>
+			</div>
+			{% endif %}
+			<div class="texte_accueil">
+				{% if (pageweb[0].titreh1 != null) and (pageweb[0].titreh1 != "") %}
+				<h1>{{ pageweb[0].titreh1|raw }}</h1>
+				{% else %}
+				<h1>{{ pageweb[0].richtexts[0].titre|raw }}</h1>
+				{% endif %}
+				<p>{{ pageweb[0].richtexts[0].texte|raw }}</p>
+				{{ pageweb[0].code|raw }}
+			</div>
+		</div>
+	</div>
+	{% endblock %}
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends "AcmeGroupSiteBundle::sitePage.html.twig" %}
+{% block siteroot_body %}
+	{{ render(controller('AcmeGroupSiteBundle:Site:menu')) }}
+	{% block body_container %}
+<!-- contenu site-->   
+<div id="container_site">  
+	<!-- container principel -->
+	<div id="container_principal_generique">    
+		<h2>Le système de paiement est en maintenance.</h2>
+		<p>Votre panier reste en mémoire, vous pourrez le valider lorsque la maintenance sera terminée.</p>
+		<br />
+		<a href="{{ url('acme_panier_user') }}" class="pull-right"><button type="button" class="btn btn-danger btn-sm">Retour au panier</button></a>
+		<a href="{{ url('acme_site_home') }}"><button type="button" class="btn btn-warning btn-sm">Retour au site</button></a>
+		<div style="height:12px;clear:both;"></div>
+	</div>
+</div>
+	{% endblock %}
+{% endblock %}

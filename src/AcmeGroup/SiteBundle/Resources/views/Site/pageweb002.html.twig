@@ -1,0 +1,36 @@
+{% extends "AcmeGroupSiteBundle::sitePage.html.twig" %}
+{% block navbar %}
+	{% if pageweb[0].slug is defined %}
+	{{ render(controller("AcmeGroupLaboBundle:Labo:navbar", {pageweb: pageweb[0].slug})) }}
+	{% else %}
+	{{ render(controller("AcmeGroupLaboBundle:Labo:navbar")) }}
+	{% endif %}
+{% endblock navbar %}
+{% block siteroot_body %}
+	{{ render(controller('AcmeGroupSiteBundle:Site:menu')) }}
+	{% block body_container %}
+		<div id="container_site" class="">
+			<div id="container_principal_generique" class="richtexts">
+				<!-- contenu de droite-->
+				<div id="container_generique">
+					<span class="buttonjs homepage" title="Allez à la page d'accueil">&lt;&nbsp;Page d'accueil</span>
+					<span class="buttonjs backpage" title="Revenir à la page précédente">&lt;&nbsp;Retour</span>
+					{% for page in pageweb %}
+						<div style="margin-left:90px;margin-right:90px;">
+						{% if page.titreh1 is defined %}
+						<h1>{{ URIperform(page.titreh1)|raw }}</h1>
+						{% endif %}
+						{% if page.richtexts is defined %}
+						{% for texte in page.richtexts %}
+						<h5><i>{{ URIperform(texte.titre)|raw }}</i></h5>
+						{{ URIperform(texte.texte)|raw }}
+						{% endfor %}
+						{% endif %}
+						</div>
+					{% endfor %}
+				</div>
+				<!-- Fin contenu de droite-->
+			</div>
+		</div>
+	{% endblock %}
+{% endblock %}

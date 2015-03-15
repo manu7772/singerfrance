@@ -1,0 +1,15 @@
+<p id="chapo"> Au cours de ces 160 années, de nombreuses histoires, anecdotes insolites <br> sont venues marquer, ponctuer la vie de SINGER. <br>Pour vous un petit avant-goût…. </p>
+<ul id="contenu_saviez_vous">
+	<li>
+		<a href="pageweb/mannequins45cm" ref="news">> Des mannequins de 45 cm avec une belle chevelure et de grands yeux magnifiques !</a>                   	
+	</li>
+	<li>
+		<a href="pageweb/portecles" ref="news">> Des portes-clés</a>                   	
+	</li>
+	<li>
+		<a href="pageweb/caravane" ref="news">> La caravane SINGER</a>				
+	</li>
+	<li>
+		<a href="pageweb/ghandi" ref="news">> Il se chuchote quelques dires du Mahatma Gandhi</a>				
+	</li>
+</ul>

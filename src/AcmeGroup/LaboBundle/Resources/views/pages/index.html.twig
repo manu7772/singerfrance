@@ -1,0 +1,87 @@
+{% extends "LaboTestmanuBundle::sitePage.html.twig" %}
+{% block title %}{{ parent() }} - Administration site{% endblock %}
+
+{% block main_contain %}
+
+{{ parent() }}
+
+<div class="row">
+	<div id="menu" class="col-md-3 col-sm-12">
+	{{ render(controller("AcmeGroupLaboBundle:Labo:leftSideMenu", {option: option})) }}
+	</div>
+	{% if option == "home-public-exports" %}
+	<div id="content" class="col-md-9 col-sm-12">
+		<div class="well well-sm">EXPORTS PUBLICS : liens de téléchargement<br /><small>Liens accessibles directement via l'url</small></div>
+	
+		<div class="well well-sm">
+			<span class="glyphicon glyphicon-circle-arrow-right"></span>&nbsp;&nbsp;<span>Partenariat Made In Me Couture</span>
+			<p><a href="{{ url('acme_site_exportCSVmimc') }}">{{ url('acme_site_exportCSVmimc') }}</a></p>
+		</div>
+		<div class="well well-sm">
+			<span class="glyphicon glyphicon-circle-arrow-right"></span>&nbsp;&nbsp;<span>Partenariat Wibilong</span>
+			<p><a href="{{ url('acme_site_exportCSVWibilong') }}">{{ url('acme_site_exportCSVWibilong') }}</a></p>
+			<p>Autres exports :</p>
+			<!-- Single button -->
+			<div class="btn-group">
+				<button type="button" class="btn btn-xs btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+					Export par marque <span class="caret"></span>
+				</button>
+				<ul class="dropdown-menu" role="menu">
+					{% for marque in marques %}
+					<li><a href="{{ url('acme_site_exportCSVWibilong', {option: marque|lower}) }}">Contacts {{ marque }}</a></li>
+					{% endfor %}
+				</ul>
+			</div>
+		</div>
+		<div class="well well-sm">
+			<span class="glyphicon glyphicon-circle-arrow-right"></span>&nbsp;&nbsp;<span>Téléchargement des articles du site</span>
+			<p><a href="{{ url('acme_site_exportCSV') }}">{{ url('acme_site_exportCSV') }}</a></p>
+		</div>
+		<div class="well well-sm">
+			<span class="glyphicon glyphicon-circle-arrow-right"></span>&nbsp;&nbsp;<span>Téléchargement des textes du site</span>
+			<p><a href="{{ url('acme_site_loadRichtext') }}">{{ url('acme_site_loadRichtext') }}</a></p>
+		</div>
+		<hr>
+		<div class="well well-sm">
+			<span class="glyphicon glyphicon-circle-arrow-right"></span>&nbsp;&nbsp;<span>Téléchargement des concessionnaires</span>
+			<p><a href="{{ url('acme_site_loadConcessionnaires') }}">{{ url('acme_site_loadConcessionnaires') }}</a></p>
+		</div>
+		<div class="well well-sm">
+			<span class="glyphicon glyphicon-circle-arrow-right"></span>&nbsp;&nbsp;<span>Téléchargement des concessionnaires <strong>qui ont un email</strong></span>
+			<p><a href="{{ url('acme_site_loadConcessionnaires', {option: 'withmail'}) }}">{{ url('acme_site_loadConcessionnaires', {option: 'withmail'}) }}</a></p>
+		</div>
+		<div class="well well-sm">
+			<span class="glyphicon glyphicon-circle-arrow-right"></span>&nbsp;&nbsp;<span>Téléchargement des concessionnaires <strong>qui n'ont pas d'email</strong></span>
+			<p><a href="{{ url('acme_site_loadConcessionnaires', {option: 'nomail'}) }}">{{ url('acme_site_loadConcessionnaires', {option: 'nomail'}) }}</a></p>
+		</div>
+	</div>
+	{% elseif option == "home-admin-exports" %}
+	<div id="content" class="col-md-9 col-sm-12">
+		<div class="well well-sm">EXPORTS ADMIN : liens de téléchargement<br /><small>Liens uniquement accessibles en connexion admin.</small></div>
+	
+		<div class="well well-sm">
+			<span class="glyphicon glyphicon-circle-arrow-right"></span>&nbsp;&nbsp;<span>Téléchargement des ventes<br /></span>
+			<br />
+			<a class='btn btn-xs btn-primary' href="{{ url('labo_export_cvs_vente') }}">Toutes ventes en cours</a>
+			<a class='btn btn-xs btn-warning' href="{{ url('labo_export_cvs_vente', {type: 'commande'}) }}">Ventes à traiter</a>
+			<a class='btn btn-xs btn-warning' href="{{ url('labo_export_cvs_vente', {type: 'livraison'}) }}">ventes en livraison</a>
+			<a class='btn btn-xs btn-success' href="{{ url('labo_export_cvs_vente', {type: 'termine'}) }}">Ventes clôturées</a>
+			<a class='btn btn-xs btn-danger' href="{{ url('labo_export_cvs_vente', {type: 'erreur'}) }}">Ventes en erreur</a>
+		</div>
+	</div>
+	{% else %}
+	<div id="content" class="col-md-9">
+		<div class="well well-sm">Sélectionnez dans le menu ci-à-gauche…</div>
+	</div>
+	{% endif %}
+</div>
+{% if is_granted("ROLE_SUPER_ADMIN") %}
+<div class="well well-md">TESTS…</div>
+{% for mag in magasins.magnomail %}
+<div style="clear:both;display:block;">
+	<div class="well well-xs">{{ mag.nommagasin }} ({{ mag.cp }})</div>
+</div>
+{% endfor %}
+{% endif %}
+
+{% endblock %}

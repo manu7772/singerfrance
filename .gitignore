@@ -23,12 +23,11 @@
 /vendor/
 
 # Assets and user uploads
-/web/bundles/
-/web/uploads/
+/web/
 
 # PHPUnit
 /app/phpunit.xml
 /phpunit.xml
 
 # Composer PHAR
-/composer.phar
+composer.phar

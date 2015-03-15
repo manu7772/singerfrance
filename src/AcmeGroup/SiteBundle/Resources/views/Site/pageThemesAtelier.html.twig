@@ -1,0 +1,49 @@
+{% extends "AcmeGroupSiteBundle:Site:index.html.twig" %}
+{% block navbar %}
+	{% if pageweb[0].slug is defined %}
+	{{ render(controller("AcmeGroupLaboBundle:Labo:navbar", {pageweb: pageweb[0].slug})) }}
+	{% else %}
+	{{ render(controller("AcmeGroupLaboBundle:Labo:navbar")) }}
+	{% endif %}
+{% endblock navbar %}
+{% block body_container %}
+<!-- contenu site-->   
+<div id="container_site">  {# !!! UNE FICHE CREATIVE !!! #}
+	<!-- page accueil-->
+	<div id="container_principal_generique">
+		{% if fiche|length > 0 %}
+		<div id="container_generique" class="fiche_atelier richtexts">
+			<div id="titre_fiche_idees_crea">
+				<span class="titre_gris_b22">{{ fiche.nom|raw }}</span><span class="titre_gris_i18">avec</span><img src="{{ asset('bundles/acmegroupsite/images/logoBibEtComb.png') }}" title="Bobines et Combines" height="53" width="156">
+			</div>
+			<div id="pages" class="resumer_atelier">
+				<!-- une fiche idées créatives 1 -->
+				<div id="une_fiche_id_crea">
+					<div id="interne_une_fiche_id_crea">
+						{% if fiche.image != null %}
+						{% set txtresume = 'txt_resume_12' %}
+						<div class="atelier_img_big">
+							<img src="{{ asset('images/optim/' ~ fiche.image.fichierNom) }}">
+						</div>
+						{% else %}
+						{% set txtresume = 'txt_resume_12Large' %}
+						<!-- <div class="atelier_img_big" style="background-color:#ddd;width:265px;height:265px;"></div> -->
+						{% endif %}
+						<div class="{{ txtresume|raw }}">
+							{% if fiche.accroche != null %}<h5>{{ fiche.accroche }}</h5>{% endif %}
+							<h5>Niveau : {{ fiche.niveau }}</h5>
+							<h5>Durée : {{ dureeHM(fiche.duree) }}</h5>
+							<p>{{ magnifyText(fiche.descriptif)|raw }}</p>{# generateDirectEditor(fiche, "descriptif", "editableRich", "", "span")|raw #}
+						</div>
+					</div>
+				</div><!-- une fin fiche idées créatives 1 -->
+			</div><!-- fin Fiches Idées créatives-->
+			<span class="buttonjs homepage" title="Allez à la page d'accueil">&lt;&nbsp;Page d'accueil</span>
+			<span class="buttonjs backpage" title="Revenir à la page précédente">&lt;&nbsp;Retour</span>
+		</div>
+		{% else %}
+		<div class="well">Fiche introuvable.<br /><span class="buttonjs backpage" title="Revenir à la page précédente">&lt;&nbsp;Retour</span></div>
+		{% endif %}
+	</div>
+</div>
+{% endblock %}

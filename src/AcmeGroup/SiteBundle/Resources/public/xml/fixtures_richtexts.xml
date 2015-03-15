@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+entités liées :
+nom    -> nomDuChampLocal* + [_nomDeLEntitéLiée] + __nomDuChampDeLentiteLiée (ex. : statut__nom) (* avec 's' !!!)
+toutes entités :
+valeur -> si plusieurs valeurs possibles, séparer les valeurs par un pipe "|"
+       -> commencer par un "+" pour ajouter aussi les valeurs par défaut, sinon elles ne seront pas ajoutées
+
+       (ex. : typeImage__nom="+Universel|Ambiance") -> revient à écrire typeImage_typeImage__nom
+       (ex. : imagePpale_image__nom="Curvy 2|Curvy 3")
+
+fichiers externes : "import###" + nomDuDossier + "::" + nom du fichier (ex. texte="import@txt::intro.txt")
+  -> utiliser "importConcat###" pour concaténer les fichiers textes et n'obtenir qu'une seule valeur d'après tous les fichiers
+noms de fichiers multiples : séparer par "|" (ex. texte="import@txt::intro.txt|intro2.txt|xml::intro3.txt")
+  -> préciser à chaque fois le dossier / s'il n'est pas précisé, le nom du dossier précédent est repris.
+
+ -->
+<categories>
+
+	<categorie nom="intro" titre="Et si on cousait" resume="Découvrez la nouvelle manière d'aborder la coûture." texte="import@txt::intro.txt" protectedOnRemove="1" typeRichtext__nom="pageweb" />
+	<categorie nom="arguEboutique" titre="E-boutique Singer" resume="Singer France" texte="import@txt::arguEboutique.txt" protectedOnRemove="1" typeRichtext__nom="pageweb" />
+	<!-- Textes monde Singer -->
+	<categorie nom="notreHistoire" titre="SINGER, un savoir-faire, une histoire" resume="Singer France" texte="import@txt::notreHistoire.txt" protectedOnRemove="1" directEditable="0" typeRichtext__nom="pageweb" />
+	<categorie nom="leSaviezVous" titre="Le saviez-vous ?" resume="Singer France" texte="import@txt::leSaviezVous.txt" protectedOnRemove="1" typeRichtext__nom="pageweb" />
+	<categorie nom="nosPartenaires" titre="Nos partenaires" resume="Singer France" texte="import@txt::nosPartenaires.txt" protectedOnRemove="1" directEditable="0" typeRichtext__nom="pageweb" />
+	<categorie nom="nosEngagements" titre="Nos engagements" resume="Singer France" texte="import@txt::nosEngagements.txt" protectedOnRemove="1" typeRichtext__nom="pageweb" />
+	<categorie nom="devenirConcessionnaire" titre="Devenir Concessionnaire agréé SINGER" resume="Singer France" texte="import@txt::devenirConcessionnaire.txt" protectedOnRemove="1" typeRichtext__nom="pageweb" />
+	<categorie nom="grandeDistribution" titre="Grande distribution" resume="Singer France" texte="import@txt::grandeDistribution.txt" protectedOnRemove="1" typeRichtext__nom="pageweb" />
+	<categorie nom="devenirDistributeur" titre='Devenir Distributeur agréé "Grande distribution" SINGER' resume="Singer France" texte="import@txt::devenirDistributeur.txt" protectedOnRemove="1" typeRichtext__nom="pageweb" />
+	<categorie nom="cgv" titre="Conditions générales de vente" resume="Singer France" texte="import@txt::cgv.txt" protectedOnRemove="1" typeRichtext__nom="pageweb" />
+	<categorie nom="confidentialite" titre="Toutes les raisons de nous faire confiance" resume="Singer France" texte="import@txt::confidentialite.txt" protectedOnRemove="1" typeRichtext__nom="pageweb" />
+
+	<categorie nom="findMagasins" titre="Magasins Singer" resume="Les magasins Singer France" texte="import@txt::findMagasins.txt" protectedOnRemove="1" typeRichtext__nom="pageweb" />
+
+	<categorie nom="mannequins45cm" titre="Des mannequins de 45 cm avec une belle chevelure et de grands yeux magnifiques !" resume="Singer France" texte="import@txt::mannequins45cm.txt" protectedOnRemove="1" typeRichtext__nom="pageweb" />
+	<categorie nom="portecles" titre="Des porte-clés visionnaires" resume="Singer France" texte="import@txt::portecles.txt" protectedOnRemove="1" typeRichtext__nom="pageweb" />
+	<categorie nom="caravane" titre="La caravane Singer" resume="Singer France" texte="import@txt::caravane.txt" protectedOnRemove="1" typeRichtext__nom="pageweb" />
+	<categorie nom="ghandi" titre="Il se chuchote quelques dires…" resume="Singer France" texte="import@txt::ghandi.txt" protectedOnRemove="1" typeRichtext__nom="pageweb" />
+
+	<categorie nom="mellekou" titre="Melle Kou" resume="Singer France" texte="import@txt::mellekou.txt" protectedOnRemove="1" typeRichtext__nom="pageweb" />
+	<categorie nom="marieclaire" titre="Marie Claire idées" resume="Singer France" texte="import@txt::marieclaire.txt" protectedOnRemove="1" typeRichtext__nom="pageweb" />
+	<categorie nom="europdistri" titre="Europ'Distri" resume="Singer France" texte="import@txt::europdistri.txt" protectedOnRemove="1" typeRichtext__nom="pageweb" />
+	<categorie nom="distrifil" titre="Distrifil" resume="Singer France" texte="import@txt::distrifil.txt" protectedOnRemove="1" typeRichtext__nom="pageweb" />
+	<categorie nom="bobinescombines" titre="Bobines &amp; Combines" resume="Singer France" texte="import@txt::bobinescombines.txt" protectedOnRemove="1" typeRichtext__nom="pageweb" />
+	<categorie nom="cartesinger" titre="La carte Singer" resume="Singer France" texte="import@txt::cartesinger.txt" protectedOnRemove="1" typeRichtext__nom="pageweb" />
+
+	<categorie nom="sav" titre="Service Après-Vente SINGER..." resume="Singer France" texte="import@txt::sav.txt" protectedOnRemove="1" typeRichtext__nom="pageweb" />
+	<categorie nom="contact" titre="Contacts SINGER FRANCE" resume="Singer France" texte="import@txt::contact.txt" protectedOnRemove="1" typeRichtext__nom="pageweb" />
+
+</categories>

@@ -1,0 +1,2 @@
+<img src="{# IMG:nom:mannequin #}" />
+<p>Dans les années 60, SINGER lançait une machine à coudre pour enfant avec une collection de Poupées Sebino: Valérie, Bettina…, des mannequins idéales à styliser ! Les enfants pouvaient ainsi se familiariser avec la couture et confectionner des robes et des manteaux pour vêtir leurs princesses. Le kit comprenait du tissu, une fermeture éclair, une boucle de ceinture, le fil, des explications et un petit livre explicatif.</p>

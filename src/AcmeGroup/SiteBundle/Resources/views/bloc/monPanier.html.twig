@@ -1,0 +1,12 @@
+{% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+<a href="{{ path('acme_panier_user') }}" title="Mon panier e-boutique">
+	<img src="{{ asset('bundles/acmegroupsite/images/panier.png') }}" height="32" width="39"/>Mon panier ({{ infopanier.total }})
+</a>
+{% else %}
+<a href="{{ path('acme_panier_user') }}" title="Connectez-vous ou créez votre compte pour utiliser votre panier e-boutique">
+	<img src="{{ asset('bundles/acmegroupsite/images/panier_off.png') }}" height="32" width="39"/>Mon panier
+</a>
+{% endif %}
+<span class="majZone groupeIconepanier" data-prototype="{{ url('acme_site_majZone') }}__majZoneBlocIconePanier" style="display:none;">
+	<input type="hidden" class="nbarticles" name="nbarticles" value="" />
+</span>

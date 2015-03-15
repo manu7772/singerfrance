@@ -1,0 +1,31 @@
+{% extends "AcmeGroupSiteBundle::sitePage.html.twig" %}
+{% block metatitles %}
+{% include('AcmeGroupSiteBundle:bloc:metatitles-default.html.twig') %}
+{% endblock metatitles %}
+{% block navbar %}
+	{% if pageweb[0].slug is defined %}
+	{{ render(controller("AcmeGroupLaboBundle:Labo:navbar", {pageweb: pageweb[0].slug})) }}
+	{% else %}
+	{{ render(controller("AcmeGroupLaboBundle:Labo:navbar")) }}
+	{% endif %}
+{% endblock navbar %}
+{% block siteroot_body %}
+	{{ render(controller('AcmeGroupSiteBundle:Site:menu')) }}
+	{% block body_container %}
+		<div id="container_site" class="monde_singer">
+			<div id="container_principal_generique" class="richtexts">
+				{% include('AcmeGroupSiteBundle:menu:menuMonde.html.twig') %}
+				<!-- contenu de droite-->
+				<div id="container_generique">
+					<h1>{% if pageweb[0].titreh1 is not null %}{{ URIperform(pageweb[0].titreh1)|raw }}{% else %}{{ URIperform(pageweb[0].richtexts[0].titre)|raw }}{% endif %}</h1>
+					{% if pageweb[0].richtexts is defined %}
+					{% for richtext in pageweb[0].richtexts %}
+					{{ URIperform(richtext.texte)|raw }}
+					{% endfor %}
+					{% endif %}
+				</div>
+				<!-- Fin contenu de droite-->
+			</div>
+		</div>
+	{% endblock %}
+{% endblock %}

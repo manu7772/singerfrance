@@ -1,0 +1,53 @@
+<!--ETOILES Avis a donner-->
+{% if note < 1 %}
+{% set title = 'title="Cet article n\'a pas encore été noté. Cliquez pour donner votre avis."' %}
+<div class="etoiles" id="etoilesArt{{ article.id }}"{{ title|raw }}>
+	<a href="{{ url('acme_site_fichearticle', {'articleSlug': article.slug, 'tab': 'tabavis'}) }}">
+		<ul>
+			<li class="etoile_novote">
+				<ul>
+					<li class="etoile_novote">
+						<ul>
+							<li class="etoile_novote">
+								<ul>
+									<li class="etoile_novote">
+										<ul>
+											<li class="etoile_novote">
+											</li>
+										</ul>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</li>
+		</ul>
+	</a>
+</div>
+{% else %}
+{% set title = '' %}
+<div class="etoiles" id="etoilesArt{{ article.id }}"{{ title|raw }}>
+	<ul>{% if note > 0 %}{% set light = "etoile_on" %}{% else %}{% set light = "etoile_off" %}{% endif %}
+		<li class="{{ light }}">
+			<ul>{% if note > 1 %}{% set light = "etoile_on" %}{% else %}{% set light = "etoile_off" %}{% endif %}
+				<li class="{{ light }}">
+					<ul>{% if note > 2 %}{% set light = "etoile_on" %}{% else %}{% set light = "etoile_off" %}{% endif %}
+						<li class="{{ light }}">
+							<ul>{% if note > 3 %}{% set light = "etoile_on" %}{% else %}{% set light = "etoile_off" %}{% endif %}
+								<li class="{{ light }}">
+									<ul>{% if note > 4 %}{% set light = "etoile_on" %}{% else %}{% set light = "etoile_off" %}{% endif %}
+										<li class="{{ light }}">
+										</li>
+									</ul>
+								</li>
+							</ul>
+						</li>
+					</ul>
+				</li>
+			</ul>
+		</li>
+	</ul>
+</div>
+{% endif %}
+<!--FIN ETOILES DEJA DONNEES-->

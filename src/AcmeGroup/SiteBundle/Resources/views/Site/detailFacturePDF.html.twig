@@ -1,0 +1,104 @@
+{% set bordertable = "1pt solid #666" %}
+{% set bordertabledot = "0pt dotted #999" %}
+{% set typeliste = "facture" %}
+<style type="text/css">
+p {
+	font-size: 11pt;
+	margin:0mm;
+	padding:0mm;
+	color:#333;
+}
+hr {
+	size: 1px;
+	color: #666;
+}
+i {
+	color: #666;
+}
+h1, h2, h3, h4, h5 {
+	margin: 4px 0px 2px;
+}
+table {
+	width: 100%;
+}
+table.{{ typeliste }} {
+	/*width: 100%;*/
+	border: {{ bordertable|raw }};
+}
+table.{{ typeliste }} >tr {
+	border-top: {{ bordertable|raw }};
+}
+table.{{ typeliste }} >tr.first-child {
+	border: none;
+}
+table.{{ typeliste }} >tr >th {
+	background: #666;
+	color: #fff;
+}
+table.{{ typeliste }} >tr >td {
+	border-left: {{ bordertabledot|raw }};
+}
+table.{{ typeliste }} >tr >td.first-child {
+	border-left: none;
+}
+table.{{ typeliste }} p {
+	font-size:9pt;
+	margin:1mm 0mm;
+	padding:0mm;
+	color:#000;
+	letter-spacing: -1px;
+}
+.left {
+	text-align: left;
+}
+.right {
+	text-align: right;
+}
+.center {
+	text-align: center;
+}
+</style>
+<page backtop="0mm" backbottom="0mm" backleft="0mm" backright="0mm">
+	<hr noshade>
+	<table style="width: 100%;">
+		<tr>
+			<td style="width:60%;">
+				{% if facture.versions.0.adresse is not null %}
+				<address>
+					<h3>{{ facture.versions.0.adresse.nom }}</h3>
+					<p>{{ facture.versions.0.adresse.adresse }}</p>
+					<p>{{ facture.versions.0.adresse.cp }} {{ facture.versions.0.adresse.ville }}</p>
+					<p><i>{{ facture.versions.0.tvaIntra }}</i></p>
+					<p><i>{{ facture.versions.0.siren }}</i></p>
+				</address>
+				{% endif %}
+			</td>
+			<td style="width:40%;">
+				<address>
+					<p>&nbsp;</p>
+					<p><i><small>A l'attention de</small></i></p>
+					<h4>{{ facture.nom|capitalize }} {{ facture.prenom|capitalize }}</h4>
+					<p>{{ facture.adresse }}</p>
+					<p>{{ facture.cp }} {{ facture.ville|capitalize }}</p>
+					{% if facture.tel is not null %}<p>Tél : {{ facture.tel }}</p>{% endif %}
+				</address>
+			</td>
+		</tr>
+	</table>
+	<hr noshade>
+	<h4><small>N° facture : </small>{{ facture.reference }}</h4>
+	<p><small>Date facture : </small>{{ dateFR(facture.dateCreation)|capitalize }}</p>
+	<p><small>Réf. client : </small>{{ facture.email }}</p>
+	<br />
+	<br />
+	{% include 'AcmeGroupSiteBundle:bloc:detailFactureCorps.html.twig' with {typeliste: typeliste} %}
+	<br />
+    <page_footer>
+		<p style="text-align: center;"><small>L'acheteur reconnait expressément avoir pris connaissance des conditions générales de vente communiquées antérieurement.</small></p>
+		<hr noshade>
+		<p style="text-align: center;"><small>{{ facture.versions.0.descriptif }} - {{ simpleURL(facture.versions.0.nomDomaine) }}</small></p>
+    	<p style="text-align: right;"><small>page [[page_cu]]/[[page_nb]]</small></p>
+    </page_footer>
+</page>
+
+

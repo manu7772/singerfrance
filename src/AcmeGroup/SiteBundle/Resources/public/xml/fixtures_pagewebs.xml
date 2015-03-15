@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+entités liées :
+nom    -> nomDuChampLocal* + [_nomDeLEntitéLiée] + __nomDuChampDeLentiteLiée (ex. : statut__nom) (* avec 's' !!!)
+toutes entités :
+valeur -> si plusieurs valeurs possibles, séparer les valeurs par un pipe "|"
+       -> commencer par un "+" pour ajouter aussi les valeurs par défaut, sinon elles ne seront pas ajoutées
+
+       (ex. : typeImage__nom="+Universel|Ambiance") -> revient à écrire typeImage_typeImage__nom
+       (ex. : imagePpale_image__nom="Curvy 2|Curvy 3")
+
+fichiers externes : "import@" + nomDuDossier + "::" + nom du fichier (ex. texte="import@txt::intro.txt")
+  -> utiliser "importConcat@" pour concaténer les fichiers textes et n'obtenir qu'une seule valeur d'après tous les fichiers
+noms de fichiers multiples : séparer par "|" (ex. texte="import@txt::intro.txt|intro2.txt|xml::intro3.txt")
+  -> préciser à chaque fois le dossier / s'il n'est pas précisé, le nom du dossier précédent est repris.
+
+ -->
+<categories>
+	<categorie nom="pageweb" route="acme_site_pageweb" code="Affichage d'une page type du site" title="Page type" titreh1="Page type" metatitle="" metadescription="" fichierhtml="pageweb:pageweb001" />
+	<!-- home -->
+	<categorie nom="homepage" route="acme_site_home" code="" title="" titreh1="" metatitle="" metadescription="" fichierhtml="Site:index" />
+	<!-- principales -->
+	<categorie nom="PRODUITS" route="acme_site_pageProduits" code="" title="" titreh1="" metatitle="" metadescription="" fichierhtml="Site:pageProduits" />
+	<categorie nom="MAC" route="acme_site_pageMac" code="" title="" titreh1="" metatitle="" metadescription="" fichierhtml="Site:pageMac" />
+	<categorie nom="categories" route="acme_site_categories" code="" title="" titreh1="" metatitle="" metadescription="" fichierhtml="Site:pageListproduits" />
+	<categorie nom="UNIVERS" route="acme_site_pageUnivers" code="" title="" titreh1="" metatitle="" metadescription="" fichierhtml="Site:pageMac" />
+	<categorie nom="catunivers" route="acme_site_univers" code="" title="" titreh1="" metatitle="" metadescription="" fichierhtml="Site:pageListautrUnivers" />
+	<!-- vidéo -->
+	<categorie nom="video" route="acme_site_videos" code="" title="" titreh1="" metatitle="" metadescription="" fichierhtml="Site:pageVideos" />
+	<!-- Atelier créatif -->
+	<categorie nom="atelier" route="acme_site_atelier" code="" title="" titreh1="" metatitle="" metadescription="" fichierhtml="Site:pageAtelierCreatif" />
+	<categorie nom="ateliertheme" route="acme_site_atelier_theme" code="" title="" titreh1="" metatitle="" metadescription="" fichierhtml="Site:pageAtelierCreatif" />
+	<!-- Atelier créatif -->
+	<categorie nom="mondesinger" route="acme_site_leMondeSinger" code="" title="" titreh1="" metatitle="" metadescription="" fichierhtml="Site:pagesMonde" />
+	<categorie nom="notrehistoire" route="acme_site_notreHistoire" code="" title="" titreh1="" metatitle="" metadescription="" fichierhtml="Site:pagesMonde" />
+	<categorie nom="lesaviervous" route="acme_site_leSaviezVous" code="" title="" titreh1="" metatitle="" metadescription="" fichierhtml="Site:pagesMonde" />
+	<categorie nom="nospartenaires" route="acme_site_nosPartenaires" code="" title="" titreh1="" metatitle="" metadescription="" fichierhtml="Site:pagesMonde" />
+	<categorie nom="nosengagements" route="acme_site_nosEngagements" code="" title="" titreh1="" metatitle="" metadescription="" fichierhtml="Site:pagesMonde" />
+	<categorie nom="devenirconcess" route="acme_site_devenirConcessionnaire" code="" title="" titreh1="" metatitle="" metadescription="" fichierhtml="Site:pagesMonde" />
+	<!-- Evènements -->
+	<categorie nom="evenements" route="acme_site_evenements" code="" title="" titreh1="" metatitle="" metadescription="" fichierhtml="Site:pageEvenements" />
+	<!-- E-boutique -->
+	<categorie nom="eboutique" route="acme_site_eboutique" code="" title="" titreh1="" metatitle="" metadescription="" fichierhtml="Site:pageEBoutique" />
+</categories>

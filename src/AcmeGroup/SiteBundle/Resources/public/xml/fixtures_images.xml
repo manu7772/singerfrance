@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+entités liées :
+nom    -> nomDuChampLocal* + [_nomDeLEntitéLiée] + __nomDuChampDeLentiteLiée (ex. : statut__nom) (* avec 's' !!!)
+toutes entités :
+valeur -> si plusieurs valeurs possibles, séparer les valeurs par un pipe "|"
+       -> commencer par un "+" pour ajouter aussi les valeurs par défaut, sinon elles ne seront pas ajoutées
+
+       (ex. : typeImage__nom="+Universel|Ambiance") -> revient à écrire typeImage_typeImage__nom
+       (ex. : imagePpale_image__nom="Curvy 2|Curvy 3")
+
+fichiers externes : "import@" + nomDuDossier + "::" + nom du fichier (ex. texte="import@txt::intro.txt")
+  -> utiliser "importConcat@" pour concaténer les fichiers textes et n'obtenir qu'une seule valeur d'après tous les fichiers
+noms de fichiers multiples : séparer par "|" (ex. texte="import@txt::intro.txt|intro2.txt|xml::intro3.txt")
+  -> préciser à chaque fois le dossier / s'il n'est pas précisé, le nom du dossier précédent est repris.
+
+ -->
+<categories>
+	<!-- Logos -->
+	<categorie nom="Logo Singer entête" typeImage__nom="version|logo" fichierOrigine="logo_singer.png" version__nom="Singer" />
+	<categorie nom="Logo Singer.v2 entête" typeImage__nom="version|logo" fichierOrigine="logo_singerV2.png" version__nom="Singer-V2" />
+	<categorie nom="Logo Singer Démo" typeImage__nom="version|logo" fichierOrigine="logo_singerDemo.png" version__nom="DemoSinger" />
+	<!-- Partenaires -->
+	<categorie nom="cofinoga" typeImage__nom="logo|partenaires" fichierOrigine="cofinoga.jpg" version__nom="Singer" />
+	<categorie nom="distrifil" typeImage__nom="logo|partenaires" fichierOrigine="distrifil.jpg" version__nom="Singer" />
+	<categorie nom="europ_distri" typeImage__nom="logo|partenaires" fichierOrigine="europ_distri.jpg" version__nom="Singer" />
+	<categorie nom="logobobinesetcombines" typeImage__nom="logo|partenaires" fichierOrigine="logobobinesetcombines.JPG" version__nom="Singer" />
+	<categorie nom="marie_claire_idees" typeImage__nom="logo|partenaires" fichierOrigine="marie_claire_idees.jpg" version__nom="Singer" />
+	<categorie nom="mlle_kou" typeImage__nom="logo|partenaires" fichierOrigine="mlle_kou.jpg" version__nom="Singer" />
+	<categorie nom="singer_carte" typeImage__nom="logo|partenaires" fichierOrigine="singer_carte.jpg" version__nom="Singer" />
+	<categorie nom="sweat_shop" typeImage__nom="logo|partenaires" fichierOrigine="sweat_shop.jpg" version__nom="Singer" />
+	<!-- images du site -->
+	<categorie nom="magasinSinger" typeImage__nom="universel|site" fichierOrigine="magasinSinger.jpg" version__nom="Singer|Singer-V2" />
+	<categorie nom="isaac" typeImage__nom="universel|site" fichierOrigine="isaac.jpg" version__nom="Singer|Singer-V2" />
+	<categorie nom="mannequin" typeImage__nom="universel|site" fichierOrigine="mannequin.jpg" version__nom="Singer|Singer-V2" />
+	<categorie nom="picto-concours" typeImage__nom="universel|site" fichierOrigine="picto-concours.png" version__nom="Singer|Singer-V2" />
+	<categorie nom="picto-salons" typeImage__nom="universel|site" fichierOrigine="picto-salons.png" version__nom="Singer|Singer-V2" />
+	<categorie nom="picto-newsletter" typeImage__nom="universel|site" fichierOrigine="picto-newsletter.png" version__nom="Singer|Singer-V2" />
+	<categorie nom="picto-plv" typeImage__nom="universel|site" fichierOrigine="picto-plv.png" version__nom="Singer|Singer-V2" />
+	<!-- évènements -->
+	<categorie nom="Jeux concours" typeImage__nom="evenement|site" fichierOrigine="Jeux.png" version__nom="Singer|Singer-V2" />
+	<categorie nom="Salons et foires" typeImage__nom="evenement|site" fichierOrigine="Foires.png" version__nom="Singer|Singer-V2" />
+
+	<!-- images atelier créatif -->
+	<categorie nom="atelierPhoto1" typeImage__nom="atelier" fichierOrigine="IMG_0100.JPG" version__nom="Singer|Singer-V2" />
+	<categorie nom="atelierPhoto2" typeImage__nom="atelier" fichierOrigine="IMG_0120.JPG" version__nom="Singer|Singer-V2" />
+	<categorie nom="atelierPhoto3" typeImage__nom="atelier" fichierOrigine="IMG_3016.JPG" version__nom="Singer|Singer-V2" />
+	<categorie nom="atelierPhoto4" typeImage__nom="atelier" fichierOrigine="IMG_3017.JPG" version__nom="Singer|Singer-V2" />
+	<categorie nom="atelierPhoto5" typeImage__nom="atelier" fichierOrigine="IMG_3018.JPG" version__nom="Singer|Singer-V2" />
+	<categorie nom="atelierPhoto6" typeImage__nom="atelier" fichierOrigine="IMG_3027.JPG" version__nom="Singer|Singer-V2" />
+	<categorie nom="atelierPhoto7" typeImage__nom="atelier" fichierOrigine="IMG_3031.JPG" version__nom="Singer|Singer-V2" />
+
+	<!-- photos articles -->
+	<categorie nom="Singer Curvy face" typeImage__nom="+article" fichierOrigine="Singer_Curvy_face_optim2048.jpg" />
+	<categorie nom="Singer Curvy côté" typeImage__nom="+article" fichierOrigine="Singer_Curvy_3_4_optim2048.jpg" />
+	<categorie nom="Singer Curvy dessus" typeImage__nom="+article" fichierOrigine="Singer_Curvy_haut_optim2048.jpg" />
+
+	<categorie nom="Singer Box 1 face" typeImage__nom="+article" fichierOrigine="Singer_Box1_face_optim2048.jpg" />
+	<categorie nom="Singer Box 1 complet" typeImage__nom="+article" fichierOrigine="Singer_Box1_complet_optim2048.jpg" />
+	<categorie nom="Singer Box 1 contenu" typeImage__nom="+article" fichierOrigine="Singer_Box1_contenu_optim2048.jpg" />
+
+	<categorie nom="Singer Box 2 face" typeImage__nom="+article" fichierOrigine="Singer_Box2_face_optim2048.jpg" />
+	<categorie nom="Singer Box 2 complet" typeImage__nom="+article" fichierOrigine="Singer_Box2_complet_optim2048.jpg" />
+	<categorie nom="Singer Box 2 contenu" typeImage__nom="+article" fichierOrigine="Singer_Box2_contenu_optim2048.jpg" />
+
+	<categorie nom="Singer Box 3 face" typeImage__nom="+article" fichierOrigine="Singer_Box3_face_optim2048.jpg" />
+	<categorie nom="Singer Box 3 complet" typeImage__nom="+article" fichierOrigine="Singer_Box3_complet_optim2048.jpg" />
+	<categorie nom="Singer Box 3 contenu" typeImage__nom="+article" fichierOrigine="Singer_Box3_contenu_optim2048.jpg" />
+
+	<categorie nom="Singer Box 4 face" typeImage__nom="+article" fichierOrigine="Singer_Box4_face_optim2048.jpg" />
+	<categorie nom="Singer Box 4 complet" typeImage__nom="+article" fichierOrigine="Singer_Box4_complet_optim2048.jpg" />
+	<categorie nom="Singer Box 4 contenu" typeImage__nom="+article" fichierOrigine="Singer_Box4_contenu_optim2048.jpg" />
+
+	<categorie nom="Singer Brillance face" typeImage__nom="+article" fichierOrigine="Singer_Brillance_face_optim2048.jpg" />
+	<categorie nom="Singer Brillance côté" typeImage__nom="+article" fichierOrigine="Singer_Brillance_3-4_optim2048.jpg" />
+	<categorie nom="Singer Brillance dessus 1" typeImage__nom="+article" fichierOrigine="Singer_Brillance_haut1_optim2048.jpg" />
+	<categorie nom="Singer Brillance dessus 2" typeImage__nom="+article" fichierOrigine="Singer_Brillance_haut2_optim2048.jpg" />
+
+	<categorie nom="La boîte à couture pour les nuls boîte" typeImage__nom="+article" fichierOrigine="Singer_CoutureNuls_boite_optim2048.jpg" />
+	<categorie nom="La boîte à couture pour les nuls complet" typeImage__nom="+article" fichierOrigine="Singer_CoutureNuls_complet_optim2048.jpg" />
+
+	<categorie nom="Singer EuropaS face" typeImage__nom="+article" fichierOrigine="Singer_EuropaS_face_optim2048.jpg" />
+	<categorie nom="Singer EuropaS côté" typeImage__nom="+article" fichierOrigine="Singer_EuropaS-3_4_optim2048.jpg" />
+	<categorie nom="Singer EuropaS dessus" typeImage__nom="+article" fichierOrigine="Singer_EuropaS_haut_optim2048.jpg" />
+	<categorie nom="Singer EuropaS boîte" typeImage__nom="+article" fichierOrigine="Singer_EuropaS_Boite_optim2048.jpg" />
+
+	<categorie nom="Singer Experience 160 face" typeImage__nom="+article" fichierOrigine="Singer_Experience160_face_optim2048.jpg" />
+	<categorie nom="Singer Experience 160 côté" typeImage__nom="+article" fichierOrigine="Singer_Experience160_3_4_optim2048.jpg" />
+	<categorie nom="Singer Experience 160 dessus" typeImage__nom="+article" fichierOrigine="Singer_Experience160_haut_optim2048.jpg" />
+
+	<categorie nom="Singer HD854 face" typeImage__nom="+article" fichierOrigine="Singer_HD854_face_optim2048.jpg" />
+	<categorie nom="Singer HD854 côté" typeImage__nom="+article" fichierOrigine="Singer_HD854_3_4_optim2048.jpg" />
+	<categorie nom="Singer HD854 dessus" typeImage__nom="+article" fichierOrigine="Singer_HD854_haut_optim2048.jpg" />
+
+	<categorie nom="Singer Initiale face" typeImage__nom="+article" fichierOrigine="Singer_Initiale_face_optim2048.jpg" />
+	<categorie nom="Singer Initiale côté" typeImage__nom="+article" fichierOrigine="Singer_Initiale_3-4_optim2048.jpg" />
+	<categorie nom="Singer Initiale dessus" typeImage__nom="+article" fichierOrigine="Singer_Initiale_haut_optim2048.jpg" />
+	<categorie nom="Singer Initiale détail 1" typeImage__nom="+article" fichierOrigine="Singer_Initiale_zoom2_optim2048.jpg" />
+	<categorie nom="Singer Initiale détail 2" typeImage__nom="+article" fichierOrigine="Singer_Initiale_zoom_optim2048.jpg" />
+	<categorie nom="Singer Initiale boîte" typeImage__nom="+article" fichierOrigine="Singer_Initiale_Boite_optim2048.jpg" />
+
+	<categorie nom="Coudre pour bébé" typeImage__nom="+article" fichierOrigine="Singer_Livre_CoudreBebe_optim2048.jpg" />
+
+	<categorie nom="Coudre pour la maison" typeImage__nom="+article" fichierOrigine="Singer_Livre_CoudreMaison_optim2048.jpg" />
+
+	<categorie nom="Singer MC1507 face" typeImage__nom="+article" fichierOrigine="Singer_1507_face_optim2048.jpg" />
+	<categorie nom="Singer MC1507 côté" typeImage__nom="+article" fichierOrigine="Singer_1507_3_4_optim2048.jpg" />
+	<categorie nom="Singer MC1507 dessus" typeImage__nom="+article" fichierOrigine="Singer_1507_haut_optim2048.jpg" />
+	<categorie nom="Singer MC1507 détail" typeImage__nom="+article" fichierOrigine="Singer_MC1507_zoom_optim2048.jpg" />
+	<categorie nom="Singer MC1507 boîte" typeImage__nom="+article" fichierOrigine="Singer_1507_Boite_optim2048.jpg" />
+
+	<categorie nom="Singer MC8280 face" typeImage__nom="+article" fichierOrigine="Singer_MC82280_face_optim2048.jpg" />
+	<categorie nom="Singer MC8280 côté" typeImage__nom="+article" fichierOrigine="Singer_MC82280_3-4_optim2048.jpg" />
+	<categorie nom="Singer MC8280 dessus" typeImage__nom="+article" fichierOrigine="Singer_MC82280_haut_optim2048.jpg" />
+	<categorie nom="Singer MC8280 détail" typeImage__nom="+article" fichierOrigine="Singer_MC8280_zoom_optim2048.jpg" />
+	<categorie nom="Singer MC8280 boîte" typeImage__nom="+article" fichierOrigine="Singer_8280_Boite_optim2048.jpg" />
+
+	<categorie nom="Singer Madam3 face" typeImage__nom="+article" fichierOrigine="Singer_Madam3_face_optim2048.jpg" />
+	<categorie nom="Singer Madam3 côté" typeImage__nom="+article" fichierOrigine="Singer_Madam3_3-4_optim2048.jpg" />
+
+	<categorie nom="Singer Madam4 face" typeImage__nom="+article" fichierOrigine="Singer_Madam4_face_optim2048.jpg" />
+	<categorie nom="Singer Madam4 côté" typeImage__nom="+article" fichierOrigine="Singer_Madam4_3_4_optim2048.jpg" />
+	<categorie nom="Singer Madam4 dessus" typeImage__nom="+article" fichierOrigine="Singer_Madam4_haut_optim2048.jpg" />
+
+	<categorie nom="Singer Mégabox boîte" typeImage__nom="+article" fichierOrigine="Singer_Megabox_Boite_optim2048.jpg" />
+	<categorie nom="Singer Mégabox contenu 1" typeImage__nom="+article" fichierOrigine="Singer_Megabox_1_optim2048.jpg" />
+	<categorie nom="Singer Mégabox contenu 2" typeImage__nom="+article" fichierOrigine="Singer_Megabox_2_optim2048.jpg" />
+
+	<categorie nom="Singer Mini+ face 1" typeImage__nom="+article" fichierOrigine="Singer_Mini+_01_optim2048.jpg" />
+	<categorie nom="Singer Mini+ face 2" typeImage__nom="+article" fichierOrigine="Singer_Mini+_02_optim2048.jpg" />
+	<categorie nom="Singer Mini+ côté" typeImage__nom="+article" fichierOrigine="Singer_Mini+_03_optim2048.jpg" />
+
+	<categorie nom="Singer Prélude face" typeImage__nom="+article" fichierOrigine="Singer_Prelude_face_optim2048.jpg" />
+	<categorie nom="Singer Prélude côté" typeImage__nom="+article" fichierOrigine="Singer_Prelude_3-4_optim2048.jpg" />
+	<categorie nom="Singer Prélude dessus" typeImage__nom="+article" fichierOrigine="Singer_Prelude_haute_optim2048.jpg" />
+	<categorie nom="Singer Prélude détail 1" typeImage__nom="+article" fichierOrigine="Singer_Prelude_zoom_optim2048.jpg" />
+	<categorie nom="Singer Prélude détail 2" typeImage__nom="+article" fichierOrigine="Singer_Prelude_zoom2_optim2048.jpg" />
+	<categorie nom="Singer Prélude boîte" typeImage__nom="+article" fichierOrigine="Singer_Prelude_Boite_optim2048.jpg" />
+
+	<categorie nom="Singer Sac Rouge face" typeImage__nom="+article" fichierOrigine="Singer_SacRouge_3-4_optim2048.jpg" />
+	<categorie nom="Singer Sac Rouge côté" typeImage__nom="+article" fichierOrigine="Singer_SacRouge_face_optim2048.jpg" />
+
+	<categorie nom="Singer SG2200 face" typeImage__nom="+article" fichierOrigine="Singer_SG2200_face_optim2048.jpg" />
+	<categorie nom="Singer SG2200 côté" typeImage__nom="+article" fichierOrigine="Singer_SG2200_3-4_optim2048.jpg" />
+	<categorie nom="Singer SG2200 dessus" typeImage__nom="+article" fichierOrigine="Singer_SG2200_haut_optim2048.jpg" />
+	<categorie nom="Singer SG2200 boîte" typeImage__nom="+article" fichierOrigine="Singer_SG2200_Boite_optim2048.jpg" />
+
+	<categorie nom="Singer Simple3221 face" typeImage__nom="+article" fichierOrigine="Singer_Simple3221_face_optim2048.jpg" />
+	<categorie nom="Singer Simple3221 côté" typeImage__nom="+article" fichierOrigine="Singer_Simple3221_3-4_optim2048.jpg" />
+	<categorie nom="Singer Simple3221 dessus" typeImage__nom="+article" fichierOrigine="Singer_Simple_haute_optim2048.jpg" />
+	<categorie nom="Singer Simple3221 détail 1" typeImage__nom="+article" fichierOrigine="Singer_Simple3221_zoom_optim2048.jpg" />
+	<categorie nom="Singer Simple3221 détail 2" typeImage__nom="+article" fichierOrigine="Singer_Simple3221_zoom2_optim2048.jpg" />
+	<categorie nom="Singer Simple3221 boîte" typeImage__nom="+article" fichierOrigine="Singer_Simple3221_Boite_optim2048.jpg" />
+
+	<categorie nom="Singer Simple3232 face" typeImage__nom="+article" fichierOrigine="Singer_Simple3232_face_optim2048.jpg" />
+	<categorie nom="Singer Simple3232 côté" typeImage__nom="+article" fichierOrigine="Singer_Simple3232_3-4_optim2048.jpg" />
+	<categorie nom="Singer Simple3232 détail 1" typeImage__nom="+article" fichierOrigine="Singer_Simple3232_zoom_optim2048.jpg" />
+	<categorie nom="Singer Simple3232 détail 2" typeImage__nom="+article" fichierOrigine="Singer_Simple3232_zoom2_optim2048.jpg" />
+	<categorie nom="Singer Simple3232 boîte" typeImage__nom="+article" fichierOrigine="Singer_Simple3232_Boite_optim2048.jpg" />
+
+	<categorie nom="Singer SmartII face" typeImage__nom="+article" fichierOrigine="Singer_SmartII_face_optim2048.jpg" />
+	<categorie nom="Singer SmartII côté" typeImage__nom="+article" fichierOrigine="Singer_SmartII_3-4_optim2048.jpg" />
+	<categorie nom="Singer SmartII dessus" typeImage__nom="+article" fichierOrigine="Singer_SmartII_haut_optim2048.jpg" />
+	<categorie nom="Singer SmartII détail 1" typeImage__nom="+article" fichierOrigine="Singer_SmartII_zoom_optim2048.jpg" />
+	<categorie nom="Singer SmartII détail 2" typeImage__nom="+article" fichierOrigine="Singer_SmartII_zoom2_optim2048.jpg" />
+	<categorie nom="Singer SmartII détail 3" typeImage__nom="+article" fichierOrigine="Singer_SmartII_zoom3_optim2048.jpg" />
+	<categorie nom="Singer SmartII boîte" typeImage__nom="+article" fichierOrigine="Singer_SmartII_Boite_optim2048.jpg" />
+
+	<categorie nom="Singer Starlet face" typeImage__nom="+article" fichierOrigine="Singer_Starlet_face_optim2048.jpg" />
+	<categorie nom="Singer Starlet côté" typeImage__nom="+article" fichierOrigine="Singer_Starlet_3-4_optim2048.jpg" />
+	<categorie nom="Singer Starlet dessus" typeImage__nom="+article" fichierOrigine="Singer_Starlet_haut_optim2048.jpg" />
+	<categorie nom="Singer Starlet détail 1" typeImage__nom="+article" fichierOrigine="Singer_Starlet_zoom_optim2048.jpg" />
+	<categorie nom="Singer Starlet détail 2" typeImage__nom="+article" fichierOrigine="Singer_Starlet_zoom2_optim2048.jpg" />
+	<categorie nom="Singer Starlet boîte" typeImage__nom="+article" fichierOrigine="Singer_Starlet_Boite_optim2048.jpg" />
+
+	<categorie nom="Singer STR1000 face" typeImage__nom="+article" fichierOrigine="Singer_STR1000_face_optim2048.jpg" />
+	<categorie nom="Singer STR1000 côté" typeImage__nom="+article" fichierOrigine="Singer_STR1000_3-4_optim2048.jpg" />
+	<categorie nom="Singer STR1000 dessus" typeImage__nom="+article" fichierOrigine="Singer_STR1000_haut_optim2048.jpg" />
+	<categorie nom="Singer STR1000 boîte" typeImage__nom="+article" fichierOrigine="Singer_STR1000_Boite_optim2048.jpg" />
+
+	<categorie nom="Singer Stylist face" typeImage__nom="+article" fichierOrigine="Singer_Stylist_face_optim2048.jpg" />
+	<categorie nom="Singer Stylist côté" typeImage__nom="+article" fichierOrigine="Singer_Stylist_3_4_optim2048.jpg" />
+	<categorie nom="Singer Stylist dessus" typeImage__nom="+article" fichierOrigine="Singer_Stylist_haut_optim2048.jpg" />
+
+	<categorie nom="Singer SuperNova côté" typeImage__nom="+article" fichierOrigine="Singer_SuperNova_3_4_optim2048.jpg" />
+	<categorie nom="Singer SuperNova ouverte" typeImage__nom="+article" fichierOrigine="Singer_SuperNova_ouverte_optim2048.jpg" />
+	<categorie nom="Singer SuperNova dessus 1" typeImage__nom="+article" fichierOrigine="Singer_SuperNova_haut_optim2048.jpg" />
+	<categorie nom="Singer SuperNova dessus 2" typeImage__nom="+article" fichierOrigine="Singer_SuperNova_haut-2_optim2048.jpg" />
+	<categorie nom="Singer SuperNova boîte" typeImage__nom="+article" fichierOrigine="Singer_SuperNova_Boite_optim2048.jpg" />
+
+	<categorie nom="Singer Thermoaspirante face" typeImage__nom="+article" fichierOrigine="Singer_Thermoaspirante_01_optim2048.jpg" />
+	<categorie nom="Singer Thermoaspirante côté" typeImage__nom="+article" fichierOrigine="Singer_Thermoaspirante_02_optim2048.jpg" />
+
+	<categorie nom="Singer Tradition2250 bleue face" typeImage__nom="+article" fichierOrigine="Singer_2250bleue_face_optim2048.jpg" />
+	<categorie nom="Singer Tradition2250 bleue côté" typeImage__nom="+article" fichierOrigine="Singer_2250bleue_3_4_optim2048.jpg" />
+	<categorie nom="Singer Tradition2250 bleue dessus" typeImage__nom="+article" fichierOrigine="Singer_2250bleue_haut_optim2048.jpg" />
+	<categorie nom="Singer Tradition2250 bleue boîte" typeImage__nom="+article" fichierOrigine="Singer_Tradition2250bleue_Boite-2_optim2048.jpg" />
+  
+	<categorie nom="Singer Tradition2250 rouge face" typeImage__nom="+article" fichierOrigine="Singer_2250rouge_face_optim2048.jpg" />
+	<categorie nom="Singer Tradition2250 rouge côté" typeImage__nom="+article" fichierOrigine="Singer_2250rouge_3-4_optim2048.jpg" />
+	<categorie nom="Singer Tradition2250 rouge dessus" typeImage__nom="+article" fichierOrigine="Singer_2250rouge_haut_optim2048.jpg" />
+	<categorie nom="Singer Tradition2250 rouge boîte" typeImage__nom="+article" fichierOrigine="Singer_Tradition2250rouge_Boite_optim2048.jpg" />
+
+	<categorie nom="Singer Tradition2259 face" typeImage__nom="+article" fichierOrigine="Singer_Tradition2259_face_optim2048.jpg" />
+	<categorie nom="Singer Tradition2259 côté" typeImage__nom="+article" fichierOrigine="Singer_Tradition2259_3-4_optim2048.jpg" />
+
+	<categorie nom="Singer Black160 face" typeImage__nom="+article" fichierOrigine="Singer_Black160_face_optim2048.jpg" />
+	<categorie nom="Singer Black160 côté" typeImage__nom="+article" fichierOrigine="Singer_Black160_3-4_optim2048.jpg" />
+	<categorie nom="Singer Black160 dessus 1" typeImage__nom="+article" fichierOrigine="Singer_Black160_haut_optim2048.jpg" />
+	<categorie nom="Singer Black160 dessus 2" typeImage__nom="+article" fichierOrigine="Singer_Black160_haut2_optim2048.jpg" />
+
+	<categorie nom="EcoSystème Duo face" typeImage__nom="+article" fichierOrigine="Singer_EcosystemDuo_face_optim2048.jpg" />
+	<categorie nom="EcoSystème Duo côté" typeImage__nom="+article" fichierOrigine="Singer_EcosystemDuo_3_4_optim2048.jpg" />
+	<categorie nom="EcoSystème Duo dessus" typeImage__nom="+article" fichierOrigine="Singer_EcosystemDuo_haut_optim2048.jpg" />
+
+	<categorie nom="EcoSystème Vap face" typeImage__nom="+article" fichierOrigine="Singer_EcosystemVapeur_face_optim2048.jpg" />
+	<categorie nom="EcoSystème Vap côté" typeImage__nom="+article" fichierOrigine="Singer_EcosystemVapeur_3_4_optim2048.jpg" />
+	<categorie nom="EcoSystème Vap dessus" typeImage__nom="+article" fichierOrigine="Singer_EcosystemVapeur_haut_optim2048.jpg" />
+
+	<categorie nom="Singer FP2000 face" typeImage__nom="+article" fichierOrigine="Singer_FP2000_face_optim2048.jpg" />
+	<categorie nom="Singer FP2000 côté" typeImage__nom="+article" fichierOrigine="Singer_FP2000_3_4_optim2048.jpg" />
+	<categorie nom="Singer FP2000 dessus" typeImage__nom="+article" fichierOrigine="Singer_FP2000_haut_optim2048.jpg" />
+
+	<categorie nom="Singer Gamma face" typeImage__nom="+article" fichierOrigine="Singer_Table_01_optim2048.jpg" />
+	<categorie nom="Singer Gamma côté" typeImage__nom="+article" fichierOrigine="Singer_Table_02_optim2048.jpg" />
+
+	<categorie nom="Singer Futura4060 face" typeImage__nom="+article" fichierOrigine="Singer_Futura4060_face-2_optim2048.jpg" />
+	<categorie nom="Singer Futura4060 côté" typeImage__nom="+article" fichierOrigine="Singer_Futura4060_3-4_optim2048.jpg" />
+	<categorie nom="Singer Futura4060 dessus 1" typeImage__nom="+article" fichierOrigine="Singer_Futura4060_haut_optim2048.jpg" />
+	<categorie nom="Singer Futura4060 dessus 2" typeImage__nom="+article" fichierOrigine="Singer_Futura4060_haut2_optim2048.jpg" />
+	<categorie nom="Singer Futura4060 capot" typeImage__nom="+article" fichierOrigine="Singer_Futura4060_face2_optim2048.jpg" />
+
+	<categorie nom="Singer FuturaXL550 face" typeImage__nom="+article" fichierOrigine="Singer_FuturaXL550_face_optim2048.jpg" />
+	<categorie nom="Singer FuturaXL550 côté" typeImage__nom="+article" fichierOrigine="Singer_FuturaXL550_3-4_optim2048.jpg" />
+	<categorie nom="Singer FuturaXL550 dessus" typeImage__nom="+article" fichierOrigine="Singer_FuturaXL550_haut_optim2048.jpg" />
+
+	<categorie nom="Singer One+ face" typeImage__nom="+article" fichierOrigine="Singer_One+_face_optim2048.jpg" />
+	<categorie nom="Singer One+ côté" typeImage__nom="+article" fichierOrigine="Singer_One+_3-4_optim2048.jpg" />
+	<categorie nom="Singer One+ dessus" typeImage__nom="+article" fichierOrigine="Singer_One+_haut_optim2048.jpg" />
+
+	<categorie nom="Singer Professional5 face" typeImage__nom="+article" fichierOrigine="Singer_Professional5_face_optim2048.jpg" />
+	<categorie nom="Singer Professional5 côté" typeImage__nom="+article" fichierOrigine="Singer_Professional5_3-4_optim2048.jpg" />
+	<categorie nom="Singer Professional5 dessus" typeImage__nom="+article" fichierOrigine="Singer_Professional5_haut_optim2048.jpg" />
+
+	<categorie nom="Singer Idea3 face" typeImage__nom="+article" fichierOrigine="Singer_Idea3_face_optim2048.jpg" />
+	<categorie nom="Singer Idea3 côté" typeImage__nom="+article" fichierOrigine="Singer_Idea3_3-4_optim2048.jpg" />
+	<categorie nom="Singer Idea3 dessus" typeImage__nom="+article" fichierOrigine="Singer_Idea3_haut_optim2048.jpg" />
+	<categorie nom="Singer Idea3 ouvert" typeImage__nom="+article" fichierOrigine="Singer_Idea3_Ouverte_optim2048.jpg" />
+
+	<categorie nom="Singer GreenEconomy face" typeImage__nom="+article" fichierOrigine="Singer_GreenEconomy_face_optim2048.jpg" />
+	<categorie nom="Singer GreenEconomy côté" typeImage__nom="+article" fichierOrigine="Singer_GreenEconomy_3_4_optim2048.jpg" />
+	<categorie nom="Singer GreenEconomy dessus 1" typeImage__nom="+article" fichierOrigine="Singer_GreenEconomy_haut_optim2048.jpg" />
+	<categorie nom="Singer GreenEconomy dessus 2" typeImage__nom="+article" fichierOrigine="Singer_GreenEconomy_haut2_optim2048.jpg" />
+
+	<categorie nom="Singer SG400LCD face" typeImage__nom="+article" fichierOrigine="Singer_SG400LCD_face_optim2048.jpg" />
+	<categorie nom="Singer SG400LCD côté" typeImage__nom="+article" fichierOrigine="Singer_SG400LCD_3_4_optim2048.jpg" />
+	<categorie nom="Singer SG400LCD dessus" typeImage__nom="+article" fichierOrigine="Singer_SG400LCD_haut-2_optim2048.jpg" />
+
+	<categorie nom="Singer SG1100Pro face" typeImage__nom="+article" fichierOrigine="Singer_SG1100Pro_face_optim2048.jpg" />
+	<categorie nom="Singer SG1100Pro face 2" typeImage__nom="+article" fichierOrigine="Singer_SG1100Pro_face2_optim2048.jpg" />
+	<categorie nom="Singer SG1100Pro côté 1" typeImage__nom="+article" fichierOrigine="Singer_SG1100Pro-3_4_optim2048.jpg" />
+	<categorie nom="Singer SG1100Pro côté 2" typeImage__nom="+article" fichierOrigine="Singer_SG1100Pro-3_4_2_optim2048.jpg" />
+	<categorie nom="Singer SG1100Pro dessus" typeImage__nom="+article" fichierOrigine="Singer_SG1100Pro_haut_optim2048.jpg" />
+
+	<categorie nom="Singer Supera 5511 face" typeImage__nom="+article" fichierOrigine="Singer_Supera5511_face_optim2048.jpg" />
+	<categorie nom="Singer Supera 5511 côté" typeImage__nom="+article" fichierOrigine="Singer_Supera5511_3-4_optim2048.jpg" />
+	<categorie nom="Singer Supera 5511 dessus" typeImage__nom="+article" fichierOrigine="Singer_Supera_haut_optim2048.jpg" />
+
+	<categorie nom="Singer Supera 5523 face" typeImage__nom="+article" fichierOrigine="Singer_Supera5523_face_optim2048.jpg" />
+	<categorie nom="Singer Supera 5523 côté" typeImage__nom="+article" fichierOrigine="Singer_Supera5523_3-4_optim2048.jpg" />
+
+	<categorie nom="Singer Ultima face" typeImage__nom="+article" fichierOrigine="Singer_Ultima_face_optim2048.jpg" />
+	<categorie nom="Singer Ultima côté" typeImage__nom="+article" fichierOrigine="Singer_Ultima_3-4_optim2048.jpg" />
+	<categorie nom="Singer Ultima dessus" typeImage__nom="+article" fichierOrigine="Singer_Ultima_haut_optim2048.jpg" />
+	<categorie nom="Singer Ultima ouverte" typeImage__nom="+article" fichierOrigine="Singer_Ultima_Ouverte_optim2048.jpg" />
+
+	<categorie nom="Singer Vapomaster face" typeImage__nom="+article" fichierOrigine="Singer_Vapomaster3_face_optim2048.jpg" />
+	<categorie nom="Singer Vapomaster côté" typeImage__nom="+article" fichierOrigine="Singer_Vapomaster3_3_4_optim2048.jpg" />
+	<categorie nom="Singer Vapomaster dessus 1" typeImage__nom="+article" fichierOrigine="Singer_Vapomaster3_haut_optim2048.jpg" />
+	<categorie nom="Singer Vapomaster dessus 2" typeImage__nom="+article" fichierOrigine="Singer_Vapomaster3_haut2_optim2048.jpg" />
+
+	<categorie nom="Singer VC230 face" typeImage__nom="+article" fichierOrigine="Singer_VC230_face_optim2048.jpg" />
+	<categorie nom="Singer VC230 côté" typeImage__nom="+article" fichierOrigine="Singer_VC230_3_4_optim2048.jpg" />
+	<categorie nom="Singer VC230 dessus 1" typeImage__nom="+article" fichierOrigine="Singer_VC230_haut_optim2048.jpg" />
+	<categorie nom="Singer VC230 dessus 2" typeImage__nom="+article" fichierOrigine="Singer_VC230_haut2_optim2048.jpg" />
+
+	<categorie nom="Singer 14SH644 face" typeImage__nom="+article" fichierOrigine="Singer14SH644_face_optim2048.jpg" />
+	<categorie nom="Singer 14SH644 côté" typeImage__nom="+article" fichierOrigine="Singer14SH644_3-4_optim2048.jpg" />
+	<categorie nom="Singer 14SH644 dessus" typeImage__nom="+article" fichierOrigine="Singer14SH644_haut_optim2048.jpg" />
+	<categorie nom="Singer 14SH644 détail" typeImage__nom="+article" fichierOrigine="Singer14SH644_zoom_optim2048.jpg" />
+	<categorie nom="Singer 14SH644 boïte" typeImage__nom="+article" fichierOrigine="Singer_14SH600_Boite_optim2048.jpg" />
+
+</categories>
+
+

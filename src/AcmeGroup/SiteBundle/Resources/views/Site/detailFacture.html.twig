@@ -1,0 +1,18 @@
+{% extends "AcmeGroupSiteBundle:Site:index.html.twig" %}
+{% block body_container %}
+
+<div id="container_site">
+	<div id="container_principal_generique">
+		<h1>Ma commande {{ facture.reference }}</h1>
+		<div class="btn-group" style="margin-bottom:12px;">
+			<button type="button" class="btn btn-default btn-xs" onclick="javascript:document.location = '{{ url('acme_factures_user') }}'">Retour à la liste</button>
+			{% if facture.stade < 3 %}
+			<button type="button" class="btn btn-default btn-xs" onclick="javascript:document.location = '{{ url('acme_facture_pdf', {facture: facture.id}) }}'" title="Télécharger la facture {{ facture.reference }} en PDF"><span class="glyphicon glyphicon-download-alt"></span></button>
+			{% endif %}
+		</div>
+		<div class="list-group">
+		{% include 'AcmeGroupSiteBundle:bloc:detailFactureCorps.html.twig' with {'typeliste': 'commande'} %}
+		</div>
+	</div>
+</div>
+{% endblock %}

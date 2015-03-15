@@ -1,0 +1,52 @@
+<!-- fiche Avis -->
+<div id="avis" style="display:none" data-prototype="{{ url('acme_site_ficheAvisArticle', {'id': article.id}) }}">
+	<!-- votre avis -->
+	<div class="new_avis" id="newAvisContainer">
+		{% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+		{% if dejavote == true %}
+		<!-- 1 : DEJA VOTÉ (CONNECTÉ) -->
+		<div class="connectezvous">
+			<p>Vous avez déjà voté pour cet article</p>
+		</div>
+		{% else %}
+		<!-- 2 : JAMAIS VOTÉ (CONNECTÉ) -->
+		<div class="img_avis_avatar">
+			<img src="{{ asset('bundles/acmegroupsite/images/avis_avatar.png') }}" height="100%" width="auto">
+		</div>
+		<div class="new_avis_form">
+			<form methode="post" name="form_avis" class="avis" id="formvote">
+				<span class="new_avis_form_nom">
+					<label for="Nom">Nom</label>
+					<input name="Nom" type="text" size="28" maxlength="186" value="{{ app.user.username }}" disabled>
+				</span>
+				<span class="new_avis_form_localite">
+					<label for="Localite">Email</label>
+					<input name="Localite" type="text" size="28" maxlength="186" value="{{ app.user.email }}" disabled>
+				</span>
+				<input type="hidden" name="userID" value="{{ app.user.id }}" />
+				<input type="hidden" name="articleID" value="{{ article.id }}" />
+				<input type="hidden" name="noteArticle" id="noteArticle" value="0" />
+				<div class="new_avis_form_textarea_note">
+					<label for="Votre_avis">Votre avis</label>
+					<div class="new_avis_form_note">Note</div>
+						<!--ETOILES AVIS A DONNER class="etoile_avis"-->
+						<span>{% include('AcmeGroupSiteBundle:bloc:bloc5etoilesVote.html.twig') %}</span>
+						<!--FIN ETOILES AVIS A donner-->
+					<textarea name="Votre_avis" cols="475px" rows="47px"></textarea>
+				</div>
+			</form>
+		</div>
+		{% endif %}
+		{% else %}
+		<!-- 3 : NON CONNECTÉ -->
+		<div class="connectezvous">
+			<p>Pour noter cet article et donner votre avis, connectez-vous</p>
+			<a href="{{ path('fos_user_security_login') }}" class="Hibouton">J'ai un compte</a>
+			<p>ou inscrivez-vous sur le site Singer</p>
+			<a href="{{ path('fos_user_registration_register') }}" class="Hibouton">Je m'inscris</a>
+		</div>
+		{% endif %}
+	</div>
+	<!-- Liste des avis et notes enrgistrés -->
+	<span>{% include('AcmeGroupSiteBundle:bloc:blocAvisArticle.html.twig') %}</span>
+</div><!-- fin fiche Avis -->

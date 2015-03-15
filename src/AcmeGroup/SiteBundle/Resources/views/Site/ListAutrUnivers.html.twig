@@ -1,0 +1,29 @@
+			{% set actif_mecaniques = "_inactif" %}
+			{% set actif_electroniques = "_inactif" %}
+			{% set actif_brodeuses = "_inactif" %}
+			{% if categorieSlug == "repassage-vapeur" %}
+				{% set contsite = "mecaniques" %}
+				{% set actif_mecaniques = "" %}
+			{% endif %}
+			{% if categorieSlug == "aspiration-sol" %}
+				{% set contsite = "electroniques" %}
+				{% set actif_electroniques = "" %}
+			{% endif %}
+			{% if categorieSlug == "petit-electromenager" %}
+				{% set contsite = "brodeuses" %}
+				{% set actif_brodeuses = "" %}
+			{% endif %}
+	<!-- contenu site-->
+	<div id="container_site" class="{{ contsite }}">
+		<!-- page produits-->
+		{% include('AcmeGroupSiteBundle:bloc:menuAutrUnivers.html.twig') %}
+		<div id="container_principal_produits_G">
+		{% if articles|length > 0 %}
+			{% for article in articles %}
+			{% include('AcmeGroupSiteBundle:bloc:unProduit.html.twig') %}
+			{% endfor %}
+		{% else %}
+			<p class="noarticle">Aucun article dans cette catégorie pour l'instant</p>
+		{% endif %}
+		</div>
+	</div>

@@ -1,0 +1,68 @@
+{% extends "AcmeGroupSiteBundle:Site:index.html.twig" %}
+{% block body_container %}
+<!-- contenu site-->   
+<div id="container_site">
+	<div id="container_principal_generique" class="richtexts">
+	<!-- contenu de droite-->
+		{% if magasins is not defined %}
+		<div id="container_generique">
+			<!-- <span class="buttonjs backpage" title="Revenir à la page précédente">&lt;&nbsp;Retour</span> -->
+			{% include('AcmeGroupSiteBundle:bloc:carteFrance.html.twig') %}
+			<div id="formMagasin">
+				<h2>Le magasin le plus proche de chez moi</h2>
+				<br />
+				<form method="post" action="{{ url('acme_site_recherchemagasin') }}">
+					<select id="selectVille" name="rechmag">
+						{% for ville in listeVilles %}
+						{% if loop.first %}{% set sel = 'selected="selected"' %}{% else %}{% set sel = '' %}{% endif %}
+						<option value="{{ ville }}"{{ sel|raw }}>{{ minUCfirst(ville) }}</option>
+						{% endfor %}
+					</select>
+					<input type="submit" id="submit" value="Trouver" />
+				</form>
+				<form method="post" action="{{ url('acme_site_recherchemagasin') }}">
+					<div id="blocGris">
+						<label for="ville">Ma ville ou code postal</label>
+						<input type="text" name="rechmag" />
+						<input type="submit" id="submit" value="Trouver" />
+					</div>
+				</form>
+			</div>
+		</div>
+		{% else %}
+		<div id="container_generique">
+			<span class="buttonjs homepage" title="Allez à la page d'accueil">&lt;&nbsp;Page d'accueil</span>
+			<span class="buttonjs backpage" title="Revenir à la page précédente">&lt;&nbsp;Retour</span>
+			{% if magasins|length > 0 %}
+			<h1>Liste des magasins trouvés</h1>
+			<br />
+			<ul class="contmag">
+				{% for magasin in magasins %}
+				<li>
+					{% if magasin.typemagasin == "point_relais" %}<span class="info">Point relais</span>
+					{% elseif magasin.typemagasin == "agent_singer" %}<span class="singer">Agent Singer</span>
+					{% else %}<span class="singer">Magasin Singer</span>
+					{% endif %}
+					<a href="{{ url('acme_site_magasin', {'id': magasin.id}) }}" title="Voir le magasin…">
+						{% if magasin.nommagasin|length > 0 %}
+						<h5>{{ magasin.nommagasin }}</h5>
+						{% else %}
+						<h5>{{ magasin.ville }}</h5>
+						{% endif %}
+					</a>
+					<p>{{ generateDirectEditor(magasin, "adresse", "editable", "", "span")|raw }}</p>
+					<p>{{ generateDirectEditor(magasin, "cp", "editable", "", "span")|raw }} / {{ generateDirectEditor(magasin, "ville", "editable", "", "span")|raw }}</p>
+					<p>Tél. : {{ generateDirectEditor(magasin, "telephone", "editable", "", "span")|raw }}</p>
+				</li>
+			{% endfor %}
+			</ul>
+			{% else %}
+			<h1>Aucun magasin trouvé</h1>
+			<br />
+			<p><a href="{{ url('acme_site_recherchemagasin') }}">Faire une nouvelle recherche</a></p>
+			{% endif %}
+		</div>
+		{% endif %}
+	</div>
+</div>
+{% endblock %}

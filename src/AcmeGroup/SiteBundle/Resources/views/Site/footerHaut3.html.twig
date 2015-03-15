@@ -1,0 +1,31 @@
+<div id="footer_haut">
+	<a href="{{ url('acme_site_recherchemagasin') }}">
+		<div class="footer_search" style="cursor: pointer;">
+			<div class="recherche_magasin">
+				<h2>Recherchez un magasin</h2>
+				<form method="POST" action="{{ url('acme_site_recherchemagasin') }}">
+					<input type="text" name="rechmag" value="" title="Indiquez ville, département ou code postal" />
+					<div class="btn_recherche">
+						<input type="submit" value="OK" />
+					</div>
+				</form>
+			</div>
+		</div>
+	</a>
+	<!-- encart pub/distribution-->
+	<div class="footer_encart">
+		<h2>Communauté d'entraide Singer</h2>
+		<ul class="communaute">
+			<li class="commsinger">
+				<a href="http://support.singerfrance.com/?utm_source=singer&utm_medium=home_page&utm_campaign=slider" class="URLext" title=""><span>Une question sur votre produit ?</span></a>
+			</li>
+		</ul>
+		<h2>Les réseaux de distribution Singer</h2>
+		<ul class="resodistribmini">
+			<li class="distrib"><a href="{{ url('acme_site_pageswebwithRT', {'pagewebSlug': 'grandeDistribution'}) }}" title="La grande distribution">La grande distribution</a></li>
+			<li class="shops"><a href="{{ url('acme_site_recherchemagasin') }}" title="Rechercher un magasin Singer">Les magasins Singer</a></li>
+			<li class="internet"><a href="{{ url('acme_site_pageswebwithRT', {'pagewebSlug': 'arguEboutique'}) }}" title="Internet">La e-Boutique</a></li>
+		</ul>
+		<!-- <p>Chacun de ces 3 r&eacute;seaux a ses produits Singer propres.<br />Nos magasins Singer vous r&eacute;servent un accueil chaleureux et une expertise personnalis&eacute;e </p> -->
+	</div>
+</div>

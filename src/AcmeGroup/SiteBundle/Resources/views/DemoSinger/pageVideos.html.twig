@@ -1,0 +1,19 @@
+{% extends "AcmeGroupSiteBundle::sitePageDemo.html.twig" %}
+{% block siteroot_body %}
+	{{ parent() }}
+	<!-- Corps complet sous bandeau-TOP -->
+	{% if categorieSlug is defined %}
+	<p>Catégorie activée : {{ categorieSlug }}</p>
+	{% else %}
+	<p>Aucune catégorie activée</p>
+	{% endif %}
+
+	<h1 title="{{ app.session.get("version").slug }}">Bienvenue sur {{ app.session.get("version").nom }} !</h1>
+	<br />
+	{{ render(controller('AcmeGroupSiteBundle:Site:versionDefine')) }}
+	{{ render(controller('AcmeGroupSiteBundle:Site:infoVotesUsers')) }}
+	{{ render(controller('AcmeGroupSiteBundle:Site:tableauVersion')) }}
+	{{ render(controller('AcmeGroupSiteBundle:Site:listRoutes')) }}
+	{{ render(controller('AcmeGroupSiteBundle:Site:rapportEvent')) }}
+	<br />
+{% endblock %}

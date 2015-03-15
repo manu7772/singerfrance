@@ -1,0 +1,57 @@
+{% extends "AcmeGroupSiteBundle:Site:index.html.twig" %}
+{% block body_container %}
+<!-- contenu site-->
+<div id="container_site" class="event_salons">
+	<div id="container_principal_generique">
+		<div id="container_generique">
+			{% if presse1art is not defined %}
+			<h2>{{ pageweb[0].titreh1 }}</h2>
+			{% if presse|length > 0 %}
+			{% for year,event in presse %}
+			<ul><li><a href="{{ url('acme_site_pageweb', {pagewebSlug: 'les-articles-de-presse', pagedata: {dateY: year}|json_encode()}) }}" title="Consulter l'année {{ year }} uniquement">{{ year }}</a></li>
+				{% for ev in event %}
+				<ul><li><a href="{{ url('acme_site_pageweb', {pagewebSlug: 'les-articles-de-presse', pagedata: {id: ev.id}|json_encode()}) }}" title="Détails de l'article"><span class="glyphicon glyphicon-eye-open"></span> </a>{{ ev.nom|raw }} : </li>
+					<ul><li>{{ ev.descriptif|raw }} <span>{{ intervalDateFR(ev.datedebut, ev.datefin, true)|raw }}</span></li></ul>
+				</ul>
+				{% endfor %}
+			</ul>
+			{% endfor %}
+			{% else %}
+			<div class="alert alert-warning" role="alert">Aucun article de presse trouvé.</div>
+			{% endif %}
+			{% else %}
+				<h2>{{ presse1art.nom|raw }} <span class="buttonjs backpage" title="Revenir à la page précédente">&lt;&nbsp;Retour</span></h2>
+				{% set style='' %}
+				{% if presse1art.fichierPDF is not null %}
+				<a class='btn btn-warning btn-xs URLext' href="{{ url('acme_site_pdf', {id: presse1art.fichierPDF.id, mode: 'view', nom: presse1art.fichierPDF.fichierOrigine}) }}"><span class="glyphicon glyphicon-eye-open"></span> Voir PDF</a>
+				<a class='btn btn-warning btn-xs' href="{{ url('acme_site_pdf', {id: presse1art.fichierPDF.id, mode: 'load', nom: presse1art.fichierPDF.fichierOrigine}) }}"><span class="glyphicon glyphicon-import"></span> Télécharger PDF</a>
+				<!-- <a href="{{ asset('images/pdf/' ~ presse1art.fichierPDF.fichierNom) }}" class="URLext">PDF</a> -->
+				{% endif %}
+				{% if presse1art.image is not null %}
+					<a href="{{ asset('images/optim/' ~ presse1art.image.fichierNom) }}" data-fancybox-group="presse{{ presse1art.id }}" class="fancybox" title="{{ presse1art.image.nom }}">
+						<img src="{{ asset('images/optim/' ~ presse1art.image.fichierNom) }}" width="240" style="display:block;float:left;" />
+					</a>
+					{% set style=' style="margin-left:250px;"' %}
+				{% elseif presse1art.fichierPDF.hasThumb == true %}
+					<a href="{{ asset(presse1art.fichierPDF.thumbWebPath) }}" data-fancybox-group="presse{{ presse1art.id }}" class="fancybox">
+						<img src="{{ asset(presse1art.fichierPDF.thumbWebPath) }}" width="240" style="display:block;float:left;" />
+					</a>
+				{% else %}
+					<!-- <p>Aucune image</p> -->
+				{% endif %}
+				<div{{ style|raw }}>
+				{% if presse1art.descriptif is not null %}<p style="font-size:11px;color:#999;"><i>{{ presse1art.descriptif|raw }}</i></p>{% endif %}
+				{% if presse1art.texte is not null %}<p>{{ presse1art.texte|raw }}</p>{% endif %}
+				</div>
+				{% if presse1art.partenaires|length > 0 %}
+				<br />
+				<p>
+				{% if presse1art.partenaires|length == 1 %}<span>Avec notre partenaire </span>{% else %}<span>Avec nos partenaires </span>{% endif %}
+				{% for partenaire in presse1art.partenaires %}
+				<span class="label label-default">{{ partenaire.nom }}</span>
+				{% endfor %}</p>{% endif %}
+			{% endif %}
+		</div>
+	</div><!-- Fin container_principal_generique-->
+</div>
+{% endblock body_container %}

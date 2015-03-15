@@ -1,0 +1,60 @@
+{% if facture.livraison == "poste" %}
+<div class="list-group-item">
+	<p>Expédition par voie postale :</p>
+	<address>{{ facture.nom|capitalize }} {{ facture.prenom|capitalize }}<br />
+		{{ facture.adresse }}<br />
+		{{ facture.cp }} {{ facture.ville|capitalize }}<br />
+	</address>
+</div>
+{% elseif facture.livraison == "depot" %}
+<div class="list-group-item">
+	<p>Débôt en boutique Singer/Point relais :</p>
+	<address>{{ facture.propUser.magasin.nommagasin }} {{ facture.propUser.magasin.ville }}<br />
+		<i>{{ facture.propUser.magasin.responsable }}</i>
+		{{ facture.propUser.magasin.adresse }}<br />
+		{{ facture.propUser.magasin.cp }} {{ facture.propUser.magasin.ville }}<br />
+		<hr />
+		{{ facture.propUser.magasin.telephone }}<br />
+		{{ facture.propUser.magasin.telmobile }}<br />
+	</address>
+</div>
+{% else %}
+<div class="list-group-item">
+	<p>Mode de livraison indéterminé (contactez le service commercial)</p>
+</div>
+{% endif %}
+<br />
+<br />
+<div class="list-group-item">
+	<table class="table {{ typeliste }}" style="width:100%">
+		<tr style="background:#666;color:#fff;width:100%">
+			<th style="width:20%">Article</th>
+			<th style="width:13%" class="center">Quantité</th>
+			<th style="width:13%" class="center">Prix unitaire<br />HT</th>
+			<th style="width:13%" class="center">Total<br />HT</th>
+			<th style="width:13%" class="center">TVA<br />(%)</th>
+			<th style="width:13%" class="center">Prix unitaire<br />TTC</th>
+			<th style="width:15%" class="center">Prix total<br />TTC</th>
+		</tr>
+		{% for article in facture.detailbyarticle %}
+		<tr style="width:100%">
+			<td>{{ article.nom }}</td>
+			<td class="center">{{ article.quantite }}</td>
+			<td class="right">{{ article.prixUHt|number_format(2, ",", "") }} €</td>
+			<td class="right">{{ article.prixTHt|number_format(2, ",", "") }} €</td>
+			<td class="center">{{ article.TVA|number_format(2, ",", "") }}</td>
+			<td class="right">{{ article.prix|number_format(2, ",", "") }} €</td>
+			<td class="right">{{ article.prixTTTC|number_format(2, ",", "") }} €</td>
+		</tr>
+		{% endfor %}
+		<tr style="background:#ccc;color:#000;width:100%">
+			<td></td>
+			<td class="center"><strong>{{ facture.nbArticles }}</strong></td>
+			<td></td>
+			<td class="right">{{ facture.prixtotalHt|number_format(2, ",", "") }} €</td>
+			<td></td>
+			<td class="right"><strong><small>TOTAL {{ typeliste|upper }}</small></strong></td>
+			<td class="right"><strong>{{ facture.prixtotal|number_format(2, ",", "") }} €</strong></td>
+		</tr>
+	</table>
+</div>

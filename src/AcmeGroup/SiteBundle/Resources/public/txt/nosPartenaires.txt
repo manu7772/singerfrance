@@ -1,0 +1,14 @@
+<div id="img_partenaires" class="ligne1">
+    <span><a href="pageweb/europdistri"><img src="{# IMG:nom:europ_distri #}" height="97" width="150"/></a></span>
+    <span><a href="http://www.cofinoga.fr/" class="URLext"><img src="{# IMG:nom:cofinoga #}" height="90" width="120"/></a></span>
+    <span><a href="pageweb/mellekou"><img src="{# IMG:nom:mlle_kou #}" height="97" width="97"/></a></span>
+</div>
+<div id="img_partenaires" class="ligne2">
+    <span><a href="pageweb/marieclaire"><img src="{# IMG:nom:marie_claire_idees #}" height="50" width="170"></a></span>
+    <span><a href="pageweb/distrifil"><img src="{# IMG:nom:distrifil #}" height="50" width="170"/></a></span>
+    <span><a href="http://www.sweatshopparis.com/" class="URLext"><img src="{# IMG:nom:sweat_shop #}" height="65" width="155"/></a></span>
+</div>
+<div id="img_partenaires" class="ligne3">
+    <span><a href="pageweb/cartesinger"><img src="{# IMG:nom:singer_carte #}" ></a></span>
+    <span><a href="pageweb/bobinescombines"><img src="{# IMG:nom:logobobinesetcombines #}"/></a></span>
+</div>

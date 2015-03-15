@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+entités liées :
+nom    -> nomDuChampLocal* + [_nomDeLEntitéLiée] + __nomDuChampDeLentiteLiée (ex. : statut__nom) (* avec 's' !!!)
+toutes entités :
+valeur -> si plusieurs valeurs possibles, séparer les valeurs par un pipe "|"
+       -> commencer par un "+" pour ajouter aussi les valeurs par défaut, sinon elles ne seront pas ajoutées
+
+       (ex. : typeImage__nom="+Universel|Ambiance") -> revient à écrire typeImage_typeImage__nom
+       (ex. : imagePpale_image__nom="Curvy 2|Curvy 3")
+
+fichiers externes : "import@" + nomDuDossier + "::" + nom du fichier (ex. texte="import@txt::intro.txt")
+  -> utiliser "importConcat@" pour concaténer les fichiers textes et n'obtenir qu'une seule valeur d'après tous les fichiers
+noms de fichiers multiples : séparer par "|" (ex. texte="import@txt::intro.txt|intro2.txt|xml::intro3.txt")
+  -> préciser à chaque fois le dossier / s'il n'est pas précisé, le nom du dossier précédent est repris.
+
+ -->
+<categories>
+	<categorie nom="universel" descriptif="Type d'image universel" editable="0" />
+	<categorie nom="user" descriptif="Images utilisateurs" editable="0" />
+	<categorie nom="avatar" descriptif="portraits utilisateurs" editable="0" />
+	<categorie nom="favicon" descriptif="Favicon website" editable="1" />
+	<categorie nom="ambiance" descriptif="Images d'ambiance" editable="1" />
+	<categorie nom="article" descriptif="Images articles" editable="1" />
+	<categorie nom="diaporama" descriptif="Images pour diaporamas" editable="1" />
+	<categorie nom="logo" descriptif="Logotypes" editable="1" />
+	<categorie nom="site" descriptif="Images du site" editable="1" />
+	<categorie nom="atelier" descriptif="Images pour les fiches atelier" editable="1" />
+	<categorie nom="evenement" descriptif="Images pour les évènements" editable="1" />
+	<categorie nom="partenaire" descriptif="Images partenaires" editable="1" />
+	<categorie nom="version" descriptif="Images pour les versions du site" editable="1" />
+	<categorie nom="admin" descriptif="Images réservées aux administrateurs" editable="0" />
+</categories>

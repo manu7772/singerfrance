@@ -1,0 +1,64 @@
+<!DOCTYPE html> <!-- HTML 5 -->
+<html lang="fr">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		{% block metatitles %}
+		{% endblock metatitles %}
+		{% if app.session.get('version').favicon is not null %}
+		<link rel="icon" type="image/x-icon" href="{{ asset(app.session.get('version').favicon) }}" />
+		{% else %}
+		<link rel="icon" type="image/x-icon" href="{{ asset('images/favicons/' ~ app.session.get('version').slug ~ '.ico') }}" />
+		{% endif %}
+		{% stylesheets filter='cssrewrite, ?yui_css'
+		'bundles/labotestmanu/css/jquery-ui.css'
+		'bundles/labotestmanu/css/jquery-ui-1.10.3.custom.css'
+		'bundles/labotestmanu/css/jquery.fancybox.css'
+		'bundles/acmegroupsite/css/styles_richtexts.css'
+		'bundles/labotestmanu/js/chosen_v1.0.0/chosen.css'
+		'bundles/acmegrouplabo/css/bootstrap.css'
+		'bundles/labotestmanu/css/orbit-style.css'
+		'bundles/acmegroupsite/css/styles_common.css'
+		 %}
+		<link rel="stylesheet" href="{{ asset_url }}" type="text/css" />
+		{% endstylesheets %}
+	</head>
+	<body>
+		<script>
+			(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+			})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+			ga('create', 'UA-52516091-1', 'auto');
+			ga('send', 'pageview');
+		</script>
+		{% block navbar %}
+			{{ render(controller("AcmeGroupLaboBundle:Labo:navbar")) }}
+		{% endblock navbar %}
+		{% block body %}
+			<!-- CONTENU DE LA PAGE -->
+		{% endblock body %}
+		{% include ":common:iframe.html.twig" %}
+		{% include ":common:devStuffs.html.twig" %}
+		{% include ":common:hiddenStuffs.html.twig" %}
+		{% javascripts filter='?yui_js'
+		'bundles/labotestmanu/js/jquery-2.0.3.js'
+		'bundles/labotestmanu/js/jquery-ui.js'
+		'bundles/labotestmanu/js/jquery.fancybox.js'
+		'bundles/labotestmanu/js/jquery.fancybox.pack.js'
+		'bundles/labotestmanu/js/jquery.mousewheel-3.0.6.pack.js'
+		'bundles/labotestmanu/js/jquery.orbit-1.2.3.js'
+		'bundles/labotestmanu/js/aetools.js'
+		'bundles/labotestmanu/js/outsideEvents.js'
+		'bundles/labotestmanu/js/tinymce/tinymce.js'
+		'bundles/labotestmanu/js/chosen_v1.0.0/chosen.jquery.js'
+		'bundles/acmegrouplabo/js/JQueryFunctions.js'
+		'bundles/acmegrouplabo/js/bootstrap.js'
+		'bundles/labotestmanu/js/etoiles.js'
+		'bundles/acmegroupsite/js/SpecificFunctions.js'
+		'http://statics.apreslachat.com/public/wpl.min.js'
+		 %}
+		<script type="text/javascript" src="{{ asset_url }}"></script>
+		{% endjavascripts %}
+		{# <script src="http://statics.apreslachat.com/public/wpl.min.js"></script> #}
+	</body>
+</html>

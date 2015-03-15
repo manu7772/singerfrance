@@ -1,0 +1,10 @@
+<div style="border:1px solid orange;">
+<h2>Paramètres de route/URL</h2>
+<h3>Dans aetools</h3>
+<p>actuelpath : {{ app.session.get("aetools").actuelpath }}</p>
+<p>route : {{ app.session.get("aetools").route }}</p>
+<h4>Paramètres de route</h4>
+{% for key,param in app.session.get("aetools").parameters %}
+<p>parameter {{ key }} : {{ param }}</p>
+{% endfor %}
+</div>

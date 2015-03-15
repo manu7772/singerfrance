@@ -1,0 +1,71 @@
+<p id="chapo">C'est l'histoire d'une marque de machines à coudre devenue vite indispensable à un grand nombre de foyers en France et dans le monde. Succès d'hier et de demain, l'émotion SINGER continue…</p>
+<p id="chapo">Quelques dates clés :</p>
+
+<ul id="contenu_chronologie">
+<li id="targetchoice">...</li>
+</ul>
+
+<!-- autres li à mettre en fonction des dates...-->
+<ul style="display: none;">
+	<li id="replacechoice_1851">
+	<img src="{# IMG:nom:isaac #}">
+	<p>Issac Merrit Singer, machiniste à New-York, obtient un brevet pour la première machine à coudre à usage domestique et créé une 	société de fabrication et de vente de machine à coudre : SINGER®.</p>
+	</li>
+	<li id="replacechoice_1853">
+	<p>SINGER® installe ses bureaux et son unité de production dans la ville de New York. La société se rebaptise SINGER MANUFACTURING COMPANY</p>
+	</li>
+	<li id="replacechoice_1855">
+	<p>SINGER® reçoit un premier prix à la foire de Paris, et ouvre une filiale à Paris ce qui fait de SINGER® la première vraie 	multinationale !</p>
+	</li>
+	<li id="replacechoice_1861">
+	<p>Les ventes en Europe dépassent celles des Etats-Unis. La marque au « S » rouge SINGER® était destinée à devenir un des plus grands symbole du monde. Symbole de l'industrialisation mais aussi le symbole de la liberté de la femme. Grâce à cette machine, les métiers de couturières, modélistes prennent de l'ampleur, l'industrie du textile se développe et les femmes travaillent de plus en plus.</p>
+	</li>
+	<li id="replacechoice_1890">
+	<p>SINGER® détient 80 % du marché mondial de la Machine à coudre !</p>
+	</li>
+	<li id="replacechoice_1951">
+	<p>SINGER® fête ses 100 ans d'existence et de réussite. Les ventes atteignent 307 millions de dollars par an.</p>
+	</li>
+	<li id="replacechoice_1963">
+	<p>SINGER MANUFACTURING COMPANY est rebaptisée SINGER COMPANY.</p>
+	</li>
+	<li id="replacechoice_1966">
+	<p>Les ventes atteignent pour la première fois 1 milliard de $ !</p>
+	</li>
+	<li id="replacechoice_1970">
+	<p>Les ventes atteignent les $2 milliards SINGER COMPANY emploie 120 000 personnes dans le monde entier.</p>
+	</li>
+	<li id="replacechoice_1973">
+	<p>SINGER® entre en bourse à Londres avec des ventes annuelles de 2.5 milliards $.</p>
+	</li>
+	<li id="replacechoice_1975">
+	<p>SINGER® France est le premier à lancer un réseau de franchises organisé.</p>
+	</li>
+	<li id="replacechoice_2001">
+	<p>SINGER® fête ses 150 ans d'innovation.</p>
+	</li>
+	<li id="replacechoice_2003">
+	<p>SINGER® se diversifie et commercialise des produits d'équipement ménager : produits bruns, produits blancs, le petit 	électroménager, les aspirateurs etc.</p>
+	</li>
+	<li id="replacechoice_2005">
+	<p>SINGER® France entre dans une nouvelle dynamique. La marque lance un nouveau concept de magasin.</p>
+	</li>
+</ul>
+<!--Fin autres li à mettre en fonction des dates…-->
+
+<ul id="date_chronologie">
+<li><a class="tagchoice current" id="tagchoice_1851">1851</a></li>
+<li><a class="tagchoice" id="tagchoice_1853">1853</a></li>
+<li><a class="tagchoice" id="tagchoice_1855">1855</a></li>
+<li><a class="tagchoice" id="tagchoice_1861">1861</a></li>
+<li><a class="tagchoice" id="tagchoice_1890">1890</a></li>
+<li><a class="tagchoice" id="tagchoice_1951">1951</a></li>
+<li><a class="tagchoice" id="tagchoice_1963">1963</a></li>
+<li><a class="tagchoice" id="tagchoice_1966">1966</a></li>
+<li><a class="tagchoice" id="tagchoice_1970">1970</a></li>
+<li><a class="tagchoice" id="tagchoice_1973">1973</a></li>
+<li><a class="tagchoice" id="tagchoice_1975">1975</a></li>
+<li><a class="tagchoice" id="tagchoice_2001">2001</a></li>
+<li><a class="tagchoice" id="tagchoice_2003">2003</a></li>
+<li><a class="tagchoice" id="tagchoice_2005">2005</a></li>
+</ul>

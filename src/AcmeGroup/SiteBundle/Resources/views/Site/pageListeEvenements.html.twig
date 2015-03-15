@@ -1,0 +1,25 @@
+{% extends "AcmeGroupSiteBundle:Site:index.html.twig" %}
+{% block body_container %}
+<!-- contenu site-->
+<div id="container_site" class="event_salons">
+	<div id="container_principal_generique">
+		<div id="container_generique">
+			<h2>{{ pageweb[0].titreh1 }}</h2>
+			<ul><li><span style="color:white;">Consulter : </span>
+			{% for yl in yearslist %}
+				<a href="{{ url('acme_site_pageweb', {pagewebSlug: 'liste-d-evenements', pagedata: {dateY: yl}|json_encode()}) }}" title="Consulter l'année {{ yl }}">{{ yl }}</a>{% if not loop.last %}&nbsp;-&nbsp;{% endif %}
+			{% endfor %}
+			</li></ul>
+			{% for year,event in actualite %}
+			<ul><li><a href="{{ url('acme_site_pageweb', {pagewebSlug: 'liste-d-evenements', pagedata: {dateY: year}|json_encode()}) }}" title="Consulter l'année {{ year }}">{{ year }}</a></li>
+				{% for ev in event %}
+				<ul><li>{{ ev.nom|raw }} : </li>
+					<ul><li>{{ ev.descriptif|raw }} <span>{{ intervalDateFR(ev.datedebut, ev.datefin, true)|raw }}</span></li></ul>
+				</ul>
+				{% endfor %}
+			</ul>
+			{% endfor %}
+		</div>
+	</div><!-- Fin container_principal_generique-->
+</div>
+{% endblock body_container %}

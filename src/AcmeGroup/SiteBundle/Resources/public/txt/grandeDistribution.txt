@@ -1,0 +1,5 @@
+<p>SINGER, acteur incontournable de la machine &agrave; coudre, est pr&eacute;sent dans les rayons des plus grandes enseignes. La marque a d&eacute;velopp&eacute; une gamme sp&eacute;cifique, adapt&eacute;e &agrave; la grande distribution pouvant ainsi r&eacute;pondre aux besoins de chacun.</p>
+<p>SINGER commercialise des produits m&eacute;nagers de qualit&eacute;, simples d&rsquo;utilisation, relatifs aux diff&eacute;rents univers de la maison&nbsp;: la couture, le soin du linge, le soin du sol, le petit &eacute;lectrom&eacute;nager, des accessoires&hellip;</p>
+<p>Des machines &agrave; coudres, des fers &agrave; repasser, des centrales vapeur, des aspirateurs, des accessoires&hellip; &agrave; chaque envie&hellip; son SINGER&nbsp;!</p>
+<br />
+<h2><strong><a href="{{ url('acme_site_pageweb', {'nomrichtext': "devenirDistributeur"}) }}">Devenir grand distributeur agréé.</a></strong></h2>

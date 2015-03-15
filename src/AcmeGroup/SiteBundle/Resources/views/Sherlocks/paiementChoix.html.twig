@@ -1,0 +1,43 @@
+{% extends "AcmeGroupSiteBundle::sitePage.html.twig" %}
+{% block siteroot_body %}
+	{{ render(controller('AcmeGroupSiteBundle:Site:menu')) }}
+	{% block body_container %}
+<!-- contenu site-->   
+<div id="container_site">  
+	<!-- container principel -->
+	<div id="container_principal_generique" class="sherlokstyle">
+{#		<div class="well">
+			<h4>Suspension momentanée du module de paiement</h4>
+			<p>Pour des raisons de maintenance, vous ne pouvez pas accéder au paiement pour l'instant.<p>
+			<br />
+			<a href="{{ url('acme_panier_user') }}"><button type="button" class="btn btn-danger btn-sm">Retour au panier</button></a>
+			<div style="height:12px;clear:both;"></div>
+		</div>
+#}
+
+{# if is_granted("ROLE_SUPER_ADMIN") #}
+		{% if result == true %}
+		<h2>Faites le choix de votre moyen de paiement ({{ infoPanier.prixtotal }} €)</h2>
+		{{ message|raw }}
+		<a href="{{ url('acme_panier_user') }}"><button type="button" class="btn btn-default btn-xs">Retour au panier</button></a>
+		{% else %}
+		<h2>Erreur système sur le module de paiement… ({{ infoPanier.prixtotal }} €)</h2>
+		<h5>Une erreur a eu lieu. Elle a été reportée à l'administrateur du site et sera traitée dans les meilleurs délais.</h5>
+		{{ message|raw }}
+		{% if is_granted("ROLE_ADMIN") %}{{ error|raw }}{% endif %}
+		<a href="{{ url('acme_panier_user') }}"><button type="button" class="btn btn-danger btn-sm">Retour au panier</button></a>
+		{% endif %}
+		<br />
+		<div style="height:12px;clear:both;"></div>
+		{% if is_granted("ROLE_ADMIN") %}
+		<div class="well">
+			<h4>Informations ADMIN</h4>
+			<p>Link script (exec) : {{ path_bin }}<p>
+			<p>Paramètres : {{ stringParm }}<p>
+		</div>
+		{% endif %}
+	</div>
+</div>
+{# endif #}
+	{% endblock %}
+{% endblock %}

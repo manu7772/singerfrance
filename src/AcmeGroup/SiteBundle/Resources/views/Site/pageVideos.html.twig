@@ -1,0 +1,44 @@
+{% extends "AcmeGroupSiteBundle::sitePage.html.twig" %}
+{% block navbar %}
+	{% if pageweb[0].slug is defined %}
+	{{ render(controller("AcmeGroupLaboBundle:Labo:navbar", {pageweb: pageweb[0].slug})) }}
+	{% else %}
+	{{ render(controller("AcmeGroupLaboBundle:Labo:navbar")) }}
+	{% endif %}
+{% endblock navbar %}
+{% block siteroot_body %}
+	{{ render(controller('AcmeGroupSiteBundle:Site:menu')) }}
+	{% block body_container %}
+	<!-- contenu site-->
+	<div id="container_site" class="lesvideos">  
+		<div id="container_principal_generique">
+			<!-- contenu page-->
+			<div id="container_generique">
+				<h1>{{ URIperform(pageweb[0].titreh1) }}</h1>
+				{{ URIperform(pageweb[0].code)|raw }}
+				<ul>
+					{% for video in videos %}
+					<li>
+						<a class="youtubeFancy fancybox.iframe" href="http://www.youtube.com/embed/{{ video.videoUrl }}?autoplay=1">
+							<img src="http://img.youtube.com/vi/{{ video.videoUrl }}/{{ random(['1', '2', '3']) }}.jpg" />
+						</a>
+						<h4><span>{{ video.nom }}</span></h4>
+					</li>
+					{% endfor %}
+				</ul>
+			</div>
+		</div>
+	</div>
+	{% endblock %}
+{% endblock %}
+
+{#
+<!-- 
+http://img.youtube.com/vi/THE-VIDEO-ID/0.jpg or
+http://img.youtube.com/vi/THE-VIDEO-ID/default.jpg – full size thumb
+http://img.youtube.com/vi/THE-VIDEO-ID/mqdefault.jpg – medium default
+http://img.youtube.com/vi/THE-VIDEO-ID/1.jpg – small thumb 120x90px
+http://img.youtube.com/vi/THE-VIDEO-ID/2.jpg - small thumb 120x90px
+http://img.youtube.com/vi/THE-VIDEO-ID/3.jpg - small thumb 120x90px
+ -->
+ #}

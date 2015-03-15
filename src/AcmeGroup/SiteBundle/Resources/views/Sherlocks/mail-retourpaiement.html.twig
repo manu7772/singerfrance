@@ -1,0 +1,45 @@
+<html>
+<head>
+<title></title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+</style>
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+	<a href="{{ url('acme_site_home') }}">
+		<img src="http://www.singerfrance.com/{{ asset('images/enteteMailSinger_public2.png') }}" width="520" height="74" alt="Singer" >
+	</a>
+	<p>{{ facture.nom }} a réalisé un paiement sur le site SingerFrance.com<br />
+	Retour : {{ facture.bankresponsecode }}</p>
+	{% if facture.bankresponsecode == "00" %}
+	<h3>LA TRANSACTION A ÉTÉ CONFIRMÉE PAR LA BANQUE</h3>
+	<p><b>NOTE : le mail de confirmation a été envoyé au client.</b></p>
+	{% else %}
+	<h3 style="color:red;">ECHEC DE TRANSACATION. CODE BANQUE {{ facture.bankresponsecode }}</h3>
+	<p><b>NOTE : AUCUN MAIL N'A ÉTÉ ENVOYÉ AU CLIENT : LE SITE L'A DIRECTEMENT INFORMÉ DE L'ECHEC.</b></p>
+	{% endif %}
+	{% if facture.id is defined %}
+	<a href="{{ url('labo_page_venteaction', {id: facture.id, action: 'detail', comefrom: 'all'}) }}">Voir le détail de la commande</a>
+	{% endif %}
+	<h4>Autres informations :</h4>
+	<p>Référence de facture : {{ facture.reference }}</p>
+	<p>Montant total de facture : {{ facture.prixtotal|number_format(2, ",", "") }} €</p>
+	<br />
+	<h4>Coordonnés de l'acheteur :</h4>
+	<P>Nom : {{ facture.nom }}</P>
+	{% if facture.prenom != "" %}
+	<P>Prénom : {{ facture.prenom }}</P>
+	{% endif %}
+	<br />
+	<P>{{ facture.adresse }}</P>
+	<P>{{ facture.cp }} {{ facture.ville }}</P>
+	<br />
+	<P>Email : {{ facture.email }}</P>
+	{% if facture.tel != "" %}
+	<P>Tél. : {{ facture.tel }}</P>
+	{% endif %}
+	<br />
+	<p>-------------------------------</p>
+	<p>Ceci est une information automatique du serveur Singerfrance.com</p>
+</body>
+</html>

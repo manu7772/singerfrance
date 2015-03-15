@@ -1,0 +1,96 @@
+{% extends "AcmeGroupSiteBundle:Site:index.html.twig" %}
+{% block body_container %}
+{% if theme is defined %} {# THEME DÉFINI : UN THEME / TOUTES SES FICHES #}
+<!-- contenu site-->   
+<div id="container_site">  
+	<!-- page accueil-->
+	<div id="container_principal_generique">    
+		<div id="container_generique" class="atelier_creatif">
+			<div id="titre_fiche_idees_crea">
+				<img src="{{ asset('bundles/acmegroupsite/images/logoBibEtComb.png') }}" title="Bobines et Combines" height="53" width="156"><span class="titre_gris_b22">{{ generateDirectEditor(theme.objet, "nom", "editable", "", "span")|raw }}</span><span class="titre_gris_i18">Projets couture</span>
+			</div>
+			<div id="btn_atelier_crea_haut">
+				<!-- <span class="btn_imprime"><a href="#" id="btn_imprimer" onclick="javascript:window.print()"></a></span> -->
+				<!-- <a href="http://www.marieclaireidees.com/,s-abonner-au-site-marieclaireidees-com,2610257,4442.asp" class="URLext"><span class="je_mabonne">je m'abonne à petit prix</span></a> -->
+				<!-- <a href="http://www.marieclaireidees.com/fiches/theme=11#?theme=11&frai&objet=28" class="URLext"><span class="marie_claire"></span></a> -->
+			</div>
+			<div id="pages" class="resumer_atelier">
+				{% if theme.fiches is defined %}
+				{% for fiche in theme.fiches %} {# TOUTE LES FICHES D'UN THEME !!! #}
+				<!-- une fiche idées créatives 1 -->
+				<div id="une_fiche_id_crea">
+					<div id="interne_une_fiche_id_crea">
+						<div id="bandeau_une_fiche_id_crea">
+							<span class="titre_fiche_interne">&nbsp;{{ phraseCut(fiche.nom, 50) }}</span>
+							<a href="{{ url('acme_site_fiche', {'fiche': fiche.slug}) }}"><span class="btn_acceder">Accéder</span></a>
+						</div>
+						<div class="atelier_img">
+						{% if fiche.image != null %}
+							<a href="{{ url('acme_site_fiche', {'fiche': fiche.slug}) }}">
+								<img class="atelier_image" src="{{ asset('images/tn152/' ~ fiche.image.fichierNom) }}">
+							</a>
+						{% else %}
+							<a href="{{ url('acme_site_fiche', {'fiche': fiche.slug}) }}">
+								<div class="atelier_image" style="background-color:#ddd;width:152px;height:152px;"></div>
+							</a>
+						{% endif %}
+						</div>
+						{% if fiche.accroche != null %}<h5>{{ fiche.accroche }}</h5>{% endif %}
+						<h5>Niveau : {{ fiche.niveau }}</h5>
+						<h5>Temps de réalisation : {{ dureeHM(fiche.duree) }}</h5>
+						<!-- <a href="{{ url('acme_site_fiche', {'fiche': fiche.slug}) }}"> -->
+							<!-- <p class="txt_resume_12" style="text-align:left;color:#999999;">{{ phraseCut(fiche.descriptif, 200)|raw }}</p> -->
+						<!-- </a> -->
+					</div> 
+				</div><!-- une fin fiche idées créatives 1 -->
+				{% endfor %}
+				{% else %}
+				<span class="txt_gris_b12">(aucune fiche)</span>
+				{% endif %}
+				<br /><br />
+				<span class="buttonjs homepage" title="Allez à la page d'accueil">&lt;&nbsp;Page d'accueil</span>
+				<a class="buttonjs gopage" title="Retourner à la liste des ateliers" href="{{ url('acme_site_atelier') }}">&lt;&nbsp;Retour</a>
+			</div>
+		</div>
+	</div>
+</div>
+{% elseif themes is defined %} {# TOUTES LES FICHES DE TOUS LES THEMES !!! #}
+<!-- contenu site-->
+<div id="container_site">
+	<!-- page accueil-->
+	<div id="container_principal_generique">
+		<div id="container_generique" class="atelier_creatif">
+			<div id="titre_fiche_idees_crea">
+				<img src="{{ asset('bundles/acmegroupsite/images/logoBibEtComb.png') }}" title="Bobines et Combines" height="53" width="156"><span class="titre_gris_b22">Projets couture</span><span class="titre_gris_i18">&nbsp;</span>
+			</div>
+			<div id="pages" class="resumer_atelier">
+				{% for theme in themes if theme.objet is defined %}
+				<!-- une fiche idées créatives -->
+				<div id="une_fiche_id_crea">
+					<div id="interne_une_fiche_id_crea">
+						<a href="{{ url('acme_site_atelier_theme', {'categorieSlug': theme.objet.slug}) }}"><div id="bandeau_une_fiche_id_crea">{{ theme.objet.nom }}</div></a>
+						<span class="txt_gris_b12_mini">Fiches gratuites</span>
+						{% if theme.fiches is defined %}
+						<ul>
+							{% for fiche in theme.fiches %}
+							<li>
+								<a href="{{ url('acme_site_fiche', {'fiche': fiche.slug}) }}" title="{{ fiche.nom }}">
+									<span class="txt_rouge_b12">{{ phraseCut(fiche.nom, 60) }}</span>
+								</a>
+							</li>
+							{% endfor %}
+						</ul>
+						{% else %}
+						<span class="txt_gris_b12">(aucune fiche)</span>
+						{% endif %}
+					</div>
+				</div><!-- une fin fiche idées créatives -->
+				{% endfor %}
+			</div>
+		</div><!-- fin Fiches Idées créatives-->
+	</div>
+</div>
+{% endif %}
+{% endblock %}
+
+

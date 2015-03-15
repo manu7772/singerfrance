@@ -1,0 +1,12 @@
+{% extends "FOSUserBundle::layout.html.twig" %}
+
+{% trans_default_domain 'FOSUserBundle' %}
+
+{% block fos_user_content %}
+	<div class="panel panel-default">
+		<div class="panel-heading">Demande de réinitialisation de votre mot de passe</div>
+		<div class="panel-body">
+			<p>{{ 'resetting.check_email'|trans({'%email%': email}) }}</p>
+		</div>
+	</div>
+{% endblock fos_user_content %}

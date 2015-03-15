@@ -1,0 +1,45 @@
+{% extends "AcmeGroupSiteBundle::sitePage.html.twig" %}
+{% block navbar %}
+	{% if pageweb[0].slug is defined %}
+	{{ render(controller("AcmeGroupLaboBundle:Labo:navbar", {pageweb: pageweb[0].slug})) }}
+	{% else %}
+	{{ render(controller("AcmeGroupLaboBundle:Labo:navbar")) }}
+	{% endif %}
+{% endblock navbar %}
+{% block siteroot_body %}
+	{{ render(controller('AcmeGroupSiteBundle:Site:menu')) }}
+	{% block body_container %}
+		<div id="container_site" class="">
+			<div id="container_principal_generique" class="richtexts">
+				<!-- contenu de droite-->
+				<div id="container_generique">
+					{% for page in pageweb %}
+						<div style="margin-left:90px;margin-right:90px;">
+						{% if page.richtexts is defined %}
+						{% for texte in page.richtexts %}
+						<div class="divedito">
+							{% if page.firstmedia is not null %}
+							<img id="imgedito" src="{{ asset('images/tn128/' ~ page.firstmedia.fichierNom) }}" />
+							{% endif %}
+							{% if page.titreh1 is defined %}
+							<h1 class="h_edito">{{ magnifyText(page.titreh1)|raw }}</h1>
+							{% endif %}
+							<h5 class="h_edito">{{ magnifyText(texte.titre)|raw }}</h5>
+							{{ magnifyText(texte.texte)|raw }}
+						</div>
+						{% endfor %}
+						{% endif %}
+						</div>
+					{% endfor %}
+					<br>
+					<br>
+					<hr>
+					<br>
+					<span class="buttonjs homepage" title="Allez à la page d'accueil">&lt;&nbsp;Page d'accueil</span>
+					<span class="buttonjs backpage" title="Revenir à la page précédente">&lt;&nbsp;Retour</span>
+				</div>
+				<!-- Fin contenu de droite-->
+			</div>
+		</div>
+	{% endblock %}
+{% endblock %}

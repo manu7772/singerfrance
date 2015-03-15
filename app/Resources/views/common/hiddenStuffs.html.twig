@@ -1,0 +1,38 @@
+{# spaceless #}
+<span id="hiddenStuffs" style="display:none;">
+{% block hiddenStuffs %}
+	<!-- modedev : mode dev / test / prod -->
+	<input type="hidden" id="modedev" name="modedev" value="{{ app.getEnvironment() }}" />
+	<!-- homepath : chemin pour page d'accueil du site -->
+	<input type="hidden" id="homepath" name="homepath" value="{{ path('acme_site_home') }}" />
+	<!-- actuelpath : chemin actuel -->
+	<input type="hidden" id="actuelpath" name="actuelpath" value="{{ app.session.get('aetools').actuelpath }}" />
+	<!-- actuelURL : chemin actuel -->
+	<input type="hidden" id="actuelURL" name="actuelURL" value="{{ app.request.uri }}" />
+	<!-- loginURL : chemin login -->
+	<input type="hidden" id="loginURL" name="loginURL" value="{{ path('fos_user_security_login') }}" />
+	<!-- logoutURL : chemin logout -->
+	<input type="hidden" id="logoutURL" name="logoutURL" value="{{ path('fos_user_security_logout') }}" />
+	<!-- showURL : chemin compte -->
+	<input type="hidden" id="showURL" name="showURL" value="{{ path('fos_user_profile_show') }}" />
+	<!-- editURL : chemin edition du compte -->
+	<input type="hidden" id="editURL" name="editURL" value="{{ path('fos_user_profile_edit') }}" />
+	<!-- registerURL : chemin création nouveau compte -->
+	<input type="hidden" id="registerURL" name="registerURL" value="{{ path('fos_user_registration_register') }}" />
+	{% for key,varb in app.user %}
+	<input type="hidden" id='usr_{{ key }}' name='usr_{{ key }}' value='{{ varb|raw }}' />
+	{% endfor %}
+	<!-- Données de session -->
+{% endblock hiddenStuffs %}
+</span>
+{% block modales %}
+<div class="messages" title="Message...">
+{% for type in ['info', 'success', 'error'] %}
+{% for key, message in app.session.flashbag.get(type) %}
+	<p>{{ message|trans|raw }}</p>
+{% endfor %}
+{% endfor %}
+</div>
+{% endblock modales %}
+{# endspaceless #}
+

@@ -1,0 +1,7 @@
+{% extends "AcmeGroupSiteBundle::sitePage.html.twig" %}
+{% block siteroot_body %}
+	{{ render(controller('AcmeGroupSiteBundle:Site:menu')) }}
+	{% block body_container %}
+		{{ render(controller('AcmeGroupSiteBundle:Site:homepage')) }}
+	{% endblock %}
+{% endblock %}

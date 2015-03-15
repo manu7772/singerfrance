@@ -1,0 +1,48 @@
+{% extends ":SiteBundle:siteRoot.html.twig" %}
+{% block metatitles %}
+{% include('AcmeGroupSiteBundle:bloc:metatitles-default.html.twig') %}
+{% endblock metatitles %}
+{% block body %}
+<div class="container">
+	<!-- en-tête-->
+	<div class="header">
+		<div id="logo"><a href="{{ url('acme_site_home') }}" title="{{ app.session.get('version').accroche }}"><img src="{{ asset('images/version/' ~ app.session.get('version').imageEntete) }}" width="270" height="60" alt="Singer Accueil" name="logo_{{ app.session.get('version').accroche }}" ></a></div>  
+ 		<div id="cadre_header">
+			<div id="liens_header">
+				{% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+				<span class="lien_header">
+					<a href="{{ path('fos_user_profile_show') }}" title="Consulter ou compléter mon profil" style='display:inline-block;'>
+						<img src="{{ asset('bundles/acmegroupsite/images/espace-client.png') }}" height="23" width="23" />
+					</a>
+					<a href="{{ path('fos_user_security_logout') }}" title="Quitter votre espace" style='display:inline-block;'>
+						<img src="{{ asset('bundles/acmegroupsite/images/logout.png') }}" height="23" width="23" />
+					</a>
+					<a href="{{ path('fos_user_profile_show') }}" title="Consulter ou compléter mon profil" style='display:block;'>
+						{{ app.user.username }}
+					</a>
+				</span>
+				{% else %}
+				<span class="lien_header">
+					<a href="{{ path('fos_user_security_login') }}" title="Espace client">
+						<img src="{{ asset('bundles/acmegroupsite/images/espace-client.png') }}" height="23" width="23" />
+						Espace client
+					</a>
+				</span>
+				{% endif %}
+				<span class="lien_header">
+					{% render(controller('AcmeGroupSiteBundle:Site:monPanierIcone')) %}
+				</span>
+			 </div>
+			 <div id="search">
+				<form action="" method="get" name="recherche">
+					<input type="text" value="Recherche" name="recherche" onFocus="if(this.value=='Recherche')this.value=''" onBlur="if(this.value=='')this.value='Recherche'">   
+				</form>
+				<div class="btn_recherche"> <input type="submit" value="OK"></div>
+			</div>
+		</div>
+	</div>
+{% block siteroot_body %}
+{% endblock siteroot_body %}
+</div>
+{% render(controller('AcmeGroupSiteBundle:Site:footer')) %}
+{% endblock %}

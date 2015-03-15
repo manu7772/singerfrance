@@ -1,0 +1,51 @@
+<div class="page_catogorie_interne_produit">
+	<div class="cadre_interne">
+		<div class="contenu_pdt">
+			<div class="titre_pdt">{{ generateDirectEditor(article, "nom", "editable", "", "span")|raw }}</div>
+			{%- if article.imagePpale.fichierNom is defined -%}
+			<a href="{{ asset('images/optim/' ~ article.imagePpale.fichierNom) }}" data-fancybox-group="gallery{{ article.id }}" class="fancybox" title="{{ article.imagePpale.nom }}"><div class="img_pdt"><img src="{{ asset('images/article/' ~ article.imagePpale.fichierNom) }}" width="205" height="156" /></div></a>
+			{%- else -%}
+			<div class="img_pdt"><img src="{{ asset('bundles/acmegroupsite/images/no_article.png') }}" width="205" height="156" /></div>
+			{%- endif -%}
+			
+			<div class="etoiles_exclu">
+				{% include('AcmeGroupSiteBundle:bloc:bloc5etoiles.html.twig') with {"note": article.notation} %}
+				{% if article.reseaus|length > 0 %}
+					{% if article.reseaus[0].couleurFond != null and article.reseaus[0].couleurFond != "" %}
+						{% set couleur = ' style="background-color:' ~ article.reseaus[0].couleurFond ~ ';"' %}
+					{% else %}
+						{% set couleur = ' style="background-color:#bbb;"' %}
+					{% endif %}
+				{% else %}
+					{% set couleur = ' style="background-color:#bbb;"' %}
+				{% endif %}
+				<div class="{{ article.exclureseau }}Bloc"{{ couleur|raw }}></div>
+				<div class="description_liste_pdt">
+					<ul>
+						{% if article.accroche != "" %}<li class="accroche">{{ generateDirectEditor(article, "accroche", "editable", "", "span")|raw }}</li>{% endif %}
+						<li class="gris">{{ generateDirectEditor(article, "descriptif", "editable", "", "span")|raw }}</li>
+					</ul>
+				</div>
+			</div> 
+			 
+		</div>
+		<!-- boutons bas-->
+		<div class="btn_pdt">
+			<a href="{{ url('acme_site_fichearticle', {'articleSlug' : article.slug}) }}" id="btn_savoir_{{ article.id }}" class="btn_savoir"></a><a href="#" id="btn_panier_{{ article.id }}" class="btn_panier" title="Cliquer pour ajouter {{ article.nom }} à votre panier e-boutique" data-prototype="ajouter_1_{{ article.id }}" data-url="{{ url('acme_panier_change') }}"></a><a href="{{ url('acme_site_recherchemagasin') }}" id="btn_trouver_{{ article.id }}" class="btn_trouver"></a>
+		</div>  
+	</div> 
+	<div class="prix_pdt_indication">
+		
+		<span class="prix_pdt">
+			{% if article.texteprix is not null %}
+			<span style="font-size:0.5em;font-weight:normal;">{{ article.texteprix|raw }}</span>
+			{% endif %}
+		{{ generateDirectEditor(article, "prix", "editablePrix", "", "span")|raw }} €</span>
+		<span class="prix_indic">Prix public indicatif</span>
+	</div>
+</div>
+<span style="display: none;">
+{%- for image in article.images if article.images is iterable -%}
+	<a href="{{ asset('images/optim/' ~ image.fichierNom) }}" data-fancybox-group="gallery{{ article.id }}" class="fancybox" title="{{ image.nom }}"></a>
+{%- endfor -%}
+</span>

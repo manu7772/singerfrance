@@ -1,0 +1,11 @@
+{% extends "::siteRoot.html.twig" %}
+{% block title %}Erreur lors du chargement : {{ status_text }}{% endblock %}
+{% block body %}
+{% endblock %}
+{% block modales %}
+        <div class="messageERR" title="Une erreur est apparue... (type {{ status_code }})">
+            <h2>Le serveur a renvoyé une erreur "{{ status_code }} {{ status_text|trans }}".</h2>
+            <p>Quelque chose ne fonctionne pas. Envoyez un message à [email] et nous prendrons connaissance du problème dans les meilleurs délais. Toutes nos excuses pour ce désagrément.</p>
+        </div>
+{% endblock modales %}
+

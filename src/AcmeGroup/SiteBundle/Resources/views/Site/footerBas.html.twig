@@ -1,0 +1,29 @@
+<div id="footer_bas">
+	<div id="footer_gauche">
+		<p><strong>Copyright&copy;2013 SINGER&reg;</strong>All right reserved</p>
+		<p>
+			<a href="{{ url('acme_site_pageswebwithRT', {'pagewebSlug': 'cgv'}) }}" title="Conditions g&eacute;n&eacute;rales de vente">Conditions g&eacute;n&eacute;rales de vente</a>
+			<a href="{{ url('acme_site_pageswebwithRT', {'pagewebSlug': 'confidentialite'}) }}" title="Confidentialit&eacute;">Confidentialit&eacute;</a>
+		</p>
+	</div>
+	<div id="footer_droite">
+		<ul>
+			<li class="contact"><a href="{{ url('acme_site_pageswebwithRT', {'pagewebSlug': 'contact'}) }}" title="Nos coordonn&eacute;es">Contact</a></li>
+			<li class="contact"><a href="{{ url('acme_site_monde_singer', {'pagewebSlug': 'devenirconcess'})}}" title="Devenez concessionnaire SingerFrance">Rejoignez-nous</a></li>
+			<li class="facebook"><a href="https://www.facebook.com/SingerFR" class="URLext" title="Rejoignez la communaut&eacute; Singer sur Facebook !">facebook SINGER</a></li>
+			<li class="conseil">
+				{% set parametres = app.session.get('parametre') %}
+				{% if parametres['homepage-register']['valeur'] is defined %}
+				{% if (parametres['homepage-register']['valeur'] == true) and (app.session.get('aetools').route == "acme_site_home") and not (is_granted("IS_AUTHENTICATED_REMEMBERED")) %}
+				<a class="various" href="{{ url('acme_site_pageRegisterPopup') }}" title="Inscrivez-vous sur Singer France en partenariat avec Made In Me Couture">Je m'inscris</a>
+				{% else %}
+				<a href="{{ url('acme_site_home') }}" title="Recommandez le site SingerFrance">Je recommande</a>
+				{% endif %}
+				{% else %}
+				<a href="{{ url('acme_site_home') }}" title="Recommandez le site SingerFrance">Je recommande</a>
+				{% endif %}
+			</li>
+			<li class="videos" style="margin-left:24px;"><a href="{{ url('acme_site_videos') }}" title="voir les vid&eacute;os">Vidéos Singer</a></li>
+		</ul>
+	</div>
+</div>

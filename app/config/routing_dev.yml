@@ -1,0 +1,26 @@
+_wdt:
+    resource: "@WebProfilerBundle/Resources/config/routing/wdt.xml"
+    prefix:   /_wdt
+
+_profiler:
+    resource: "@WebProfilerBundle/Resources/config/routing/profiler.xml"
+    prefix:   /_profiler
+
+_configurator:
+    resource: "@SensioDistributionBundle/Resources/config/routing/webconfigurator.xml"
+    prefix:   /_configurator
+
+_main:
+    resource: routing.yml
+
+## Test du service interfaceCSV
+
+# importCSV:
+#     path: /importCSV
+#     defaults: { _controller: AcmeGroupAdminBundle:Admin:importCSV}
+
+## Tests
+
+# labo:
+#     resource: "@LaboTestmanuBundle/Resources/config/routing.yml"
+#     prefix:   /labo

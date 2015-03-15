@@ -1,0 +1,70 @@
+{% extends "AcmeGroupSiteBundle:Site:index.html.twig" %}
+{% block body_container %}
+
+<div id="container_site">  
+	<div id="container_principal_generique">
+		<h1>Je choisi mon mode de livraison</h1>
+		<p>Confirmez le mode de livraison que vous souhaitez utiliser.</p>
+		<br />
+
+		<div class="col-xs-5">
+			<div class="well">
+				{% if user.isAdresseComplete == true %}
+				<h4><span class="label label-{% if user.livraison == 'poste' %}danger{% else %}default{% endif %}">1</span> Livraison par voie postale {% if user.livraison == 'poste' %}<span class="badge">par défaut</span>{% endif %}</h4>
+				<p>Je commande sur le site Singer France et je reçois mon colis par voie postale, à l'adresse indiquée ci-dessous.</p>
+				<a href="{{ url('acme_sherlocks_paiementChoix', {livraison: 'poste'}) }}" class="pull-right"><button type="button" class="btn btn-danger btn-sm">Commander</button></a>
+				{% if is_granted("ROLE_ADMIN") %}
+				<a href="{{ url('acme_sherlocks_paiementChoix', {livraison: 'poste', test: 1}) }}" class="pull-right" style="margin-right:6px;"><button type="button" class="btn btn-success btn-sm">Test</button></a>
+				{% endif %}
+				<div style="clear:both;height:4px;"></div>
+				<hr />
+				<address>
+					<strong>{{ user.nom }}{% if user.prenom is not null %} {{ user.prenom }}{% endif %}</strong><br>
+					<p>{{ user.adresse }}</p>
+					<p>{{ user.cp }}&nbsp;{{ user.ville }}</p>
+				</address>
+				<a href="{{ path('fos_user_profile_edit') }}" class="pull-right" title="Cliquez pour modifier votre adresse dans votre profil." style="margin-right:6px;"><button type="button" class="btn btn-warning btn-xs">Modifier mon adresse postale</button></a>
+				{% else %}
+				<h4><span class="label label-{% if user.livraison == 'poste' %}danger{% else %}default{% endif %}">1</span> Vous n'avez pas d'adresse postale.</h4>
+				<p>Vous ne pouvez pour l'instant pas profiter d'un envoi par colis.</p>
+				<a href="{{ path('fos_user_profile_edit') }}" class="pull-right" title="Votre adresse postale est incomplète. Renseignez-la avant de passer votre commande, s.v.p." style="	margin-right:6px;"><button type="button" class="btn btn-danger btn-sm">Compléter mon adresse</button></a>
+				{% endif %}
+				<div style="clear:both;height:4px;"></div>
+			</div>
+		</div>
+
+		<div class="col-xs-5">
+			<div class="well">
+				{% if user.magasin is not null %}
+				<h4><span class="label label-{% if user.livraison == 'depot' %}danger{% else %}default{% endif %}">2</span> Livraison en magasin {% if user.livraison == 'depot' %}<span class="badge">par défaut</span>{% endif %}</h4>
+				<p>Je commande sur le site Singer France, et mon magasin me contacte pour me prévenir que je peux passer prendre de ma commande.</p>
+				<a href="{{ url('acme_sherlocks_paiementChoix', {livraison: 'depot'}) }}" class="pull-right"><button type="button" class="btn btn-danger btn-sm">Commander</button></a>
+				{% if is_granted("ROLE_ADMIN") %}
+				<a href="{{ url('acme_sherlocks_paiementChoix', {livraison: 'depot', test: 1}) }}" class="pull-right" style="margin-right:6px;"><button type="button" class="btn btn-success btn-sm">Test</button></a>
+				{% endif %}
+				<div style="clear:both;height:4px;"></div>
+				<hr />
+				<address>
+					{% if user.magasin.nommagasin != "" %}
+					<strong>{{ user.magasin.nommagasin }}</strong><br>
+					{% else %}
+					<strong>{{ user.magasin.ville }} <small>(ville)</small></strong><br>
+					{% endif %}
+					<p>{{ user.magasin.adresse }}</p>
+					<p>{{ user.magasin.cp }}&nbsp;{{ user.magasin.ville }}&nbsp;({{ user.magasin.departement }})</p>
+					{% if user.magasin.telephone != "" %}<abbr title="Téléphone"><span class="glyphicon glyphicon-phone-alt"></span></abbr> {{ user.magasin.telephone }}{% endif %}
+					{% if user.magasin.telmobile != "" %}<abbr title="Tél portable / GSM"><span class="glyphicon glyphicon-earphone"></span></abbr> {{ user.magasin.telmobile }}{% endif %}
+					{% if user.magasin.telmobile != "" %}<abbr title="Adresse e-mail"><span class="glyphicon glyphicon-envelope"></span></abbr> <a href="mailto:{{ user.magasin.email }}">	{{ user.magasin.email }}</a>{% endif %}
+				</address>
+				{% else %}
+				<h4><span class="label label-{% if user.livraison == 'depot' %}danger{% else %}default{% endif %}">2</span> Vous n'avez pas de magasin préféré.</h4>
+				<p>Vous devez préciser un magasin préféré pour bénéficier du service Point Relais de Singer.</p>
+				{% endif %}
+				<a href="{{ path('fos_user_profile_edit') }}" class="pull-right" title="Cliquez pour choisir votre boutique préférée." style="margin-right:6px;"><button type="button" class="btn btn-warning btn-xs">Changer mon magasin</button></a>
+				<div style="clear:both;height:4px;"></div>
+			</div>
+		</div>
+	</div>
+</div>
+
+{% endblock %}

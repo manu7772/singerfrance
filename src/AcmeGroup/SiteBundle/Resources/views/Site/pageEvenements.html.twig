@@ -1,0 +1,59 @@
+{% extends "AcmeGroupSiteBundle:Site:index.html.twig" %}
+{% block body_container %}
+<!-- contenu site-->
+<div id="container_site" class="evenements">  
+	<div id="container_principal_generique">
+		<h1 style="text-align:left;">{{ pageweb[0].titreh1 }}</h1>
+		<!-- contenu JEUX ET CONCOURS-->
+		<div id="container_generique" class="event_jeux">
+			<div class="event_icon"></div>
+			<h2>JEUX ET CONCOURS</h2>
+			<div class="event_img_txt">
+				<img src="{{ asset('bundles/acmegroupsite/images/evenements/Jeux.png') }}" width="185" />
+				<p> SINGER fête ses 160 ans de savoir-faire et vous invite à participer à son jeu concours.<br>
+				C'est très simple ! il suffit de répondre à une question. De nombreux lots sont à gagner et vous permettront de libérer toute la créativité qui est en vous !</p>
+				<!-- <a href="evenements/reglement.html" class="event_reglement">*consulter le règlement</a> -->
+			</div>
+			<!-- <a href=""><span class="btn_acceder">Participer</span></a>              -->
+		</div><!-- Fin contenu JEUX ET CONCOURS-->
+
+		<!-- contenu SALONS ET FOIRES-->
+		<div id="container_generique" class="event_salons">
+			<div class="event_icon"></div>
+			<h2>SALONS ET FOIRES</h2>
+			<div class="event_img_txt">
+				<img src="{{ asset('bundles/acmegroupsite/images/evenements/Foires.png') }}" width="185"/>
+				<p>Les foires existent depuis la nuit des temps, c'est l'organe commercial de la ville, un lieu d'échanges, de rassemblement.<br>
+				SINGER, marque résolument proche de ses clients, participe à de nombreux évènements régionaux… salons, foires, l'enseigne ne manque jamais une occasion de vous présenter ses nouveautés et son savoir-faire !</p>
+			</div>
+			<a href="{{ url('acme_site_pageweb', {'pagewebSlug': 'liste-d-evenements'}) }}"><span class="btn_acceder">Consulter la liste</span></a>             
+		</div><!-- Fin contenu SALONS ET FOIRES-->
+
+		<!-- contenu DANS VOS MAGASINS-->
+		<div id="container_generique" class="event_magasins">
+			<div class="event_icon"></div>
+			<h2>DOSSIER DE PRESSE</h2>
+			<div class="event_img_txt">
+				<img src="{{ asset('bundles/acmegroupsite/images/evenements/Presse.png') }}" width="185"/>
+				<br />
+				<br />
+				<br />
+				<p class="p_rouge">Le coin presse</p>
+			</div>
+			<a href="{{ url('acme_site_pageweb', {'pagewebSlug': 'les-articles-de-presse'}) }}"><span class="btn_acceder">Voir les articles</span></a>             
+		</div><!-- Fin contenu DANS VOS MAGASINS-->
+	   
+		<!-- contenu NEWSLETTER-->
+<!-- 		<div id="container_generique" class="event_news">
+			<div class="event_icon"></div>
+			<h2>NEWSLETTER</h2>
+			<div class="event_img_txt">
+				<p>S'abonner à la Newsletter</p>
+			</div>    
+			<a href=""><span class="btn_acceder">S'abonner</span></a>             
+		</div> -->
+		<!-- Fin contenu NEWSLETTER-->
+
+	</div><!-- Fin container_principal_generique-->
+</div>
+{% endblock %}

@@ -1,0 +1,60 @@
+{% extends "AcmeGroupSiteBundle:Site:index.html.twig" %}
+{% block navbar %}
+	{% if pageweb[0].slug is defined %}
+	{{ render(controller("AcmeGroupLaboBundle:Labo:navbar", {pageweb: pageweb[0].slug})) }}
+	{% else %}
+	{{ render(controller("AcmeGroupLaboBundle:Labo:navbar")) }}
+	{% endif %}
+{% endblock navbar %}
+{% block body_container %}
+<!-- contenu site-->   
+<div id="container_site">
+	<div id="container_principal_generique" class="richtexts">
+		<!-- contenu de droite-->
+		<div id="container_generique" class="magasin_singer">
+			<span class="buttonjs homepage" title="Allez à la page d'accueil">&lt;&nbsp;Page d'accueil</span>
+			<span class="buttonjs backpage" title="Revenir à la page précédente">&lt;&nbsp;Retour</span>
+			<h2>{% if magasin.typemagasin == "point_relais" %}Point relais
+				{% elseif magasin.typemagasin == "agent_singer" %}Agent Singer
+				{% else %}Magasin Singer{% endif %}</h2>
+			<h5>{% if magasin.nommagasin|length > 0 %}{{ magasin.nommagasin }} - {% endif %}{{ magasin.ville }}</h5>
+				<div id="magasin_left">
+					{% if magasin.image != null %}
+					<div id="img_magasin"><img src="{{ asset('images/original/' ~ magasin.image.fichierNom) }}"/></div>
+					{% else %}
+					<div id="img_magasin"><img src="{{ asset('bundles/acmegroupsite/images/magasin.jpg') }}"/></div>
+					{% endif %}
+					<div id="map_magasin">
+						<iframe width="340" height="255" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://maps.google.fr/maps?f=q&amp;source=s_q&amp;hl=fr&amp;geocode=&amp;q={{ googleMapURL(magasin.adresse ~ '+' ~ magasin.cp ~ '+' ~ magasin.ville) }}&amp;aq=&amp;vpsrc=6&amp;ie=UTF8&amp;hq=&amp;hnear={{ googleMapURL(magasin.adresse ~ '+' ~ magasin.cp ~ '+' ~ magasin.ville) }}&amp;z=15&amp;iwloc=A&amp;output=embed&iwloc=near"></iframe>
+					</div>
+					<a class="URLext" href="http://maps.google.fr/maps?f=q&amp;source=s_q&amp;hl=fr&amp;geocode=&amp;q={{ googleMapURL(magasin.adresse ~ '+' ~ magasin.cp ~ '+' ~ magasin.ville) }}&amp;aq=&amp;vpsrc=6&amp;ie=UTF8&amp;hq=&amp;hnear={{ googleMapURL(magasin.adresse ~ '+' ~ magasin.cp ~ '+' ~ magasin.ville) }}&amp;z=15&amp;iwloc=A&amp;output=embed&iwloc=near" title="Comment s'y rendre ?"><span class="btn_acceder">Comment s'y rendre ?</span></a>  
+				</div>
+				<div id="info_magasin">
+					<address>
+						{% if magasin.responsable|length > 0 %}<strong>{{ magasin.responsable }}</strong><br />{% endif %}
+						<strong>{{ generateDirectEditor(magasin, "adresse", "editable", "", "span")|raw }}</strong><br />
+						<strong>{{ generateDirectEditor(magasin, "cp", "editable", "", "span")|raw }}&nbsp;{{ generateDirectEditor(magasin, "ville", "editable", "", "span")|raw }}</strong><br/>         
+						{% if magasin.telephone|length > 0 %}
+						<abbr title="Téléphone">Tél :</abbr> {{ generateDirectEditor(magasin, "telephone", "editable", "", "span")|raw }}<br />
+						{% endif %}
+						{% if magasin.telmobile|length > 0 %}
+						<abbr title="Téléphone portable">Mob :</abbr> {{ generateDirectEditor(magasin, "telmobile", "editable", "", "span")|raw }}<br />
+						{% endif %}
+						{% if magasin.email|length > 0 %}
+						<br/>
+						<a href="mailto:{{ magasin.email }}" title="Envoyer un email" class="btn btn-sm btn-default"><span class="glyphicon glyphicon-envelope"></span> {{ generateDirectEditor(magasin, "email", "editable", "", "span")|raw }}</a>
+						{% endif %}
+						{% if magasin.siteurl|length > 0 %}
+						<br/>
+						<a href="{{ magasin.siteurl }}" title="Voir le site web" class="URLext btn btn-sm btn-default"><span class="glyphicon glyphicon-globe"></span> <span>Visiter le site</span></a>
+						{% endif %}
+						{% if magasin.commentaire|length > 0 %}<br/><br/>{{ generateDirectEditor(magasin, "commentaire", "editable", "", "span")|raw }}{% endif %}
+						{% if magasin.item|length > 0 %}<br/><br/>{{ generateDirectEditor(magasin, "item", "editable", "", "span")|raw }}{% endif %}
+					</address>
+				</div> 
+			</div>               
+		</div><!-- Fin contenu page-->
+		<!-- Fin contenu de droite-->
+	</div>
+</div>
+{% endblock %}

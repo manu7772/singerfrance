@@ -1,0 +1,67 @@
+{% extends ":SiteBundle:siteRootPopupIframe.html.twig" %}
+{% block body %}
+<div id="container_popup">
+	<div id="entete"></div>
+	<h5>Entrez les informations demandées pour vous inscrire<br />et obtenir le code PROMO de votre patron gratuit</h5>
+		<!-- <a href="javascript:;" onclick="$.fancybox.close();" class="btn btn-default btn-xs" title="Fermer">FERMER</a> -->
+	{% if exist != false %}
+	<div class="alert alert-danger alert-dismissible" role="alert">
+		<button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+		<p>{{ exist|raw }}</p>
+	</div>
+	{% endif %}
+
+	{# form_theme form 'AcmeGroupLaboBundle:Form:bootstrap-override.html.twig' #}
+
+	<form action="" method="post" {{ form_enctype(form)}}>
+		{{ form_errors(form) }}
+		<table class="formpopup">
+			<tr>
+				<th colspan="2">Votre connexion</th>
+			</tr>
+			<tr>
+				<td>{{ form_label(form.username) }}{{ form_errors(form.username) }}</td>
+				<td>{{ form_label(form.email) }}{{ form_errors(form.email) }}</td>
+			</tr>
+			<tr>
+				<td>{{ form_widget(form.username) }}</td>
+				<td>{{ form_widget(form.email) }}</td>
+			</tr>
+			<tr>
+				<td>{{ form_label(form.mdp1) }}{{ form_errors(form.mdp1) }}</td>
+				<td>{{ form_label(form.mdp2) }}{{ form_errors(form.mdp2) }}</td>
+			</tr>
+			<tr>
+				<td>{{ form_widget(form.mdp1) }}</td>
+				<td>{{ form_widget(form.mdp2) }}</td>
+			</tr>
+		</table>
+		<table class="formpopup">
+			<tr>
+				<th colspan="2">Vous avez une machine ?</th>
+			</tr>
+			<tr>
+				<td>{{ form_label(form.typemachine) }}{{ form_errors(form.typemachine) }}</td>
+				<td>{{ form_label(form.marque) }}{{ form_errors(form.marque) }}</td>
+			</tr>
+			<tr>
+				<td>{{ form_widget(form.typemachine) }}</td>
+				<td>{{ form_widget(form.marque) }}</td>
+			</tr>
+			<tr>
+				<td>{{ form_label(form.numserie) }}{{ form_errors(form.numserie) }}</td>
+				<td>{{ form_label(form.dateachat) }}{{ form_errors(form.dateachat) }}</td>
+			</tr>
+			<tr>
+				<td>{{ form_widget(form.numserie) }}</td>
+				<td>{{ form_widget(form.dateachat) }}</td>
+			</tr>
+		</table>
+		{{ form_rest(form) }}
+		<div class="submitbox">
+			<input class="btn btn-warning btn-md inpbtn" type="submit" value="Je m'inscris…" name="envoyer" />
+		</div>
+	</form>
+	<div style="height:6px;clear:both;display:block;"></div>
+</div>
+{% endblock body %}

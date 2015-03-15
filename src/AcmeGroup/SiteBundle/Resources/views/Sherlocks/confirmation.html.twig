@@ -1,0 +1,51 @@
+{% extends "AcmeGroupSiteBundle::sitePage.html.twig" %}
+{% block siteroot_body %}
+	{{ render(controller('AcmeGroupSiteBundle:Site:menu')) }}
+	{% block body_container %}
+<!-- contenu site-->   
+<div id="container_site">  
+	<!-- container principel -->
+	<div id="container_principal_generique">    
+		<h2>Votre paiement a été effectué avec succès. Merci.</h2>
+		<table class="table table-condensed table-bordered" style="background-color:#ffffff;">
+			<tr>
+				<td>Numéro de transaction bancaire</td>
+				<td>{{ transaction_id }}</td>
+			</tr>
+			<tr>
+				<td>Votre numéro de facture {{ app.session.get('version').nom }}</td>
+				<td>{{ reference }} </td>
+			</tr>
+			<tr>
+				<td>Montant</td>
+				<td>{{ (amount/100)|number_format(2, ",", "") }} €</td>
+			</tr>
+			{% if is_granted("ROLE_ADMIN") %}
+			<tr class="success">
+				<td>Code</td>
+				<td>{{ code }}</td>
+			</tr>
+			<tr class="success">
+				<td>Error</td>
+				<td>{{ error|raw }}</td>
+			</tr>
+			{% endif %}
+		</table>
+		<!-- <div class="well">{# mail_confirm #}</div> -->
+		
+		<div class="well">
+		{% if facture.livraison == "poste" %}
+		<p>Vous recevrez votre colis par voie postale sous 15 jours maximum.</p>
+		{% elseif facture.livraison == "depot" %}
+		<p>Votre magasin vous contactera dès réception du colis à votre attention.</p>
+		{% else %}
+		<p><strong>Erreur sur le mode de livraison</strong> : votre commande a bien été prise en compte cependant. Veuillez contacter votre magasin le plus proche.</p>
+		{% endif %}
+		</div>
+		<br />
+		<a href="{{ url('acme_site_home') }}"><button type="button" class="btn btn-danger btn-sm">Retour au site</button></a>
+		<div style="height:12px;clear:both;"></div>
+	</div>
+</div>
+	{% endblock %}
+{% endblock %}

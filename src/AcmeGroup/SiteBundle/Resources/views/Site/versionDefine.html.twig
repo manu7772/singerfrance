@@ -1,0 +1,9 @@
+	<form method="post">
+		<select id="versionDefine" name="versionDefine">
+			{% for key,site in app.session.get("version").liste %}
+			{% if key == app.session.get("version").slug %}{% set check = " selected" %}{% else %}{% set check = "" %}{% endif %}
+			<option{{ check }}>{{ key }}</option>
+			{% endfor %}
+		</select>
+		<input type='submit' />
+	</form>

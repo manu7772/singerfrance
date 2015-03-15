@@ -1,0 +1,597 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>Mécaniques - fiche produit - Singer</title>
+		<link rel="stylesheet" href="../../../css/bootstrap.css" type="text/css" media="screen" >  
+		<link rel="stylesheet" href="../../../css/styles_common.css" type="text/css" media="screen" >
+		<link rel="stylesheet" href="../../../css/impression.css" type="text/css" media="print" />
+		<script src="../../../script/jquery-1.5.1.min.js" type="text/javascript"></script>
+		<script src="../../../script/etoiles.js" type="text/javascript"></script>         
+	<script type="text/javascript">
+	/* div afficher masquer	*/
+	function MasqVisib(valeur, btn_active){  
+			$("#caracteristiques").fadeOut();
+			$("#videos").fadeOut();
+			$("#idees").fadeOut();
+			$("#avis").fadeOut();
+			$("#"+valeur).fadeIn();
+		$(".tabcliks").each(function(){
+			//si l'id de son enfant span est celui mis en parametres et que l'element bouclé n'a pas dans ses classes 'btn_active', on lui ajoute
+			if($(this).children('span').attr('id')==btn_active && !$(this).hasClass('btn_active')) {
+				$(this).addClass("btn_active");
+			}
+			//dans tous les autres cas, on enleve la classe btn_active
+			else { $(this).removeClass("btn_active");}
+		});
+			}
+</script>
+</head>
+
+<body>
+
+<div class="container">
+	<!-- en-tête-->
+	<div class="header">
+		<div id="logo"><a href="../../../index.html" title="Singer - Le specialiste de la machine a coudre"><img src="../../../images/logo_singer.png" width="270" height="60" alt="Singer Accueil" name="logo_Singer" ></a></div>  
+		<div id="cadre_header">
+					<div id="liens_header">
+							<span class="lien_header"><a href="#" title="Espace client"><img src="../../../images/espace-client.png" height="23" width="23" /> Espace client</a></span>
+							<span class="lien_header"><a href="#" title="Mon panier"><img src="../../../images/panier.png" height="32" width="39"/>Mon panier</a></span>
+						 </div>
+						 <div id="search">
+								 <form action="" method="get" name="recherche">
+										 <input type="text" value="Recherche" name="recherche" onFocus="if(this.value=='Recherche')this.value=''" onBlur="if(this.value=='')this.value='Recherche'">   
+								 </form>
+								 <div class="btn_recherche"> <input type="submit" value="OK"></div>
+						</div>
+				</div>
+	</div>
+
+		<!--menu-->  
+		<div id="container_menu">  
+				<div id="menu_principal">
+						<ul id="menu_haut">
+								<li class="first"><a href="../../produits.html" title="PRODUITS">PRODUITS</a>
+							<ul class="secondLevel">
+												<li class="titre_secondLevel">
+														<a href="../../produits/produits_machines_a_coudre.html" title="Machines à coudre">MACHINES À COUDRE</a>
+														<ul class="thirdLevel">
+															<li class="sous_menu3"><a href="../../produits/mecaniques.html" title="Mécaniques">Mécaniques</a></li>
+																<li class="sous_menu3"><a href="../../produits/electroniques.html" title="Électroniques">Électroniques</a></li>
+																<li class="sous_menu3"><a href="../../produits/brodeuses.html" title="Brodeuses">Brodeuses</a></li>
+																<li class="sous_menu3"><a href="../../produits/surjeteuses.html" title="Surjeteuses">Surjeteuses</a></li>
+																<li class="sous_menu3"><a href="../../produits/accessoires.html" title="Accessoires">Accessoires</a></li>
+																<li class="sous_menu3"><a href="../../produits/professionnelles.html" title="Professionnelles">Professionnelles</a></li>
+														</ul>
+												</li>
+												<li class="titre_secondLevel">
+														<a href="" title="autres univers singer">AUTRES UNIVERS SINGER</a>
+														<ul class="thirdLevel">
+																<li class="sous_menu3"><a href="" title="Repassage">Repassage</a></li>
+																<li class="sous_menu3"><a href="" title="Aspiration - sol">Aspiration - sol</a></li>
+																<li class="sous_menu3"><a href="" title="Cuisine">Cuisine</a></li>
+														</ul>
+												</li>
+										</ul>                    
+								</li>
+								<li class="menu_p"><a href="" title="VIDÉOS">VIDÉOS</a></li>               
+								<li class="menu_p"><a href="" title="ATELIER CRÉATIF">ATELIER CRÉATIF</a>
+					<ul class="secondLevel">
+												<li class="titre_secondLevel">
+														 <ul class="thirdLevel">
+																<li class="sous_menu3"><a href="" title="Je customise">Je customise</a></li>
+																 <li class="sous_menu3"><a href="" title="Je recycle">Je recycle</a></li>
+																 <li class="sous_menu3"><a href="" title="Ma création">Ma création</a></li>
+																 <li class="sous_menu3"><a href="" title="Pour débuter">Pour débuter</a></li>
+																 <li class="sous_menu3"><a href="" title="Mon bébé">Mon bébé</a></li>
+																 <li class="sous_menu3"><a href="" title="Mariage & fête">Mariage & fête</a></li>
+														 </ul>
+												 </li>
+										</ul>                 
+								</li>
+								<li class="menu_p"><a href="" title="LE MONDE SINGER">LE MONDE SINGER</a>
+									<ul class="secondLevel">
+												<li class="titre_secondLevel">
+														 <ul class="thirdLevel">
+																<li class="sous_menu3"><a href="" title="Notre histoire">Notre histoire</a></li>
+																 <li class="sous_menu3"><a href="" title="Le saviez-vous ?">Le saviez-vous ?</a></li>
+																 <li class="sous_menu3"><a href="" title="Nos partenaires">Nos partenaires</a></li>
+																 <li class="sous_menu3"><a href="" title="Nos engagements">Nos engagements</a></li>
+																 <li class="sous_menu3"><a href="" title="Devenir concessionnaire">Devenir concessionnaire</a></li>
+														 </ul>
+												 </li>
+										</ul>  
+								</li>          
+								<li class="menu_p"><a href="" title="ÉVÈNEMENTS">ÉVÈNEMENTS</a></li>               
+								<li class="last"><a href="" title="e-BOUTIQUE">e-BOUTIQUE</a></li>
+						</ul>
+				 </div>
+		 </div>
+		<!-- contenu site-->   
+		<div id="container_site" class="mecaniques">  
+		
+			<!-- page produits-->
+				
+				<!-- conteneur menu haut-->
+			<div id="container_menu_produits_G">   
+						<!-- menu haut-->
+					<div class="produits_catogories_G">
+				<a href="../../produits/mecaniques.html"><span class="btn_mecanique">Mécaniques</span></a>
+								<a href="../../produits/electroniques.html"><span class="btn_electronique_inactif">Electroniques</span></a>
+								<a href="../../produits/brodeuses.html"><span class="btn_brodeuse_inactif">Brodeuses</span></a>
+								<a href="../../produits/professionnelles.html"><span class="btn_pro_inactif">Professionnelles</span></a>
+								<a href="../../produits/surjeteuses.html"><span class="btn_surjeteuse_inactif">Surjeteuses</span></a>
+								 <a href="../../produits/accessoires.html"><span class="btn_accessoire_inactif">Accessoires</span></a>
+						</div>
+						<div class="produits_catogorie_retour"><a href="../../produits.html">Retour page produits</a></div>
+				 </div><!-- Fin conteneur menu haut--> 
+						
+						
+			 
+						<!-- fiche produit PANIER-->
+						<div id="page_catogorie_interne" class="panier">
+ 
+									<!-- fiche produit bandeau-->
+										<div class="produit_fiche_interne">
+											<span class="titre_produit_fiche_interne">
+													<h1>Inspiration 4025</h1>
+												</span>
+												<div class="produit_fiche_interne_bandeau_haut">
+														<div class="produit_fiche_interne_prix">
+															<span class="fiche_interne_prix">749,75 € </span>
+																<span class="fiche_interne_indic">Prix public indicatif</span>
+													</div>
+														<div class="produit_fiche_interne_etoiles_exclu">
+<!--ETOILES Avis a donner-->
+<div id="etoiles">
+	<ul>
+		<li title="note=1">
+			<ul>
+				<li title="note=2">
+					<ul>
+						<li title="note=3">
+							<ul>
+								<li title="note=4">
+									<ul>
+										<li title="note=5">
+										</li>
+									</ul>
+								</li>
+							</ul>
+						</li>
+					</ul>
+				</li>
+			</ul>
+		</li>
+	</ul> 
+</div>
+<!--FIN ETOILES DEJA DONNEES-->
+
+
+		 <div class="exclusivite"></div>
+</div>
+												</div>
+										</div>
+																						
+										<!-- fiche produit interne article-->
+								<div class="produit_fiche_article_interne">
+						<div class="produit_fiche_article_gauche">
+							<div class="img_produit_fiche_article" >
+															<img src="../../../images/machine_singer.png" height="100%" width="100%">
+														</div>
+														<div class="titre_produit_fiche_interne_gris">
+														<h1>Inspiration 4025</h1>
+													</div>
+														<div class="vignette_produit_fiche_article">
+															<a href="" class="vignette_fiche_produit"><img src="../../../images/machine_singer.png" ></a>
+															<a href="" class="vignette_fiche_produit"><img src="../../../images/machine_singer.png" ></a>                        
+																<a href="" class="vignette_fiche_produit"><img src="../../../images/machine_singer.png"></a>
+															<a href="" class="vignette_fiche_produit"><img src="../../../images/machine_singer.png"></a>
+																<a href="" class="vignette_fiche_produit"><img src="../../../images/machine_singer.png" ></a>
+																<a href="" class="vignette_fiche_produit"><img src="../../../images/machine_singer.png" ></a>
+																<a href="" class="vignette_fiche_produit"><img src="../../../images/machine_singer.png" ></a>
+														</div>
+												</div>
+												<div class="produit_fiche_article_droite">
+												<!--<div class="produit_fiche_article_haut">-->
+																<div class="produit_fiche_article_contenu_haut">
+																	<span class="txt_dispo_article">disponible immédiatement</span>
+																		<span class="txt_avantage_article">Avantage Singer</span>
+																		 <span class="txt_delai_article">DÉLAI : 7 jours</span>
+																		<span class="quantite">
+																	Quantité
+																				<input type="number" min="1" max="10" value="1" step="1" onkeypress="return false;" /> 
+																		 </span>
+																		<span class="btn_pdt"><a href="#" id="btn_panier"></a><a href="#" id="btn_trouver"></a></span>
+																</div>
+													<!--  </div>-->
+														<div id="produit_fiche_article_menu">
+															<a href="#" class="tabcliks" onclick="MasqVisib('caracteristiques','tabcaracteristiques');"><span id="tabcaracteristiques" class="produit_fiche_article_menu_btn">Caractéristiques</span></a>
+																<a href="#" class="tabcliks" onclick="MasqVisib('videos','tabvideos');"><span id="tabvideos" class="produit_fiche_article_menu_btn">Vidéos</span></a>    	
+															<a href="#" class="tabcliks"  onclick="MasqVisib('idees','tabidees');"><span id="tabidees" class="produit_fiche_article_menu_btn">Idées créatives</span></a>
+																<a href="#" class="tabcliks"  onclick="MasqVisib('avis','tabavis');"><span id="tabavis" class="produit_fiche_article_menu_btn">Votre avis</span></a>
+
+														</div>
+																<!--fiche Caractéristiques-->
+																		<div id="caracteristiques">
+																			<div id="fiche_caracteristiques">
+																					<div id="txt_fiche_caract">
+																							<ul class="txt_gris_b12">Caractéristiques
+																									<li class="txt_gris_n11">MC mécanique 23 points</li>
+																									<li class="txt_gris_n11">Boutonnière automatique</li>
+																									<li class="txt_gris_n11">Enfilage automatique</li>
+																								</ul>
+																								 <ul class="txt_gris_b12">Accessoires
+																									<li class="txt_gris_n11">Pied universel</li>
+																									<li class="txt_gris_n11">Pied pour fermeture à glissière</li>
+																									<li class="txt_gris_n11">Pied pour pose de boutons</li>
+																										<li class="txt_gris_n11">Guide de coutûre</li>
+																								</ul>
+																						</div>
+																							<span class="btn_imprime"><a href="#" id="btn_imprimer" onclick="javascript:window.print()"> </a></span>                                     
+																				</div> 
+																	</div><!-- Fin fiche Caractériqstiques-->
+																		
+																		<!--fiche Vidéos-->
+																		<div id="videos" style="display:none">
+																			<div id="fiche_videos">
+																					<!-- les videos 1 2 3 4 5 -->
+																						<a href=""><span class="interne_video"><img src="../../../images/images_videos/video1.jpg" height="104" width="185"></span></a>
+																						<a href=""><span class="interne_video"><img src="../../../images/images_videos/video2.jpg" height="104" width="185"></span></a>
+																						<a href=""><span class="interne_video"><img src="../../../images/images_videos/video3.jpg" height="104" width="185"></span></a>
+																						<a href=""><span class="interne_video"><img src="../../../images/images_videos/video4.jpg" height="104" width="185"></span></a>
+																						<a href=""><span class="interne_video"><img src="../../../images/images_videos/video5.jpg" height="104" width="185"></span></a>
+																						<!-- fin des videos 1 2 3 4 5-->
+																				</div>
+																	</div><!-- Fin fiche Vidéos-->
+																		
+																		<!--fiche Idées créatives-->
+																		 <div id="idees" style="display:none">
+																			<div id="fiche_idees_crea">
+																					<div id="titre_fiche_idees_crea">
+																							<span class="titre_gris_b22">Idées créatives </span><span class="titre_gris_i18">avec </span><img src="../../../images/marie_claire_idees.jpg" title="Marie Claire Idées" height="53" width="156">
+																					</div>
+																						
+																						<!-- une fiche idées créatives 1 -->
+																						<div id="une_fiche_id_crea">
+																							<div id="interne_une_fiche_id_crea">
+																										<div id="bandeau_une_fiche_id_crea">Je customise</div>
+																										<span class="txt_gris_b12">Fiches gratuites</span>      
+																											 <a href=""><span class="txt_rouge_b12">Personnaliser mon Jean's</span></a>
+																											 <a href=""><span class="txt_rouge_b12">Ma chemise à moi</span></a>       
+																								</div> 
+																						</div><!-- une fin fiche idées créatives 1 -->
+																						
+																						<!-- une fiche idées créatives 2 -->
+																						<div id="une_fiche_id_crea">
+																							<div id="interne_une_fiche_id_crea">
+																										<div id="bandeau_une_fiche_id_crea">Je recycle</div>
+																										<span class="txt_gris_b12">Fiches gratuites</span>      
+																											 <a href=""><span class="txt_rouge_b12">Mon pull recyclé</span></a>
+																											 <a href=""><span class="txt_rouge_b12">Sac recyclé</span></a>       
+																								</div> 
+																						</div><!-- une fin fiche idées créatives 2 -->
+																						
+																						<!-- une fiche idées créatives 3 -->
+																						<div id="une_fiche_id_crea">
+																							<div id="interne_une_fiche_id_crea">
+																										<div id="bandeau_une_fiche_id_crea">Ma création</div>
+																										<span class="txt_gris_b12">Fiches gratuites</span>      
+																											 <a href=""><span class="txt_rouge_b12">Robe 1 et 2</span></a>
+																											 <a href=""><span class="txt_rouge_b12">Nappe du dimanche</span></a>       
+																								</div> 
+																						</div><!-- une fin fiche idées créatives 3 -->
+																						
+																						<!-- une fiche idées créatives 4 -->
+																						<div id="une_fiche_id_crea">
+																							<div id="interne_une_fiche_id_crea">
+																										<div id="bandeau_une_fiche_id_crea">Pour débuter</div>
+																										<span class="txt_gris_b12">Fiches gratuites</span>      
+																											 <a href=""><span class="txt_rouge_b12">Grand sac pratique</span></a>
+																											 <a href=""><span class="txt_rouge_b12">Ma tunique toutes saisons</span></a>       
+																								</div> 
+																						</div><!-- une fin fiche idées créatives 4 -->
+																						
+																						<!-- une fiche idées créatives 5 -->
+																						<div id="une_fiche_id_crea">
+																							<div id="interne_une_fiche_id_crea">
+																										<div id="bandeau_une_fiche_id_crea">Mon bébé</div>
+																										<span class="txt_gris_b12">Fiches gratuites</span>      
+																											 <a href=""><span class="txt_rouge_b12">Réaliser son doudou</span></a>
+																											 <a href=""><span class="txt_rouge_b12">Sa serviette de bain</span></a>       
+																								</div> 
+																						</div><!-- une fin fiche idées créatives 5 -->                                            
+																						
+																				</div>
+																	</div><!-- fin Fiches Idées créatives-->
+																		
+																		
+																		<!--fiche Avis-->
+																		<div id="avis" style="display:none">
+																			<!-- votre avis -->
+																			<div class="new_avis">
+																					<div class="img_avis_avatar">
+																							<img src="../../../images/avis_avatar.png" height="100%" width="auto">
+																						</div>
+																						 <div class="new_avis_form">
+																								<form methode="get" name="form_avis" class="avis">
+																										<span class="new_avis_form_nom">
+																												<label for="Nom">Nom </label>
+																												<input name="Nom" type="text" size="28" maxlength="186">
+																										</span>
+																										<span class="new_avis_form_localite">
+																												<label for="Localite">Localité </label>
+																												<input name="Localite" type="text" size="28" maxlength="186">
+																										</span>
+																										<div class="new_avis_form_textarea_note">
+																												<label for="Votre_avis">Votre avis </label>
+																												<div class="new_avis_form_note">Note</div>  
+																															<!--ETOILES Avis a donner-->
+																														<div id="etoiles">
+																																<ul>
+																																		<li title="note=1">
+																																				<ul>
+																																						<li title="note=2">
+																																								<ul>
+																																										<li title="note=3">
+																																												<ul>
+																																														<li title="note=4">
+																																																<ul>
+																																																		<li title="note=5">
+																																																		</li>
+																																																</ul>
+																																														</li>
+																																												</ul>
+																																										</li>
+																																								</ul>
+																																						</li>
+																																				</ul>
+																																		</li>
+																																</ul> 
+																														</div><!--FIN ETOILES-->   
+																										</div>     
+																												<textarea name="Votre_avis" cols="475px" rows="47px"></textarea>        
+																								 </form>
+																							</div>
+																				</div>
+																					<!-- avis des utilisateurs -->
+																				<div id="avis_users"> 	
+																					<span class="txt_avis_users">Avis des utilisateurs</span>
+																						<div id="avis_users_content">
+																							<!-- avis laissé 1-->
+																							<div id="avis_laisser">
+																									<div class="img_avis_avatar">
+																									<img src="../../../images/avis_avatar.png" height="100%" width="auto">
+																								</div>
+																										<div id="txt_avis_laisser">
+																											<span class="txt_avis_laisser_nom">AS RIGAUX</span><span class="txt_avis_laisser_localite"> de Bordeaux</span>
+																															<!--ETOILES Avis a donner-->
+																																<div id="etoiles">
+																																		<ul>
+																																				<li title="note=1">
+																																						<ul>
+																																								<li title="note=2">
+																																										<ul>
+																																												<li title="note=3">
+																																														<ul>
+																																																<li title="note=4">
+																																																		<ul>
+																																																				<li title="note=5">
+																																																				</li>
+																																																		</ul>
+																																																</li>
+																																														</ul>
+																																												</li>
+																																										</ul>
+																																								</li>
+																																						</ul>
+																																				</li>
+																																		</ul> 
+																																</div><!--FIN ETOILES DEJA DONNEES-->     														
+																												<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc luctus nisl eros, eu tempus quam aliquam sit amet. Quisque vestibulum nunc leo, eget gravida urna posuere ut. Etiam faucibus metus quis aliquet pretium. Suspendisse malesuada tortor vel purus blandit mattis.
+																												</p>
+																										</div>        
+																								</div>
+																								 <span class="separateur"></span>  <!-- fin avis laissé 1
+																																														
+																							<!-- avis laissé 2-->
+																							<div id="avis_laisser">
+																									<div class="img_avis_avatar">
+																									<img src="../../../images/avis_avatar.png" height="100%" width="auto">
+																								</div>
+																										<div id="txt_avis_laisser">
+																											<span class="txt_avis_laisser_nom">AS RIGAUX</span><span class="txt_avis_laisser_localite"> de Bordeaux</span>
+																<!--ETOILES Avis a donner-->
+																																<div id="etoiles">
+																																		<ul>
+																																				<li title="note=1">
+																																						<ul>
+																																								<li title="note=2">
+																																										<ul>
+																																												<li title="note=3">
+																																														<ul>
+																																																<li title="note=4">
+																																																		<ul>
+																																																				<li title="note=5">
+																																																				</li>
+																																																		</ul>
+																																																</li>
+																																														</ul>
+																																												</li>
+																																										</ul>
+																																								</li>
+																																						</ul>
+																																				</li>
+																																		</ul> 
+																																</div><!--FIN ETOILES DEJA DONNEES-->      															
+																												<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc luctus nisl eros, eu tempus quam aliquam sit amet. Quisque vestibulum nunc leo, eget gravida urna posuere ut. Etiam faucibus metus quis aliquet pretium. Suspendisse malesuada tortor vel purus blandit mattis.
+																												</p>
+																										</div>     
+																								</div>
+																								<span class="separateur"></span><!-- fin avis laissé 2  -->                                             
+																							 
+																							<!-- avis laissé 3-->
+																							<div id="avis_laisser">
+																									<div class="img_avis_avatar">
+																									<img src="../../../images/avis_avatar.png" height="100%" width="auto">
+																								</div>
+																										<div id="txt_avis_laisser">
+																											<span class="txt_avis_laisser_nom">AS RIGAUX</span><span class="txt_avis_laisser_localite"> de Bordeaux</span>
+																<!--ETOILES Avis a donner-->
+																																<div id="etoiles">
+																																		<ul>
+																																				<li title="note=1">
+																																						<ul>
+																																								<li title="note=2">
+																																										<ul>
+																																												<li title="note=3">
+																																														<ul>
+																																																<li title="note=4">
+																																																		<ul>
+																																																				<li title="note=5">
+																																																				</li>
+																																																		</ul>
+																																																</li>
+																																														</ul>
+																																												</li>
+																																										</ul>
+																																								</li>
+																																						</ul>
+																																				</li>
+																																		</ul> 
+																																</div><!--FIN ETOILES DEJA DONNEES-->     															
+																												<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc luctus nisl eros, eu tempus quam aliquam sit amet. Quisque vestibulum nunc leo, eget gravida urna posuere ut. Etiam faucibus metus quis aliquet pretium. Suspendisse malesuada tortor vel purus blandit mattis.
+																												</p>
+																										</div>   
+																								</div>
+																								<span class="separateur"></span><!-- fin avis laissé 3   -->                                            
+																								 
+																								<!-- avis laissé 4-->
+																							<div id="avis_laisser">
+																									<div class="img_avis_avatar">
+																									<img src="../../../images/avis_avatar.png" height="100%" width="auto">
+																								</div>
+																										<div id="txt_avis_laisser">
+																											<span class="txt_avis_laisser_nom">AS RIGAUX</span><span class="txt_avis_laisser_localite"> de Bordeaux</span>
+																<!--ETOILES Avis a donner-->
+																																<div id="etoiles">
+																																		<ul>
+																																				<li title="note=1">
+																																						<ul>
+																																								<li title="note=2">
+																																										<ul>
+																																												<li title="note=3">
+																																														<ul>
+																																																<li title="note=4">
+																																																		<ul>
+																																																				<li title="note=5">
+																																																				</li>
+																																																		</ul>
+																																																</li>
+																																														</ul>
+																																												</li>
+																																										</ul>
+																																								</li>
+																																						</ul>
+																																				</li>
+																																		</ul> 
+																																</div><!--FIN ETOILES DEJA DONNEES-->       															
+																												<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc luctus nisl eros, eu tempus quam aliquam sit amet. Quisque vestibulum nunc leo, eget gravida urna posuere ut. Etiam faucibus metus quis aliquet pretium. Suspendisse malesuada tortor vel purus blandit mattis.
+																												</p>
+																										</div>   
+																								</div>
+																								<span class="separateur"></span><!-- fin avis laissé 4   -->                             
+																								
+																						</div>
+																				</div>
+																	</div><!-- fin fiche Avis -->
+														
+												</div>
+										</div>
+						 
+						 
+						 
+					</div>
+				
+				
+				
+
+					
+					
+					</div>
+					
+		 </div>     
+					
+						</div>
+				 </div>
+		</div> 
+		
+	<!--pied de page-->       
+	<div class="footer">
+		<div id="footer_haut">
+					<div class="footer_search" style="cursor: pointer">
+								<div class="recherche_magasin">
+										<h2>Recherchez un magasin</h2>
+										<form method="GET" action="">
+												<input type="text" name="search" value="Code Postal" />
+												<div class="btn_recherche">
+													<input type="submit" value="OK" />
+												</div>
+										</form>
+				</div>
+			</div>
+						<!-- encart pub/distribution-->
+						<div class="footer_encart">
+							<!--<a href="reseaux_de_distribution.html"><img src="images/pub_bas_3.png"  height="187" width="663"/></a> -->   
+								<h2><a href="#">Les r&eacute;seaux de distribution Singer</a></h2>           			
+										<ul>
+												<li class="distrib"><a href="../../reseaux_de_distribution/grande_distribution.html" title="La grande distribution"></a></li>           				
+												<li class="shops"><a href="../../reseaux_de_distribution/magasins_singer.html" title="Les magasins Singer"></a></li>           				
+												<li class="internet"><a href="../../reseaux_de_distribution/comment_ca_marche.html" title="Internet"></a></li>           			
+										</ul>
+										<p>
+										Chacun de ces 3 r&eacute;seaux a ses produits Singer propres. <br />
+										Nos magasins Singer vous r&eacute;servent un accueil chaleureux et une expertise personnalis&eacute;e 
+										</p>
+						
+						</div>
+						
+			 </div>
+						
+		<div id="footer_bas">
+						<div id="footer_gauche">
+								<p>
+										<strong>Copyright&copy;2013 SINGER&reg;</strong>All right reserved
+								</p>
+								<p>
+										<a href="../../conditions-generales.html" title="Conditions g&eacute;n&eacute;rales de vente">Conditions g&eacute;n&eacute;rales de vente</a>
+										<a href="../../confidentialite.html" title="Confidentialit&eacute;">Confidentialit&eacute;</a>
+								</p>
+						</div>
+						<div id="footer_droite">
+								<ul>
+										<li class="contact">
+										<a href="" title="Nos coordonn&eacute;es">Contact</a>
+										</li>
+										<li class="videos">
+										<a href="" title="voir les vid&eacute;os">Consulter les vidéos</a>
+										</li>
+										<li class="facebook">
+										<a href="" title="Rejoignez la communaut&eacute; Singer sur Facebook !">SINGER sur facebook</a>
+										</li>
+										<li class="conseil">
+										<a href="" title="Recommandez le site SingerFrance">Je conseille ce site</a>
+										</li>
+								</ul>
+						</div>
+						
+						
+		</div>
+				
+				
+	</div>
+</div>  
+	
+</body>
+</html>

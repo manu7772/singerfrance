@@ -1,0 +1,38 @@
+<html>
+<head>
+<title></title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+</style>
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+	<a href="{{ url('acme_site_home') }}">
+		<img src="http://www.singerfrance.com/{{ asset('images/enteteMailSinger_public2.png') }}" width="520" height="74" alt="Singer" >
+	</a>
+	{% if facture.livraison == "poste" %}
+	<p>Bonjour,<br />
+	Vous avez réalisé un achat sur le site singerfrance.com au nom de {{ facture.nom }}{% if facture.prenom != "" %} {{ facture.prenom }}{% endif %}.<br />
+	Nous vous remercions pour votre confiance. Votre commande vous parviendra au plus tard dans les 15 jours suivant cette commande.
+	</p>
+	<h4>Adresse d'expédition prévue :</h4>
+	<P>{{ facture.nom }}{% if facture.prenom != "" %} {{ facture.prenom }}{% endif %}<br />
+	{{ facture.adresse }}<br />
+	{{ facture.cp }} {{ facture.ville }}<br />
+	{% else %}
+	<p>Bonjour,<br />
+	Vous avez réalisé un achat sur le site singerfrance.com au nom de {{ facture.nom }}{% if facture.prenom != "" %} {{ facture.prenom }}{% endif %}.<br />
+	Nous vous remercions pour votre confiance.<br />
+	<b>Votre boutique/relais SINGER{% if facture.propUser.magasin.nommagasin != "" %} {{ facture.propUser.magasin.nommagasin }}{% endif %}</b> prendra contact avec vous dès l'arrivée de votre commande.
+	</p>
+	{% endif %}
+	<h4>Autres informations à conserver :</h4>
+	<p>Référence de facture : {{ facture.reference }}<br />
+	Montant total de facture : {{ facture.prixtotal|number_format(2, ",", "") }} €</p>
+	<br />
+	<p>-------------------------------</p>
+	<p>Ceci est une information automatique du serveur singerfrance.com<br />
+	Merci de ne pas répondre à ce mail.<br />
+	Pour tout demande, veuillez contacter le Service Commercial de Singer France :<br />
+	Anna Rambaud - 01 41 91 65 15 - <a href="mailto:anna.rambaud@singer-distrib.com">anna.rambaud@singer-distrib.com</a></p>
+</body>
+</html>

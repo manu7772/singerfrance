@@ -1,0 +1,238 @@
+			{% set actif_mecaniques = "_inactif" %}
+			{% set actif_electroniques = "_inactif" %}
+			{% set actif_brodeuses = "_inactif" %}
+			{% set actif_professionnelles = "_inactif" %}
+			{% set actif_surjeteuses = "_inactif" %}
+			{% set actif_accessoires = "_inactif" %}
+
+			{% if categorieSlug == "mecaniques" %}
+				{% set contsite = "mecaniques" %}
+				{% set actif_mecaniques = "" %}
+				{% set menu = "menuProduits" %}
+			{% endif %}
+			{% if categorieSlug == "electroniques" %}
+				{% set contsite = "electroniques" %}
+				{% set actif_electroniques = "" %}
+				{% set menu = "menuProduits" %}
+			{% endif %}
+			{% if categorieSlug == "brodeuses" %}
+				{% set contsite = "brodeuses" %}
+				{% set actif_brodeuses = "" %}
+				{% set menu = "menuProduits" %}
+			{% endif %}
+			{% if categorieSlug == "professionnelles" %}
+				{% set contsite = "professionnelles" %}
+				{% set actif_professionnelles = "" %}
+				{% set menu = "menuProduits" %}
+			{% endif %}
+			{% if categorieSlug == "surjeteuses" %}
+				{% set contsite = "surjeteuses" %}
+				{% set actif_surjeteuses = "" %}
+				{% set menu = "menuProduits" %}
+			{% endif %}
+			{% if categorieSlug == "accessoires" %}
+				{% set contsite = "accessoires" %}
+				{% set actif_accessoires = "" %}
+				{% set menu = "menuProduits" %}
+			{% endif %}
+
+			{% if categorieSlug == "repassage-vapeur" %}
+				{% set contsite = "mecaniques" %}
+				{% set actif_mecaniques = "" %}
+				{% set menu = "menuAutrUnivers" %}
+			{% endif %}
+			{% if categorieSlug == "aspiration-sol" %}
+				{% set contsite = "electroniques" %}
+				{% set actif_electroniques = "" %}
+				{% set menu = "menuAutrUnivers" %}
+			{% endif %}
+			{% if categorieSlug == "petit-electromenager" %}
+				{% set contsite = "brodeuses" %}
+				{% set actif_brodeuses = "" %}
+				{% set menu = "menuAutrUnivers" %}
+			{% endif %}
+
+<!-- contenu site-->
+<div id="container_site" class="{{ contsite }}">
+	<!-- page produits-->
+	{% include('AcmeGroupSiteBundle:bloc:' ~ menu ~ '.html.twig') %}
+
+	<!-- fiche produit TROUVER-->
+	<div id="page_catogorie_interne" class="{{ article.exclureseau }}">
+
+		<!-- fiche produit bandeau-->
+		<div class="produit_fiche_interne">
+			<span class="titre_produit_fiche_interne">
+				<h1>{{ article.nom }}</h1>
+				<!-- <h1>{{ pageweb[0].titreh1 }}</h1> -->
+			</span>
+			<div class="produit_fiche_interne_bandeau_haut">
+				<div class="produit_fiche_interne_prix">
+					{% if article.texteprix is not null %}
+					<span class="fiche_interne_indic">{{ article.texteprix|raw }}</span>
+					{% endif %}
+					<span class="fiche_interne_prix">{{ article.prix }} €</span>
+					<span class="fiche_interne_indic">Prix public indicatif</span>
+				</div>
+				<div class="produit_fiche_interne_etoiles_exclu">
+					<span>{% include('AcmeGroupSiteBundle:bloc:bloc5etoiles_majZone.html.twig') with {"note": article.notation} %}</span>
+					<div class="exclusivite"></div>
+				</div>
+			</div>
+		</div>
+
+		<!-- fiche produit interne article-->
+		<div class="produit_fiche_article_interne">
+			<div class="produit_fiche_article_gauche">
+				<div class="img_produit_fiche_article" >
+					{%- if article.imagePpale.fichierNom is defined -%}
+					<a href="{{ asset('images/optim/' ~ article.imagePpale.fichierNom) }}" data-fancybox-group="gallery{{ article.id }}" class="fancybox" title="{{ article.imagePpale.nom }}">
+						<img src="{{ asset('images/optim/' ~ article.imagePpale.fichierNom) }}" width="250">
+					</a>
+					{%- else -%}
+					<img src="{{ asset('bundles/acmegroupsite/images/no_article.png') }}" width="250">
+					{%- endif -%}
+				</div>
+				<div class="titre_produit_fiche_interne_gris">
+					<h2>{{ article.nom }}</h2>
+				</div>
+
+				{#
+
+				{% if categorieSlug != "accessoires" %}
+				<!-- LIEN APRESLACHAT.COM : DEBUT -->
+				<div style="width:100%;text-align:right;">
+					<a href="http://support.singerfrance.com/product?v={{ article.id }}" class="URLext">
+						<table id="PopinButton" style= "cursor:pointer;border-collapse:collapse;margin-left:60px;margin-top:4px;">
+							<tr style="height: 35px;">
+								<td style="background: url({{ asset('bundles/acmegroupsite/images/picto-btn.png') }}) top left no-repeat;padding:0px;">
+									<span style="font-size:14px;line-height:36px;display:block;height:35px;padding:0px 20px 0px 5px;color:#FFF;margin:0px 0px 0px 15px;background:#db003c;border-top-right-radius:20px;border-bottom-right-radius:20px;">Poser une question</span>
+								</td>
+							</tr>
+						</table>
+					</a>
+				</div>
+				<!-- LIEN APRESLACHAT.COM : FIN -->
+				{% endif %}
+
+				#}
+
+				<div class="vignette_produit_fiche_article">
+					{%- for image in article.images if article.images is iterable -%}
+					<a href="{{ asset('images/optim/' ~ image.fichierNom) }}" data-fancybox-group="gallery{{ article.id }}" class="fancybox vignette_fiche_produit" title="{{ image.nom }}"><img src="{{ asset('images/tn128/' ~ image.fichierNom) }}" width="75px" height="75px"></a>
+					{%- endfor -%}
+				</div>
+			</div>
+			<div class="produit_fiche_article_droite">
+			<!--<div class="produit_fiche_article_haut">-->
+				<div class="produit_fiche_article_contenu_haut">
+					<span class="txt_dispo_article"></span>
+					<span class="txt_avantage_article"></span>
+					<span class="txt_delai_article">&nbsp;</span> <!-- Délai :  XX jours -->
+					<span class="quantite">
+						Quantité
+						<input id="QP{{ article.id }}" type="number" min="1" max="10" value="1" step="1" onkeypress="return false;" /> 
+					</span>
+					<span class="btn_pdt"><a href="#" id="btn_panier_{{ article.id }}" class="btn_panier" title="Cliquer pour ajouter {{ article.nom }} à votre panier e-boutique" data-prototype="ajouter_QP_{{ article.id }}" data-url="{{ url('acme_panier_change') }}"></a></span>
+				</div>
+			<!--</div>-->
+				<div id="produit_fiche_article_menu">
+					{% if (tab == '') or (tab == 'tabcaracteristiques') %}{% set cl=' btn_active' %}{% else %}{% set cl='' %}{% endif %}
+					<a href="#" class="tabcliks{{ cl|raw }}" ><span id="tabcaracteristiques" class="produit_fiche_article_menu_btn">Caractéristiques</span></a>
+					{% if tab == 'tabvideos' %}{% set cl=' btn_active' %}{% else %}{% set cl='' %}{% endif %}
+					<a href="#" class="tabcliks{{ cl|raw }}" ><span id="tabvideos" class="produit_fiche_article_menu_btn">Vidéos</span></a>    	
+					{% if tab == 'tabidees' %}{% set cl=' btn_active' %}{% else %}{% set cl='' %}{% endif %}
+					<a href="#" class="tabcliks{{ cl|raw }}" ><span id="tabidees" class="produit_fiche_article_menu_btn">Idées créatives</span></a>
+					{% if tab == 'tabavis' %}{% set cl=' btn_active' %}{% else %}{% set cl='' %}{% endif %}
+					<a href="#" class="tabcliks{{ cl|raw }}" ><span id="tabavis" class="produit_fiche_article_menu_btn">Votre avis</span></a>
+				</div>
+				<!--fiche Caractériqstiques-->
+				<div id="caracteristiques" style="display:none">
+					<div id="fiche_caracteristiques">
+						<div id="txt_fiche_caract" class="richtexts">
+							{% if article.accroche != "" %}
+							<ul class="txt_gris_b12">
+								<li class="txt_gris_n11">{{ article.accroche|raw }}</li>
+							</ul>{% endif %}
+							<ul class="txt_gris_b12">
+								<li class="txt_gris_n11">{{ article.descriptif|raw }}</li>
+							</ul>
+						</div>
+						{% if article.ficheTechniquePdf != null %}
+						<a class="btn_pdf btn btn-xs btn-danger URLext" style="margin-left:4px;" href="{{ asset('images/pdf/' ~ article.ficheTechniquePdf.fichierNom) }}" title="Visualiser le mode d'emploi en PDF">
+							<span class="glyphicon glyphicon-list-alt"></span> Notice
+						</a>
+						{% endif %}
+						{% if article.fichierPdf != null %}
+						<a class="btn_pdf btn btn-xs btn-warning URLext" style="margin-left:4px;" href="{{ asset('images/pdf/' ~ article.fichierPdf.fichierNom) }}" title="Visualiser la fiche PDF d'informations techniques sur ce produit">
+							<span class="glyphicon glyphicon-info-sign"></span> Fiche technique
+						</a>
+						{% endif %}
+						{% if categorieSlug != "accessoires" %}
+						<hr>
+						<div id="PopinDiv" data-url="http://ask.singerfrance.com/" data-product="{{ article.id }}"></div>
+						<!-- <span class="btn_imprime"><a href="#" id="btn_imprimer" onclick="javascript:window.print()"></a></span> -->
+						<!-- LIEN APRESLACHAT.COM : DEBUT -->
+						<div id="PopinDivEntraide" style="float:left;">
+							<div style="box-sizing: border-box; position: relative; font-family: Arial; font-size: 13px; margin-right: 20px; padding: 0 10px; width: 190px; text-align: center;">
+								<i>Vous êtes déjà utilisateur<br>de ce produit ?</i>
+								<a href="http://support.singerfrance.com/product?v={{ article.id }}" class="URLext">
+									<div id="PopinButtonEntraide" style="box-sizing: border-box; width: 177px; margin-top: 12px; padding: 6px 20px; border-radius: 4px; background: #db003c; text-align: center; color: white; line-height: 1.3; cursor: pointer;">Demander assistance<br>au groupe d'entraide</div>
+								</a>
+							</div>
+						</div>
+						{% endif %}
+					</div>
+				</div><!-- Fin fiche Caractériqstiques-->
+				
+				<!--fiche Vidéos-->
+				<div id="videos" style="display:none">
+					<div id="fiche_videos">
+						<!-- les videos 1 2 3 4 5 -->
+						{% if article.videos|length > 0 %}
+						<div class="list-group">
+						{% for video in article.videos %}
+							<a class="list-group-item youtubeFancy fancybox.iframe" href="http://www.youtube.com/embed/{{ video.videoUrl }}?autoplay=1">
+							<!-- <a href="{{ video.videoUrl }}" class="list-group-item modalevideo" data-prototype="{{ video.videoUrl }}__{{ phraseCut(video.descriptif, 100) }}"> -->
+								<span class="glyphicon glyphicon-film"></span><span> {{ video.nom|striptags|raw }}</span>
+							</a>
+						{% endfor %}
+						</div>
+						{% else %}
+						<p>Il n'y a pas de vidéo concernant cet article</p>
+						{% endif %}
+						<!-- fin des videos 1 2 3 4 5-->
+					</div>
+				</div><!-- Fin fiche Vidéos-->
+				
+				<!--fiche Idées créatives-->
+				<div id="idees" style="display:none">
+					<div id="fiche_idees_crea">
+						<div id="titre_fiche_idees_crea">
+							<span class="titre_gris_b22">Idées créatives</span><span class="titre_gris_i18">avec</span><img src="{{ asset('bundles/acmegroupsite/images/LogoBobEtComBlanc.png') }}" title="Bobines et Combines" height="53" width="156">
+						</div>
+						{% if themes|length > 0 %}
+						{% for theme in themes %}
+						{% if theme.fiches is defined %}
+						<div class="panel panel-default">
+							<!-- une fiche idées créatives -->
+							<div class="panel-heading">
+								<span class="glyphicon glyphicon-folder-open"></span>&nbsp;<span class="panel-title"> {{ theme.objet.nom|striptags|raw }}</span>
+							</div>
+							{% for fiche in theme.fiches %}
+							<div class="panel-body">
+								<span class="glyphicon glyphicon-book"></span>&nbsp;<span> {{ fiche.nom|striptags|raw }}</span>
+							</div>
+							{% endfor %}
+						</div>
+						{% endif %}
+						{% endfor %}
+						{% endif %}
+					</div>
+				</div><!-- fin Fiches Idées créatives-->
+				{{ render(controller('AcmeGroupSiteBundle:Site:avisUtilisateurs', {"id": article.id})) }}
+			</div>
+		</div>
+	</div>
+</div>
+

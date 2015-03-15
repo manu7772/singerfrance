@@ -1,0 +1,47 @@
+security:
+    encoders:
+        AcmeGroup\UserBundle\Entity\User: sha512
+
+    role_hierarchy:
+        ROLE_EDITOR:       [ROLE_USER]
+        ROLE_ADMIN:        [ROLE_USER, ROLE_EDITOR]
+        ROLE_SUPER_ADMIN:  [ROLE_USER, ROLE_EDITOR, ROLE_ADMIN, ROLE_ALLOWED_TO_SWITCH]
+
+    providers:
+        main:
+            id: fos_user.user_provider.username
+
+    firewalls:
+        dev:
+            pattern:  ^/(_(profiler|wdt)|css|images|js)/
+            security: false
+        login:
+            pattern: ^/(login)$
+            anonymous: true
+        main:
+            pattern: ^/
+            anonymous: true
+            provider: main
+            form_login:
+                login_path: fos_user_security_login
+                check_path: fos_user_security_check
+            logout:
+                path: fos_user_security_logout
+                target: /
+                invalidate_session: false
+            remember_me:
+                key:  %secret%
+                # lifetime: 1000
+                # path: /
+            switch_user: true
+
+    access_control:
+        - { path: ^/paiement-singer, roles: ROLE_USER }
+        - { path: ^/admin, roles: ROLE_EDITOR }
+        - { path: ^/labo, roles: ROLE_EDITOR }
+        - { path: ^/sadmin, roles: ROLE_SUPER_ADMIN }
+        - { path: ^/labo/sadmin, roles: ROLE_SUPER_ADMIN }
+
+    # ROLE_ALLOWED_TO_SWITCH :
+    # ?_switch_user=username
+    # ?_switch_user=_exit

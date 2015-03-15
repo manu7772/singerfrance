@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+entités liées :
+nom    -> nomDuChampLocal* + [_nomDeLEntitéLiée] + __nomDuChampDeLentiteLiée (ex. : statut__nom) (* avec 's' !!!)
+toutes entités :
+valeur -> si plusieurs valeurs possibles, séparer les valeurs par un pipe "|"
+       -> commencer par un "+" pour ajouter aussi les valeurs par défaut, sinon elles ne seront pas ajoutées
+
+       (ex. : typeImage__nom="+Universel|Ambiance") -> revient à écrire typeImage_typeImage__nom
+       (ex. : imagePpale_image__nom="Curvy 2|Curvy 3")
+
+fichiers externes : "import@" + nomDuDossier + "::" + nom du fichier (ex. texte="import@txt::intro.txt")
+  -> utiliser "importConcat@" pour concaténer les fichiers textes et n'obtenir qu'une seule valeur d'après tous les fichiers
+noms de fichiers multiples : séparer par "|" (ex. texte="import@txt::intro.txt|intro2.txt|xml::intro3.txt")
+  -> préciser à chaque fois le dossier / s'il n'est pas précisé, le nom du dossier précédent est repris.
+
+ -->
+<categories>
+	<categorie nom="catégories" page_pageweb__nom="homepage" couleur="#FFFFFF" nommenu="menuOptions">
+		<item nom="Produits" page_pageweb__nom="PRODUITS" couleur="#FFFFFF">
+			<item nom="Machines à coudre" page_pageweb__nom="MAC" couleur="#FFFFFF">
+				<item nom="Mécaniques" page_pageweb__nom="categories" couleur="gray"></item>
+				<item nom="Électroniques" page_pageweb__nom="categories" couleur="#00a99d"></item>
+				<item nom="Brodeuses" page_pageweb__nom="categories" couleur="#0074b6"></item>
+				<item nom="Professionnelles" page_pageweb__nom="categories" couleur="#e20016"></item>
+				<item nom="Surjeteuses" page_pageweb__nom="categories" couleur="#f10088"></item>
+				<item nom="Accessoires" page_pageweb__nom="categories" couleur="#fb923b"></item>
+			</item>
+			<item nom="Autres univers Singer" page_pageweb__nom="UNIVERS" couleur="#FFFFFF">
+				<item nom="Repassage - vapeur" page_pageweb__nom="catunivers" couleur="#95298a"></item>
+				<item nom="Aspiration - sol" page_pageweb__nom="catunivers" couleur="#00a99d"></item>
+				<item nom="Petit électromenager" page_pageweb__nom="catunivers" couleur="#0074b6"></item>
+			</item>
+		</item>
+		<item nom="Vidéos" page_pageweb__nom="video" couleur="#FFFFFF"></item>
+		<item nom="Atelier créatif" page_pageweb__nom="atelier" couleur="#FFFFFF">
+			<item nom="Je recycle" page_pageweb__nom="ateliertheme" couleur="#FFFFFF"></item>
+			<item nom="Je crée" page_pageweb__nom="ateliertheme" couleur="#FFFFFF"></item>
+		</item>
+		<item nom="Le monde Singer" page_pageweb__nom="mondesinger" couleur="#FFFFFF">
+			<item nom="Notre histoire" page_pageweb__nom="notrehistoire" couleur="#FFFFFF"></item>
+			<item nom="Le saviez-vous ?" page_pageweb__nom="lesaviervous" couleur="#FFFFFF"></item>
+			<item nom="Nos partenaires" page_pageweb__nom="nospartenaires" couleur="#FFFFFF"></item>
+			<item nom="Nos engagements" page_pageweb__nom="nosengagements" couleur="#FFFFFF"></item>
+			<item nom="Devenir concessionnaire" page_pageweb__nom="devenirconcess" couleur="#FFFFFF"></item>
+		</item>
+		<item nom="Évènements" page_pageweb__nom="evenements" couleur="#FFFFFF"></item>
+		<item nom="E-boutique" page_pageweb__nom="eboutique" couleur="#FFFFFF"></item>
+	</categorie>
+</categories>

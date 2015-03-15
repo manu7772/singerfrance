@@ -1,0 +1,16 @@
+{% set menulabo = {'Accueil': "home"} %}
+<h3>Menu Labo</h3>
+<ul class="nav nav-pills nav-stacked nav-xm">
+	{% for key,item in menulabo %}
+	{% if option == item %}{% set active = ' class="active"' %}{% else %}{% set active = '' %}{% endif %}
+	<li{{ active|raw }}><a href="{{ url('labo_home', {option: item}) }}">{{ key }}</a></li>
+	{% endfor %}
+</ul>
+{% set menuexport = {'Export public': "home-public-exports", 'Export admin': "home-admin-exports"} %}
+<h3>Exports</h3>
+<ul class="nav nav-pills nav-stacked">
+	{% for key,item in menuexport %}
+	{% if option == item %}{% set active = ' class="active"' %}{% else %}{% set active = '' %}{% endif %}
+	<li{{ active|raw }}><a href="{{ url('labo_home', {option: item}) }}">{{ key }}</a></li>
+	{% endfor %}
+</ul>

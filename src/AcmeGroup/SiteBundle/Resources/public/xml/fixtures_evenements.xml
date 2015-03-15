@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+entités liées :
+nom    -> nomDuChampLocal* + [_nomDeLEntitéLiée] + __nomDuChampDeLentiteLiée (ex. : statut__nom) (* avec 's' !!!)
+toutes entités :
+valeur -> si plusieurs valeurs possibles, séparer les valeurs par un pipe "|"
+       -> commencer par un "+" pour ajouter aussi les valeurs par défaut, sinon elles ne seront pas ajoutées
+
+       (ex. : typeImage__nom="+Universel|Ambiance") -> revient à écrire typeImage_typeImage__nom
+       (ex. : imagePpale_image__nom="Curvy 2|Curvy 3")
+
+fichiers externes : "import@" + nomDuDossier + "::" + nom du fichier (ex. texte="import@txt::intro.txt")
+  -> utiliser "importConcat@" pour concaténer les fichiers textes et n'obtenir qu'une seule valeur d'après tous les fichiers
+noms de fichiers multiples : séparer par "|" (ex. texte="import@txt::intro.txt|intro2.txt|xml::intro3.txt")
+  -> préciser à chaque fois le dossier / s'il n'est pas précisé, le nom du dossier précédent est repris.
+
+ -->
+<categories>
+	<!-- salons et foires 2014 -->
+	<categorie nom="SINGER Bourg-en-Bresse" descriptif="Vérification gratuite de votre machine à coudre toute marque" DATE_datedebut="2014-01-08" DATE_datefin="2014-01-25" typeEvenement__nom="Salons &amp; foires" />
+	<categorie nom="SINGER Lyon" descriptif="SINGER rachète (conditions en mag) et vous offre 1h de crs de couture" DATE_datedebut="2014-01-08" DATE_datefin="2014-01-25" typeEvenement__nom="Salons &amp; foires" />
+	<categorie nom="SINGER à St Malo" descriptif="Vérification gratuite de votre MC au centre commercial Cora" DATE_datedebut="2014-01-14" DATE_datefin="2014-01-18" typeEvenement__nom="Salons &amp; foires" />
+	<categorie nom="SINGER Le Mans" descriptif="Profitez des portes ouvertes et d'une vérification gratuite de votre MC" DATE_datedebut="2014-01-28" DATE_datefin="2014-01-31" typeEvenement__nom="Salons &amp; foires" />
+	<!-- salons et foires 2013 -->
+	<categorie nom="SINGER Courpiere" descriptif="vérification gratuite de votre MC" DATE_datedebut="2013-11-22" DATE_datefin="2013-11-23" typeEvenement__nom="Salons &amp; foires" />
+	<categorie nom="SINGER Bourg-en-Bresse" descriptif="vérification gratuite de votre MC toute marque" DATE_datedebut="2013-11-14" DATE_datefin="2013-11-20" typeEvenement__nom="Salons &amp; foires" />
+	<categorie nom="Foire internationale de Grenoble" descriptif="" DATE_datedebut="2013-11-01" DATE_datefin="2013-11-11" typeEvenement__nom="Salons &amp; foires" />
+	<categorie nom="Salon Mieux vivre Expo - La Roche sur Foron" descriptif="" DATE_datedebut="2013-10-31" DATE_datefin="2013-11-04" typeEvenement__nom="Salons &amp; foires" />
+	<categorie nom="Mode et tissus - Ste Marie aux Mines" descriptif="" DATE_datedebut="2013-10-24" DATE_datefin="2013-10-27" typeEvenement__nom="Salons &amp; foires" />
+	<categorie nom="L'Univers créatif Parc Expo Stasbourg" descriptif="" DATE_datedebut="2013-10-17" DATE_datefin="2013-10-20" typeEvenement__nom="Salons &amp; foires" />
+	<categorie nom="Portes Ouvertes SINGER Lyon" descriptif="vérification gratuite de votre MC" DATE_datedebut="2013-10-01" DATE_datefin="2013-10-15" typeEvenement__nom="Salons &amp; foires" />
+	<categorie nom="Portes Ouvertes SINGER Brg en Bresse" descriptif="vérification gratuite de votre MC" DATE_datedebut="2013-09-16" DATE_datefin="2013-10-15" typeEvenement__nom="Salons &amp; foires" />
+	<categorie nom="Foire de Beaucroissant (ISERE)" descriptif="Allée 5" DATE_datedebut="2013-09-13" DATE_datefin="2013-09-15" typeEvenement__nom="Salons &amp; foires" />
+	<categorie nom="Foire internationale de Chambéry (SAVOIE)" descriptif="Hall B" DATE_datedebut="2013-09-14" DATE_datefin="2013-09-23" typeEvenement__nom="Salons &amp; foires" />
+	<categorie nom="SINGER Lyon" descriptif="vérification gratuite de votre machine à coudre" DATE_datedebut="2013-05-14" DATE_datefin="2013-05-30" typeEvenement__nom="Salons &amp; foires" />
+	<categorie nom="SINGER Bg en Bresse" descriptif="Vérification gratuite de votre machine à coudre" DATE_datedebut="2013-05-13" DATE_datefin="2013-05-30" typeEvenement__nom="Salons &amp; foires" />
+	<categorie nom="Foire de Paris" descriptif="Stand 7.3" DATE_datedebut="2013-04-30" DATE_datefin="2013-05-12" typeEvenement__nom="Salons &amp; foires" />
+	<categorie nom="Modes et tissus Ste marie aux Mines" descriptif="" DATE_datedebut="2013-03-21" DATE_datefin="2013-03-24" typeEvenement__nom="Salons &amp; foires" />
+	<categorie nom="Portes Ouvertes SINGER Bourg en Bresse" descriptif="" DATE_datedebut="2013-03-09" DATE_datefin="2013-03-22" typeEvenement__nom="Salons &amp; foires" />
+	<categorie nom="Portes Ouvertes SINGER Lyon" descriptif="" DATE_datedebut="2013-03-11" DATE_datefin="2013-03-23" typeEvenement__nom="Salons &amp; foires" />
+	<categorie nom="Foire de Lyon" descriptif="Stand 6A9" DATE_datedebut="2013-03-22" DATE_datefin="2013-04-01" typeEvenement__nom="Salons &amp; foires" />
+	<categorie nom="Salon Habitat et Jardin à Chambéry" descriptif="" DATE_datedebut="2013-04-12" DATE_datefin="2013-04-15" typeEvenement__nom="Salons &amp; foires" />
+	<categorie nom="Foire de Beaucroisant" descriptif="" DATE_datedebut="2013-04-20" DATE_datefin="2013-04-21" typeEvenement__nom="Salons &amp; foires" />
+	<categorie nom="Foire Internationale de la Roche sur Foron" descriptif="" DATE_datedebut="2013-05-01" DATE_datefin="2013-05-12" typeEvenement__nom="Salons &amp; foires" />
+	<categorie nom="Foire de Mulhouse" descriptif="" DATE_datedebut="2013-05-17" DATE_datefin="2013-05-26" typeEvenement__nom="Salons &amp; foires" />
+	<categorie nom="Evenement les Bobines d'or" descriptif="Inscriptions : http://tinyurl.com/buo64yy" DATE_datedebut="2013-03-16" typeEvenement__nom="Salons &amp; foires" />
+	<!-- salons et foires 2012 -->
+	<categorie nom="Foire d'Orléans" descriptif="" DATE_datedebut="2012-04-13" DATE_datefin="2012-04-22" typeEvenement__nom="Salons &amp; foires" />
+	<categorie nom="Foire d'Avignon" descriptif="" DATE_datedebut="2012-04-14" DATE_datefin="2012-04-22" typeEvenement__nom="Salons &amp; foires" />
+	<categorie nom="Foire de Nice" descriptif="" DATE_datedebut="2012-04-14" DATE_datefin="2012-04-22" typeEvenement__nom="Salons &amp; foires" />
+	<categorie nom="Foire de Beaucroissant" descriptif="Allée 11" DATE_datedebut="2012-04-21" DATE_datefin="2012-04-22" typeEvenement__nom="Salons &amp; foires" />
+	<categorie nom="Foire d'Angers" descriptif="" DATE_datedebut="2012-04-20" DATE_datefin="2012-04-29" typeEvenement__nom="Salons &amp; foires" />
+	<categorie nom="Foire de Paris" descriptif="" DATE_datedebut="2012-04-27" DATE_datefin="2012-05-08" typeEvenement__nom="Salons &amp; foires" />
+	<categorie nom="Foire de Haute Savoie - La Roche sur Foron" descriptif="" DATE_datedebut="2012-04-28" DATE_datefin="2012-05-09" typeEvenement__nom="Salons &amp; foires" />
+	<categorie nom="Foire de Tours" descriptif="" DATE_datedebut="2012-05-04" DATE_datefin="2012-05-13" typeEvenement__nom="Salons &amp; foires" />
+	<categorie nom="Foire de Poitiers" descriptif="" DATE_datedebut="2012-05-12" DATE_datefin="2012-05-20" typeEvenement__nom="Salons &amp; foires" />
+	<categorie nom="Foire de Nancy" descriptif="" DATE_datedebut="2012-05-25" DATE_datefin="2012-06-04" typeEvenement__nom="Salons &amp; foires" />
+	<categorie nom="Foire de Bourges" descriptif="" DATE_datedebut="2012-06-02" DATE_datefin="2012-06-10" typeEvenement__nom="Salons &amp; foires" />
+	<categorie nom="Foire de La Rochelle" descriptif="" DATE_datedebut="2012-08-31" DATE_datefin="2012-09-09" typeEvenement__nom="Salons &amp; foires" />
+	<categorie nom="L'Aiguille en fête version pro" descriptif="Porte de Versailles - Hall 6" DATE_datedebut="2012-09-09" DATE_datefin="2012-09-11" typeEvenement__nom="Salons &amp; foires" />
+	<categorie nom="Foire de Strasbourg" descriptif="" DATE_datedebut="2012-09-07" DATE_datefin="2012-09-17" typeEvenement__nom="Salons &amp; foires" />
+	<categorie nom="Foire de Savoie - Chambéry" descriptif="" DATE_datedebut="2012-09-08" DATE_datefin="2012-09-17" typeEvenement__nom="Salons &amp; foires" />
+	<categorie nom="Foire du Mans" descriptif="" DATE_datedebut="2012-09-03" DATE_datefin="2012-09-17" typeEvenement__nom="Salons &amp; foires" />
+	<categorie nom="Le marché créatif de la rentrée :" descriptif="Bobines &amp; Combines / à partir de 14h" DATE_datedebut="2012-09-15" typeEvenement__nom="Salons &amp; foires" />
+	<categorie nom="Foire de St Brieuc" descriptif="" DATE_datedebut="2012-09-15" DATE_datefin="2012-09-23" typeEvenement__nom="Salons &amp; foires" />
+	<categorie nom="Foire de Beaucroissant" descriptif="" DATE_datedebut="2012-04-20" DATE_datefin="2012-04-21" typeEvenement__nom="Salons &amp; foires" />
+	<categorie nom="ID créatives Lille" descriptif="" DATE_datedebut="2012-10-04" DATE_datefin="2012-10-07" typeEvenement__nom="Salons &amp; foires" />
+	<categorie nom="Mode et Tissus à St Marie aux Mines" descriptif="" DATE_datedebut="2012-10-25" DATE_datefin="2012-10-28" typeEvenement__nom="Salons &amp; foires" />
+	<categorie nom="Foire de Grenoble" descriptif="" DATE_datedebut="2012-11-01" DATE_datefin="2012-11-11" typeEvenement__nom="Salons &amp; foires" />
+	<categorie nom="Foire de La Roche sur Foron" descriptif="" DATE_datedebut="2012-11-01" DATE_datefin="2012-11-05" typeEvenement__nom="Salons &amp; foires" />
+	<categorie nom="Portes Ouvertes SINGER Lyon" descriptif="Vérification gratuite de votre Machine à coudre et profitez de -10% sur la laine" DATE_datedebut="2012-11-09" DATE_datefin="2012-11-21" typeEvenement__nom="Salons &amp; foires" />
+	<categorie nom="Foire de Voiron" descriptif="" DATE_datedebut="2012-11-10" DATE_datefin="2012-11-11" typeEvenement__nom="Salons &amp; foires" />
+	<categorie nom="Foire du Havre" descriptif="" DATE_datedebut="2012-11-10" DATE_datefin="2012-11-18" typeEvenement__nom="Salons &amp; foires" />
+	<categorie nom="Portes Ouvertes SINGER Bourg en Bresse" descriptif="Vérification gratuite de votre Machine à coudre et profitez de -10% sur la laine" DATE_datedebut="2012-11-17" DATE_datefin="2012-11-30" typeEvenement__nom="Salons &amp; foires" />
+</categories>

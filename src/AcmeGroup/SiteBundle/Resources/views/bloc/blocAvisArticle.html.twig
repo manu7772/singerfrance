@@ -1,0 +1,30 @@
+<!-- avis des utilisateurs -->
+<div id="avis_users"> 	
+	<span class="txt_avis_users">Avis des utilisateurs</span>
+	<div id="avis_users_content">
+		{% if article.voteUsers|length > 0 %}
+		{% for vote in article.voteUsers %}
+		<!-- avis laissé 1-->
+		<div id="avis_laisser">
+			<div class="img_avis_avatar">
+				<img src="{{ asset('bundles/acmegroupsite/images/avis_avatar.png') }}" height="100%" width="auto">
+			</div>
+			<div id="txt_avis_laisser">
+				<span class="txt_avis_laisser_nom">{{ vote.user.username }}</span><span class="txt_avis_laisser_localite"> {{ vote.dateCreation|date("d/m/Y", "Europe/Paris") }}</span>
+					<!--ETOILES DEJA DONNEES class="etoile_deja_donnee" -->
+					{% include('AcmeGroupSiteBundle:bloc:bloc5etoiles.html.twig') with {"note": vote.note} %}
+					<!--FIN ETOILES DEJA DONNEES-->
+				<p>{{ vote.avis }}</p>
+			</div>        
+		</div>
+		<span class="separateur"></span><!-- fin avis laissé 1 -->
+		{% endfor %}
+		{% else %}
+		<p class="aucunenote"><span class="glyphicon glyphicon-chevron-down"></span></p>
+		<p class="aucunenote">Aucune note n'a été attribuée pour l'instant…<br />Et si vous donniez votre avis ?</p>
+		{% endif %}
+	</div>
+</div>
+<span class="majZone groupeAvis" data-prototype="{{ url('acme_site_majZone') }}__majZoneBlocAvisArticle" style="display:none;">
+	<input type="hidden" class="articleId" name="articleId" value="{{ article.id }}" />
+</span>

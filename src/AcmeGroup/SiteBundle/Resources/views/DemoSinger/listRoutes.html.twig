@@ -1,0 +1,8 @@
+<div style="border:1px solid green;">
+<h2>Liste des routes</h2>
+{% if listRoutes is iterable %}
+{% for route in listRoutes %}
+<p>route : {{ route }}</p>
+{% endfor %}
+{% endif %}
+</div>

@@ -1,0 +1,45 @@
+<div id="footer_bas">
+	<div id="footer_gauche">
+		<p><strong>Copyright&copy;2013 SINGER&reg;</strong>All right reserved</p>
+		<p>
+			<a href="{{ url('acme_site_pageswebwithRT', {'pagewebSlug': 'cgv'}) }}" title="Conditions g&eacute;n&eacute;rales de vente">Conditions g&eacute;n&eacute;rales de vente</a>
+			<a href="{{ url('acme_site_pageswebwithRT', {'pagewebSlug': 'confidentialite'}) }}" title="Confidentialit&eacute;">Confidentialit&eacute;</a>
+		</p>
+	</div>
+	<div id="footer_droite_mini">
+		<ul class="mini-sociaux">
+			<li class="sendmail">
+				<a href="{{ url('acme_site_pageswebwithRT', {'pagewebSlug': 'contact'}) }}" title="Nos coordonn&eacute;es"></a>
+				<span>Contact</span>
+			</li>
+			<li class="concess">
+				<a href="{{ url('acme_site_monde_singer', {'pagewebSlug': 'devenirconcess'})}}" title="Devenez concessionnaire SingerFrance"></a>
+				<span>Rejoignez nous</span>
+			</li>
+			{% set parametres = app.session.get('parametre') %}
+			{% if (parametres['homepage-register']['valeur'] is defined) and not (is_granted("IS_AUTHENTICATED_REMEMBERED")) %}
+			{% if (parametres['homepage-register']['valeur'] == true) and (app.session.get('aetools').route == "acme_site_home") %}
+			<li class="mimc">
+				<a class="various fancybox.iframe" href="{{ url('acme_site_pageRegisterPopup') }}" title="Inscrivez-vous sur Singer France en partenariat avec Made In Me Couture"></a>
+				<span>Inscrivez vous&nbsp;!</span>
+			</li>
+			{% else %}
+			<li class="mimc">
+				<a href="{{ url('fos_user_registration_register') }}" title="Inscrivez-vous sur Singer France en partenariat avec Made In Me Couture"></a>
+				<span>Inscrivez vous&nbsp;!</span>
+			</li>
+			{% endif %}
+			{% endif %}
+			{% for key,reso in app.session.get('version').resosociaux %}
+			<li class="{{ key }}">
+				<a href="{{ reso }}" class="URLext" title="Rejoingnez-nous sur {{ key }}"></a>
+				<span>{{ key }}</span>
+			</li>
+			{% endfor %}
+			<li class="youtube">
+				<a href="{{ url('acme_site_videos') }}" title="voir les vidéos Singer"></a>
+				<span>Vidéos Singer</span>
+			</li>
+		</ul>
+	</div>
+</div>
