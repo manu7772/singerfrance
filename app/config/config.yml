@@ -108,6 +108,13 @@ fos_user:
     profile:
         form:
             type: acmegroup_user_profile
+    model_manager_name:      ~
+    use_listener:            true
+    use_flash_notifications: true
+    use_username_form_type:  true
+    from_email:
+        address:             no-reply@singerfrance.com
+        sender_name:         singerfrance
 
 
 # Stof\DoctrineExtensionBundle configuration
